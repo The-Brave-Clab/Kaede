@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Localization-Assets-Shared
+  m_EditorClassIdentifier: 
+  m_GroupName: Localization-Assets-Shared
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 2cef653cbf102ff4d9f8ed460ba4ef78
+  m_SerializeEntries:
+  - m_GUID: 6c1d30b85ba96334b914a490c25e974d
+    m_Address: Assets/Resources/LanguageSettings/AssetLocalizationTableCollection
+      Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2c8cc3afd9f2cae42b0c82247819b4e5
+    m_Address: Assets/Resources/LanguageSettings/StringLocalizationTableCollection
+      Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7cb447fcd19bf7c458d269923c670e99
+    m_Address: FOT-HummingStd-M SDF
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ja
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 1
+  m_Settings: {fileID: 11400000, guid: 6c9fa9c43b8ddd0478220425d6dac855, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: f977313262aebe54bb97bbf39e88aee6, type: 2}
+    - {fileID: 11400000, guid: 5000e6ef00e713a46824a22facd08394, type: 2}

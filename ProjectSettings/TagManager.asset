@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags: []
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Live2DModel00
+  - Live2DModel01
+  - Live2DModel02
+  - Live2DModel03
+  - Live2DModel04
+  - Live2DModel05
+  - Live2DModel06
+  - Live2DModel07
+  - Live2DModel08
+  - Live2DModel09
+  - Live2DModel10
+  - Live2DModel11
+  - Live2DModel12
+  - Live2DModel13
+  - Live2DModel14
+  - Live2DModel15
+  - Live2DModel16
+  - Live2DModel17
+  - Live2DModel18
+  - Live2DModel19
+  - Live2DModel20
+  - Live2DModel21
+  - Live2DModel22
+  - Live2DModel23
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0

@@ -1,0 +1,2054 @@
+fileFormatVersion: 2
+guid: dc44cd38c1014a66a4c68b64a6a8e9f0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: Tex_lightning01_1b
+  - first:
+      213: 21300002
+    second: Tex_lightning01_2b
+  - first:
+      213: 21300004
+    second: Tex_lightning01_3b
+  - first:
+      213: 21300006
+    second: Tex_lightning01_4b
+  - first:
+      213: 21300008
+    second: Tex_lightning01_5b
+  - first:
+      213: 21300010
+    second: Tex_lightning02_1b
+  - first:
+      213: 21300012
+    second: Tex_lightning02_2b
+  - first:
+      213: 21300014
+    second: Tex_lightning02_3b
+  - first:
+      213: 21300016
+    second: Tex_lightning02_4b
+  - first:
+      213: 21300018
+    second: Tex_lightning02_5b
+  - first:
+      213: 21300020
+    second: Tex_lightning03_1b
+  - first:
+      213: 21300022
+    second: Tex_lightning03_2b
+  - first:
+      213: 21300024
+    second: Tex_lightning04_1b
+  - first:
+      213: 21300026
+    second: Tex_lightning04_2b
+  - first:
+      213: 21300028
+    second: Tex_lightning04_3b
+  - first:
+      213: 21300030
+    second: Tex_lightning05_1b
+  - first:
+      213: 21300032
+    second: Tex_lightning05_2b
+  - first:
+      213: 21300034
+    second: Tex_lightning06_b
+  - first:
+      213: 21300036
+    second: Tex_lightning07_b
+  - first:
+      213: 21300038
+    second: Tex_lightning08_b
+  - first:
+      213: 21300040
+    second: Tex_lightning09_1b
+  - first:
+      213: 21300042
+    second: Tex_lightning09_2b
+  - first:
+      213: 21300044
+    second: Tex_lightning09_3b
+  - first:
+      213: 21300046
+    second: Tex_lightning09_4b
+  - first:
+      213: 21300048
+    second: Tex_lightning09_5b
+  - first:
+      213: 21300050
+    second: Tex_lightning10_1b
+  - first:
+      213: 21300052
+    second: Tex_lightning10_2b
+  - first:
+      213: 21300054
+    second: Tex_lightning10_3b
+  - first:
+      213: 21300056
+    second: Tex_lightning10_4b
+  - first:
+      213: 21300058
+    second: Tex_lightning10_5b
+  - first:
+      213: 21300060
+    second: Tex_lightning11_1b
+  - first:
+      213: 21300062
+    second: Tex_lightning11_2b
+  - first:
+      213: 21300064
+    second: Tex_lightning11_3b
+  - first:
+      213: 21300066
+    second: Tex_lightning11_4b
+  - first:
+      213: 21300068
+    second: Tex_lightning12_1b
+  - first:
+      213: 21300070
+    second: Tex_lightning12_2b
+  - first:
+      213: 21300072
+    second: Tex_lightning12_3b
+  - first:
+      213: 21300074
+    second: Tex_lightning12_4b
+  - first:
+      213: 21300076
+    second: Tex_lightning12_5b
+  - first:
+      213: 21300078
+    second: Tex_lightning13_1b
+  - first:
+      213: 21300080
+    second: Tex_lightning13_2b
+  - first:
+      213: 21300082
+    second: Tex_lightning13_3b
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 0
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 47
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 0
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 22.7
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: 0
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 47
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Tex_lightning01_1b
+      rect:
+        serializedVersion: 2
+        x: 679
+        y: 614
+        width: 232
+        height: 45
+      alignment: 9
+      pivot: {x: 0.5, y: 1.011111}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -116, y: -22.49999}
+        - {x: -116, y: 22.5}
+        - {x: 107, y: -22.49999}
+      - - {x: 116, y: 22.5}
+        - {x: 107, y: -22.49999}
+        - {x: -116, y: 22.5}
+      - - {x: 116, y: -12.50001}
+        - {x: 107, y: -22.49999}
+        - {x: 116, y: 22.5}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02305410000000000800000000000000
+      internalID: 21300000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning02_3b
+      rect:
+        serializedVersion: 2
+        x: 679
+        y: 777
+        width: 232
+        height: 121
+      alignment: 9
+      pivot: {x: 0.5, y: 0.7107438}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -116, y: -58.49998}
+        - {x: -116, y: 18.5}
+        - {x: -101, y: -60.49999}
+      - - {x: 75.00001, y: 60.5}
+        - {x: -101, y: -60.49999}
+        - {x: -116, y: 18.5}
+      - - {x: 63.99999, y: -60.49999}
+        - {x: -101, y: -60.49999}
+        - {x: 75.00001, y: 60.5}
+      - - {x: 116, y: -46.5}
+        - {x: 63.99999, y: -60.49999}
+        - {x: 75.00001, y: 60.5}
+      - - {x: 116, y: 60.5}
+        - {x: 116, y: -46.5}
+        - {x: 75.00001, y: 60.5}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2305410000000000800000000000000
+      internalID: 21300014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning02_1b
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 372
+        width: 232
+        height: 44
+      alignment: 9
+      pivot: {x: 0.5, y: 1.045455}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -116, y: -22.00001}
+        - {x: -116, y: 8}
+        - {x: 116, y: -22.00001}
+      - - {x: -51, y: 22}
+        - {x: 116, y: -22.00001}
+        - {x: -116, y: 8}
+      - - {x: 62.99999, y: 22}
+        - {x: 116, y: -22.00001}
+        - {x: -51, y: 22}
+      - - {x: 116, y: 18}
+        - {x: 116, y: -22.00001}
+        - {x: 62.99999, y: 22}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2305410000000000800000000000000
+      internalID: 21300010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning10_3b
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 87
+        width: 79
+        height: 232
+      alignment: 9
+      pivot: {x: 0.5506329, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -39.49999, y: -116}
+        - {x: -39.49999, y: -91.99999}
+        - {x: -6.500001, y: -116}
+      - - {x: -15.5, y: 11}
+        - {x: -6.500001, y: -116}
+        - {x: -39.49999, y: -91.99999}
+      - - {x: 7.5, y: 116}
+        - {x: -6.500001, y: -116}
+        - {x: -15.5, y: 11}
+      - - {x: 20.5, y: -83.99998}
+        - {x: -6.500001, y: -116}
+        - {x: 7.5, y: 116}
+      - - {x: 39.50001, y: 116}
+        - {x: 20.5, y: -83.99998}
+        - {x: 7.5, y: 116}
+      - - {x: 39.50001, y: 41.99999}
+        - {x: 20.5, y: -83.99998}
+        - {x: 39.50001, y: 116}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65305410000000000800000000000000
+      internalID: 21300054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning02_4b
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 496
+        width: 177
+        height: 147
+      alignment: 9
+      pivot: {x: 0.3446328, y: 0.585034}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -88.50001, y: -35.49999}
+        - {x: -88.50001, y: 8.500001}
+        - {x: 3.500006, y: -73.49999}
+      - - {x: 8.5, y: 73.50001}
+        - {x: 3.500006, y: -73.49999}
+        - {x: -88.50001, y: 8.500001}
+      - - {x: 66.5, y: -73.49999}
+        - {x: 3.500006, y: -73.49999}
+        - {x: 8.5, y: 73.50001}
+      - - {x: 88.5, y: 73.50001}
+        - {x: 66.5, y: -73.49999}
+        - {x: 8.5, y: 73.50001}
+      - - {x: 88.5, y: -70.50001}
+        - {x: 66.5, y: -73.49999}
+        - {x: 88.5, y: 73.50001}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03305410000000000800000000000000
+      internalID: 21300016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning01_2b
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 13
+        width: 232
+        height: 71
+      alignment: 9
+      pivot: {x: 0.5, y: 0.7676057}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -116, y: -31.49998}
+        - {x: -116, y: 35.5}
+        - {x: -68.00001, y: -35.5}
+      - - {x: -60, y: 35.5}
+        - {x: -68.00001, y: -35.5}
+        - {x: -116, y: 35.5}
+      - - {x: 116, y: -35.5}
+        - {x: -68.00001, y: -35.5}
+        - {x: -60, y: 35.5}
+      - - {x: 114, y: 19.5}
+        - {x: 116, y: -35.5}
+        - {x: -60, y: 35.5}
+      - - {x: 116, y: 11.5}
+        - {x: 116, y: -35.5}
+        - {x: 114, y: 19.5}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22305410000000000800000000000000
+      internalID: 21300002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning06_b
+      rect:
+        serializedVersion: 2
+        x: 599
+        y: 19
+        width: 104
+        height: 112
+      alignment: 9
+      pivot: {x: 0.4855769, y: 0.4910714}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -51.99998, y: -26.00001}
+        - {x: -51.99998, y: 49}
+        - {x: -48, y: -44}
+      - - {x: -48, y: 54.99999}
+        - {x: -48, y: -44}
+        - {x: -51.99998, y: 49}
+      - - {x: 3, y: -55.99999}
+        - {x: -48, y: -44}
+        - {x: -48, y: 54.99999}
+      - - {x: -46.99999, y: 56}
+        - {x: 3, y: -55.99999}
+        - {x: -48, y: 54.99999}
+      - - {x: -11, y: 56}
+        - {x: 3, y: -55.99999}
+        - {x: -46.99999, y: 56}
+      - - {x: 52, y: -19}
+        - {x: 3, y: -55.99999}
+        - {x: -11, y: 56}
+      - - {x: 52, y: -55.99999}
+        - {x: 3, y: -55.99999}
+        - {x: 52, y: -19}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24305410000000000800000000000000
+      internalID: 21300034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning09_1b
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 87
+        width: 86
+        height: 232
+      alignment: 9
+      pivot: {x: 0.4825581, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -43, y: -11}
+        - {x: -43, y: 116}
+        - {x: -41, y: -41.99999}
+      - - {x: -13, y: 116}
+        - {x: -41, y: -41.99999}
+        - {x: -43, y: 116}
+      - - {x: 8, y: -116}
+        - {x: -41, y: -41.99999}
+        - {x: -13, y: 116}
+      - - {x: 42.99999, y: -81}
+        - {x: 8, y: -116}
+        - {x: -13, y: 116}
+      - - {x: 42.99999, y: -116}
+        - {x: 8, y: -116}
+        - {x: 42.99999, y: -81}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84305410000000000800000000000000
+      internalID: 21300040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning09_4b
+      rect:
+        serializedVersion: 2
+        x: 882
+        y: 322
+        width: 64
+        height: 232
+      alignment: 9
+      pivot: {x: 0.5859375, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -31.99999, y: 25.99999}
+        - {x: -31.99999, y: 116}
+        - {x: -27, y: -9.999999}
+      - - {x: -0.9999995, y: 116}
+        - {x: -27, y: -9.999999}
+        - {x: -31.99999, y: 116}
+      - - {x: 8.000001, y: -9.999999}
+        - {x: -27, y: -9.999999}
+        - {x: -0.9999995, y: 116}
+      - - {x: 8.000001, y: 89}
+        - {x: 8.000001, y: -9.999999}
+        - {x: -0.9999995, y: 116}
+      - - {x: -16, y: -85.99999}
+        - {x: -16, y: -29}
+        - {x: -4, y: -116}
+      - - {x: -12, y: -23}
+        - {x: -4, y: -116}
+        - {x: -16, y: -29}
+      - - {x: 12, y: -23}
+        - {x: -4, y: -116}
+        - {x: -12, y: -23}
+      - - {x: 32, y: -116}
+        - {x: -4, y: -116}
+        - {x: 12, y: -23}
+      - - {x: 23, y: -37}
+        - {x: 32, y: -116}
+        - {x: 12, y: -23}
+      - - {x: 32, y: -90.00001}
+        - {x: 32, y: -116}
+        - {x: 23, y: -37}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4305410000000000800000000000000
+      internalID: 21300046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning04_2b
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 134
+        width: 76
+        height: 232
+      alignment: 9
+      pivot: {x: 0.493421, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -37.99999, y: -116}
+        - {x: -37.99999, y: -89}
+        - {x: 2.000001, y: -116}
+      - - {x: -15, y: 113}
+        - {x: 2.000001, y: -116}
+        - {x: -37.99999, y: -89}
+      - - {x: -13, y: 116}
+        - {x: 2.000001, y: -116}
+        - {x: -15, y: 113}
+      - - {x: 38, y: 116}
+        - {x: 2.000001, y: -116}
+        - {x: -13, y: 116}
+      - - {x: 38, y: 66}
+        - {x: 2.000001, y: -116}
+        - {x: 38, y: 116}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3305410000000000800000000000000
+      internalID: 21300026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning08_b
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 792
+        width: 227
+        height: 232
+      alignment: 9
+      pivot: {x: 0.4889868, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -113.5, y: 61.99999}
+        - {x: -113.5, y: 116}
+        - {x: -58.49999, y: -39.00001}
+      - - {x: -86.49998, y: 116}
+        - {x: -58.49999, y: -39.00001}
+        - {x: -113.5, y: 116}
+      - - {x: 109.5, y: -99.99999}
+        - {x: -58.49999, y: -39.00001}
+        - {x: -86.49998, y: 116}
+      - - {x: 48.5, y: -116}
+        - {x: -58.49999, y: -39.00001}
+        - {x: 109.5, y: -99.99999}
+      - - {x: 113.5, y: -116}
+        - {x: 48.5, y: -116}
+        - {x: 109.5, y: -99.99999}
+      - - {x: 113.5, y: -104}
+        - {x: 113.5, y: -116}
+        - {x: 109.5, y: -99.99999}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64305410000000000800000000000000
+      internalID: 21300038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning01_3b
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 766
+        width: 232
+        height: 122
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5942623}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 32.00001, y: -42}
+        - {x: 32.00001, y: -38.00001}
+        - {x: 37, y: -45}
+      - - {x: 32.99999, y: -35}
+        - {x: 37, y: -45}
+        - {x: 32.00001, y: -38.00001}
+      - - {x: 45, y: -35}
+        - {x: 37, y: -45}
+        - {x: 32.99999, y: -35}
+      - - {x: 51, y: -45}
+        - {x: 37, y: -45}
+        - {x: 45, y: -35}
+      - - {x: 52, y: -39.99999}
+        - {x: 51, y: -45}
+        - {x: 45, y: -35}
+      - - {x: 52, y: -43}
+        - {x: 51, y: -45}
+        - {x: 52, y: -39.99999}
+      - - {x: 20, y: -51}
+        - {x: 32.00001, y: -42}
+        - {x: 60, y: -60.99998}
+      - - {x: 37, y: -45}
+        - {x: 60, y: -60.99998}
+        - {x: 32.00001, y: -42}
+      - - {x: 51, y: -45}
+        - {x: 60, y: -60.99998}
+        - {x: 37, y: -45}
+      - - {x: 52, y: -43}
+        - {x: 60, y: -60.99998}
+        - {x: 51, y: -45}
+      - - {x: 52, y: -39.99999}
+        - {x: 60, y: -60.99998}
+        - {x: 52, y: -43}
+      - - {x: -116, y: 0.0000009536743}
+        - {x: -116, y: 61.00001}
+        - {x: 20, y: -51}
+      - - {x: -44, y: 61.00001}
+        - {x: 20, y: -51}
+        - {x: -116, y: 61.00001}
+      - - {x: 32.99999, y: -35}
+        - {x: 20, y: -51}
+        - {x: -44, y: 61.00001}
+      - - {x: 116, y: -6.999998}
+        - {x: 32.99999, y: -35}
+        - {x: -44, y: 61.00001}
+      - - {x: 32.00001, y: -38.00001}
+        - {x: 20, y: -51}
+        - {x: 32.99999, y: -35}
+      - - {x: 32.00001, y: -42}
+        - {x: 20, y: -51}
+        - {x: 32.00001, y: -38.00001}
+      - - {x: 45, y: -35}
+        - {x: 32.99999, y: -35}
+        - {x: 116, y: -6.999998}
+      - - {x: 52, y: -39.99999}
+        - {x: 45, y: -35}
+        - {x: 116, y: -6.999998}
+      - - {x: 60, y: -60.99998}
+        - {x: 52, y: -39.99999}
+        - {x: 116, y: -6.999998}
+      - - {x: 116, y: -60.99998}
+        - {x: 60, y: -60.99998}
+        - {x: 116, y: -6.999998}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42305410000000000800000000000000
+      internalID: 21300004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning12_5b
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 87
+        width: 91
+        height: 232
+      alignment: 9
+      pivot: {x: 0.9230769, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -45.49998, y: 96}
+        - {x: -45.49998, y: 116}
+        - {x: -39.49999, y: 85.99999}
+      - - {x: -17.49999, y: 116}
+        - {x: -39.49999, y: 85.99999}
+        - {x: -45.49998, y: 116}
+      - - {x: -19.5, y: 85.99999}
+        - {x: -39.49999, y: 85.99999}
+        - {x: -17.49999, y: 116}
+      - - {x: -15.50001, y: 87}
+        - {x: -19.5, y: 85.99999}
+        - {x: -17.49999, y: 116}
+      - - {x: -15.50001, y: 109}
+        - {x: -15.50001, y: 87}
+        - {x: -17.49999, y: 116}
+      - - {x: -34.5, y: 50}
+        - {x: -34.5, y: 77.99999}
+        - {x: -33.5, y: 45}
+      - - {x: -5.5, y: 77.99999}
+        - {x: -33.5, y: 45}
+        - {x: -34.5, y: 77.99999}
+      - - {x: -15.50001, y: 15}
+        - {x: -33.5, y: 45}
+        - {x: -5.5, y: 77.99999}
+      - - {x: -12.5, y: 14}
+        - {x: -15.50001, y: 15}
+        - {x: -5.5, y: 77.99999}
+      - - {x: 15.5, y: 14}
+        - {x: -12.5, y: 14}
+        - {x: -5.5, y: 77.99999}
+      - - {x: 15.5, y: 54.00001}
+        - {x: 15.5, y: 14}
+        - {x: -5.5, y: 77.99999}
+      - - {x: 9.5, y: -40.99999}
+        - {x: 9.5, y: -2}
+        - {x: 36.5, y: -40.99999}
+      - - {x: 38.5, y: -2}
+        - {x: 36.5, y: -40.99999}
+        - {x: 9.5, y: -2}
+      - - {x: 38.5, y: -35}
+        - {x: 36.5, y: -40.99999}
+        - {x: 38.5, y: -2}
+      - - {x: 12.50001, y: -116}
+        - {x: 12.50001, y: -80}
+        - {x: 41.5, y: -116}
+      - - {x: 14.49999, y: -53}
+        - {x: 41.5, y: -116}
+        - {x: 12.50001, y: -80}
+      - - {x: 20.5, y: -48.99999}
+        - {x: 41.5, y: -116}
+        - {x: 14.49999, y: -53}
+      - - {x: 43.5, y: -48.99999}
+        - {x: 41.5, y: -116}
+        - {x: 20.5, y: -48.99999}
+      - - {x: 45.5, y: -104}
+        - {x: 41.5, y: -116}
+        - {x: 43.5, y: -48.99999}
+      - - {x: 45.5, y: -57}
+        - {x: 45.5, y: -104}
+        - {x: 43.5, y: -48.99999}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6305410000000000800000000000000
+      internalID: 21300076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning02_5b
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 369
+        width: 183
+        height: 124
+      alignment: 9
+      pivot: {x: 0.3661202, y: 0.3064516}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -91.5, y: -49.00001}
+        - {x: -91.5, y: 14}
+        - {x: -59.5, y: -62}
+      - - {x: -10.5, y: 61.99999}
+        - {x: -59.5, y: -62}
+        - {x: -91.5, y: 14}
+      - - {x: 21.50001, y: -62}
+        - {x: -59.5, y: -62}
+        - {x: -10.5, y: 61.99999}
+      - - {x: 91.5, y: 61.99999}
+        - {x: 21.50001, y: -62}
+        - {x: -10.5, y: 61.99999}
+      - - {x: 91.5, y: 16.99999}
+        - {x: 21.50001, y: -62}
+        - {x: 91.5, y: 61.99999}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23305410000000000800000000000000
+      internalID: 21300018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning05_1b
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 98
+        width: 137
+        height: 33
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -68.5, y: -16.5}
+        - {x: -68.5, y: 11.5}
+        - {x: 8.499999, y: -16.5}
+      - - {x: -64.50001, y: 16.5}
+        - {x: 8.499999, y: -16.5}
+        - {x: -68.5, y: 11.5}
+      - - {x: 68.5, y: 16.5}
+        - {x: 8.499999, y: -16.5}
+        - {x: -64.50001, y: 16.5}
+      - - {x: 61.5, y: -12.5}
+        - {x: 8.499999, y: -16.5}
+        - {x: 68.5, y: 16.5}
+      - - {x: 68.5, y: -5.499999}
+        - {x: 61.5, y: -12.5}
+        - {x: 68.5, y: 16.5}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3305410000000000800000000000000
+      internalID: 21300030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning11_2b
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 557
+        width: 215
+        height: 232
+      alignment: 9
+      pivot: {x: 0.5116279, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -107.5, y: -116}
+        - {x: -107.5, y: -83.99998}
+        - {x: -12.5, y: -116}
+      - - {x: -42.5, y: 16}
+        - {x: -12.5, y: -116}
+        - {x: -107.5, y: -83.99998}
+      - - {x: 54.5, y: 116}
+        - {x: -12.5, y: -116}
+        - {x: -42.5, y: 16}
+      - - {x: 107.5, y: 22}
+        - {x: -12.5, y: -116}
+        - {x: 54.5, y: 116}
+      - - {x: 107.5, y: 116}
+        - {x: 107.5, y: 22}
+        - {x: 54.5, y: 116}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5305410000000000800000000000000
+      internalID: 21300062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning01_4b
+      rect:
+        serializedVersion: 2
+        x: 679
+        y: 901
+        width: 232
+        height: 123
+      alignment: 9
+      pivot: {x: 0.5, y: 0.402439}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -116, y: -35.49999}
+        - {x: -116, y: 61.49999}
+        - {x: -108, y: -60.5}
+      - - {x: -68.00001, y: 61.49999}
+        - {x: -108, y: -60.5}
+        - {x: -116, y: 61.49999}
+      - - {x: -95, y: -61.50001}
+        - {x: -108, y: -60.5}
+        - {x: -68.00001, y: 61.49999}
+      - - {x: 76.99999, y: -61.50001}
+        - {x: -95, y: -61.50001}
+        - {x: -68.00001, y: 61.49999}
+      - - {x: 116, y: -16.5}
+        - {x: 76.99999, y: -61.50001}
+        - {x: -68.00001, y: 61.49999}
+      - - {x: 116, y: -56.49999}
+        - {x: 76.99999, y: -61.50001}
+        - {x: 116, y: -16.5}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62305410000000000800000000000000
+      internalID: 21300006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning12_4b
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 322
+        width: 89
+        height: 232
+      alignment: 9
+      pivot: {x: 0.9213483, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -44.50001, y: 22}
+        - {x: -44.50001, y: 116}
+        - {x: -29.5, y: 19}
+      - - {x: -17.49999, y: 116}
+        - {x: -29.5, y: 19}
+        - {x: -44.50001, y: 116}
+      - - {x: 19.5, y: 19}
+        - {x: -29.5, y: 19}
+        - {x: -17.49999, y: 116}
+      - - {x: 19.5, y: 52}
+        - {x: 19.5, y: 19}
+        - {x: -17.49999, y: 116}
+      - - {x: 6.499994, y: -113}
+        - {x: 6.499994, y: -12}
+        - {x: 10.50001, y: -116}
+      - - {x: 11.50001, y: 3}
+        - {x: 10.50001, y: -116}
+        - {x: 6.499994, y: -12}
+      - - {x: 44.5, y: -116}
+        - {x: 10.50001, y: -116}
+        - {x: 11.50001, y: 3}
+      - - {x: 38.5, y: 3}
+        - {x: 44.5, y: -116}
+        - {x: 11.50001, y: 3}
+      - - {x: 44.5, y: -25.99999}
+        - {x: 44.5, y: -116}
+        - {x: 38.5, y: 3}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6305410000000000800000000000000
+      internalID: 21300074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning03_2b
+      rect:
+        serializedVersion: 2
+        x: 615
+        y: 134
+        width: 66
+        height: 232
+      alignment: 9
+      pivot: {x: 0.5378788, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -33.00001, y: 37}
+        - {x: -33.00001, y: 116}
+        - {x: -0.9999995, y: -116}
+      - - {x: 21, y: 116}
+        - {x: -0.9999995, y: -116}
+        - {x: -33.00001, y: 116}
+      - - {x: 32.99999, y: -116}
+        - {x: -0.9999995, y: -116}
+        - {x: 21, y: 116}
+      - - {x: 32.99999, y: 0}
+        - {x: 32.99999, y: -116}
+        - {x: 21, y: 116}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63305410000000000800000000000000
+      internalID: 21300022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning09_5b
+      rect:
+        serializedVersion: 2
+        x: 949
+        y: 322
+        width: 56
+        height: 232
+      alignment: 9
+      pivot: {x: 0.6339286, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -28.00001, y: 58}
+        - {x: -28.00001, y: 116}
+        - {x: -20.00001, y: -3.999999}
+      - - {x: 8, y: 116}
+        - {x: -20.00001, y: -3.999999}
+        - {x: -28.00001, y: 116}
+      - - {x: -14, y: -6}
+        - {x: -20.00001, y: -3.999999}
+        - {x: 8, y: 116}
+      - - {x: 12, y: -6}
+        - {x: -14, y: -6}
+        - {x: 8, y: 116}
+      - - {x: 12, y: 81}
+        - {x: 12, y: -6}
+        - {x: 8, y: 116}
+      - - {x: -10, y: -94}
+        - {x: -10, y: -28}
+        - {x: 2.000001, y: -116}
+      - - {x: 16, y: -28}
+        - {x: 2.000001, y: -116}
+        - {x: -10, y: -28}
+      - - {x: 28, y: -116}
+        - {x: 2.000001, y: -116}
+        - {x: 16, y: -28}
+      - - {x: 19, y: -30}
+        - {x: 28, y: -116}
+        - {x: 16, y: -28}
+      - - {x: 28, y: -83.99998}
+        - {x: 28, y: -116}
+        - {x: 19, y: -30}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05305410000000000800000000000000
+      internalID: 21300048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning13_2b
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 646
+        width: 232
+        height: 117
+      alignment: 9
+      pivot: {x: 0.5, y: 0.517094}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -116, y: 14.5}
+        - {x: -116, y: 58.5}
+        - {x: -92.99999, y: -2.5}
+      - - {x: -82.00001, y: 58.5}
+        - {x: -92.99999, y: -2.5}
+        - {x: -116, y: 58.5}
+      - - {x: -16, y: -2.5}
+        - {x: -92.99999, y: -2.5}
+        - {x: -82.00001, y: 58.5}
+      - - {x: -25.99999, y: 51.50001}
+        - {x: -16, y: -2.5}
+        - {x: -82.00001, y: 58.5}
+      - - {x: 0.9999999, y: 40.5}
+        - {x: -16, y: -2.5}
+        - {x: -25.99999, y: 51.50001}
+      - - {x: 0.9999999, y: 15.5}
+        - {x: -16, y: -2.5}
+        - {x: 0.9999999, y: 40.5}
+      - - {x: 0.9999999, y: 25.49999}
+        - {x: 0.9999999, y: 15.5}
+        - {x: 0.9999999, y: 40.5}
+      - - {x: 0.9999999, y: 1.5}
+        - {x: 0.9999999, y: 15.5}
+        - {x: 9.999999, y: -13.5}
+      - - {x: 0.9999999, y: 25.49999}
+        - {x: 9.999999, y: -13.5}
+        - {x: 0.9999999, y: 15.5}
+      - - {x: 48.99999, y: 25.49999}
+        - {x: 9.999999, y: -13.5}
+        - {x: 0.9999999, y: 25.49999}
+      - - {x: 82.00001, y: -58.5}
+        - {x: 9.999999, y: -13.5}
+        - {x: 48.99999, y: 25.49999}
+      - - {x: 116, y: -16.5}
+        - {x: 82.00001, y: -58.5}
+        - {x: 48.99999, y: 25.49999}
+      - - {x: 112, y: -58.5}
+        - {x: 82.00001, y: -58.5}
+        - {x: 116, y: -16.5}
+      - - {x: 116, y: -57.49999}
+        - {x: 112, y: -58.5}
+        - {x: 116, y: -16.5}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07305410000000000800000000000000
+      internalID: 21300080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning10_1b
+      rect:
+        serializedVersion: 2
+        x: 914
+        y: 792
+        width: 90
+        height: 232
+      alignment: 9
+      pivot: {x: 0.5277778, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -45, y: -116}
+        - {x: -45, y: -91.00001}
+        - {x: -10, y: -116}
+      - - {x: -42.99999, y: -63.99999}
+        - {x: -10, y: -116}
+        - {x: -45, y: -91.00001}
+      - - {x: 6, y: 116}
+        - {x: -10, y: -116}
+        - {x: -42.99999, y: -63.99999}
+      - - {x: 45.00001, y: 32.00001}
+        - {x: -10, y: -116}
+        - {x: 6, y: 116}
+      - - {x: 45.00001, y: 116}
+        - {x: 45.00001, y: 32.00001}
+        - {x: 6, y: 116}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25305410000000000800000000000000
+      internalID: 21300050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning13_3b
+      rect:
+        serializedVersion: 2
+        x: 679
+        y: 662
+        width: 232
+        height: 112
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5044643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -116, y: 25}
+        - {x: -116, y: 56}
+        - {x: -91.00001, y: -4.999999}
+      - - {x: -84.99999, y: 56}
+        - {x: -91.00001, y: -4.999999}
+        - {x: -116, y: 56}
+      - - {x: -39.00001, y: -4.999999}
+        - {x: -91.00001, y: -4.999999}
+        - {x: -84.99999, y: 56}
+      - - {x: -38, y: 40}
+        - {x: -39.00001, y: -4.999999}
+        - {x: -84.99999, y: 56}
+      - - {x: 0.9999999, y: 4}
+        - {x: -39.00001, y: -4.999999}
+        - {x: -38, y: 40}
+      - - {x: -6, y: 42}
+        - {x: 0.9999999, y: 4}
+        - {x: -38, y: 40}
+      - - {x: 0.9999999, y: 34}
+        - {x: 0.9999999, y: 4}
+        - {x: -6, y: 42}
+      - - {x: 16, y: -20}
+        - {x: 16, y: 12}
+        - {x: 60, y: -56}
+      - - {x: 18, y: 13}
+        - {x: 60, y: -56}
+        - {x: 16, y: 12}
+      - - {x: 51, y: 13}
+        - {x: 60, y: -56}
+        - {x: 18, y: 13}
+      - - {x: 80, y: -2.000001}
+        - {x: 60, y: -56}
+        - {x: 51, y: 13}
+      - - {x: 116, y: -56}
+        - {x: 60, y: -56}
+        - {x: 80, y: -2.000001}
+      - - {x: 116, y: -28.00001}
+        - {x: 116, y: -56}
+        - {x: 80, y: -2.000001}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27305410000000000800000000000000
+      internalID: 21300082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning12_3b
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 87
+        width: 125
+        height: 232
+      alignment: 9
+      pivot: {x: 0.624, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -62.49999, y: 23}
+        - {x: -62.49999, y: 116}
+        - {x: -7.500004, y: -68.00001}
+      - - {x: -20.5, y: 116}
+        - {x: -7.500004, y: -68.00001}
+        - {x: -62.49999, y: 116}
+      - - {x: 38.5, y: 9.999999}
+        - {x: -7.500004, y: -68.00001}
+        - {x: -20.5, y: 116}
+      - - {x: 30.5, y: -116}
+        - {x: -7.500004, y: -68.00001}
+        - {x: 38.5, y: 9.999999}
+      - - {x: 62.49999, y: -116}
+        - {x: 30.5, y: -116}
+        - {x: 38.5, y: 9.999999}
+      - - {x: 62.49999, y: -82.00001}
+        - {x: 62.49999, y: -116}
+        - {x: 38.5, y: 9.999999}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86305410000000000800000000000000
+      internalID: 21300072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning13_1b
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 891
+        width: 232
+        height: 133
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -116, y: 23.49999}
+        - {x: -116, y: 66.49999}
+        - {x: -111, y: -1.5}
+      - - {x: -21, y: 66.49999}
+        - {x: -111, y: -1.5}
+        - {x: -116, y: 66.49999}
+      - - {x: 96, y: -66.49999}
+        - {x: -111, y: -1.5}
+        - {x: -21, y: 66.49999}
+      - - {x: 75.00001, y: 32.5}
+        - {x: 96, y: -66.49999}
+        - {x: -21, y: 66.49999}
+      - - {x: 116, y: -34.5}
+        - {x: 96, y: -66.49999}
+        - {x: 75.00001, y: 32.5}
+      - - {x: 116, y: -66.49999}
+        - {x: 96, y: -66.49999}
+        - {x: 116, y: -34.5}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6305410000000000800000000000000
+      internalID: 21300078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning11_1b
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 792
+        width: 211
+        height: 232
+      alignment: 9
+      pivot: {x: 0.4976303, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -105.5, y: -116}
+        - {x: -105.5, y: -51}
+        - {x: -30.5, y: -116}
+      - - {x: -75.50001, y: 70.99999}
+        - {x: -30.5, y: -116}
+        - {x: -105.5, y: -51}
+      - - {x: 33.49999, y: 116}
+        - {x: -30.5, y: -116}
+        - {x: -75.50001, y: 70.99999}
+      - - {x: 105.5, y: 77.99999}
+        - {x: -30.5, y: -116}
+        - {x: 33.49999, y: 116}
+      - - {x: 105.5, y: 116}
+        - {x: 105.5, y: 77.99999}
+        - {x: 33.49999, y: 116}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5305410000000000800000000000000
+      internalID: 21300060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning11_3b
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 322
+        width: 106
+        height: 232
+      alignment: 9
+      pivot: {x: 0.5283019, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -52.99999, y: -116}
+        - {x: -52.99999, y: -22}
+        - {x: 8, y: -116}
+      - - {x: -20, y: 98.99999}
+        - {x: 8, y: -116}
+        - {x: -52.99999, y: -22}
+      - - {x: 14, y: 116}
+        - {x: 8, y: -116}
+        - {x: -20, y: 98.99999}
+      - - {x: 53, y: 16}
+        - {x: 8, y: -116}
+        - {x: 14, y: 116}
+      - - {x: 53, y: 116}
+        - {x: 53, y: 16}
+        - {x: 14, y: 116}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06305410000000000800000000000000
+      internalID: 21300064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning09_3b
+      rect:
+        serializedVersion: 2
+        x: 914
+        y: 557
+        width: 70
+        height: 232
+      alignment: 9
+      pivot: {x: 0.6357143, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -34.99999, y: 54.00001}
+        - {x: -34.99999, y: 116}
+        - {x: -29, y: -83.00001}
+      - - {x: 2, y: 116}
+        - {x: -29, y: -83.00001}
+        - {x: -34.99999, y: 116}
+      - - {x: 1.000001, y: -116}
+        - {x: -29, y: -83.00001}
+        - {x: 2, y: 116}
+      - - {x: 35, y: -116}
+        - {x: 1.000001, y: -116}
+        - {x: 2, y: 116}
+      - - {x: 35, y: -32.00001}
+        - {x: 35, y: -116}
+        - {x: 2, y: 116}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4305410000000000800000000000000
+      internalID: 21300044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning01_5b
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 500
+        width: 197
+        height: 111
+      alignment: 9
+      pivot: {x: 0.5888325, y: 0.6531532}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -98.5, y: 16.5}
+        - {x: -98.5, y: 55.5}
+        - {x: -96.49999, y: 15.5}
+      - - {x: -58.49998, y: 55.5}
+        - {x: -96.49999, y: 15.5}
+        - {x: -98.5, y: 55.5}
+      - - {x: -33.5, y: -47.50001}
+        - {x: -96.49999, y: 15.5}
+        - {x: -58.49998, y: 55.5}
+      - - {x: -24.49999, y: 35.5}
+        - {x: -33.5, y: -47.50001}
+        - {x: -58.49998, y: 55.5}
+      - - {x: -23.49999, y: -55.49998}
+        - {x: -33.5, y: -47.50001}
+        - {x: -24.49999, y: 35.5}
+      - - {x: 45.5, y: -18.50001}
+        - {x: -23.49999, y: -55.49998}
+        - {x: -24.49999, y: 35.5}
+      - - {x: 84.5, y: -55.49998}
+        - {x: -23.49999, y: -55.49998}
+        - {x: 45.5, y: -18.50001}
+      - - {x: 61.5, y: -11.50001}
+        - {x: 84.5, y: -55.49998}
+        - {x: 45.5, y: -18.50001}
+      - - {x: 98.5, y: -17.5}
+        - {x: 84.5, y: -55.49998}
+        - {x: 61.5, y: -11.50001}
+      - - {x: 98.5, y: -51.5}
+        - {x: 84.5, y: -55.49998}
+        - {x: 98.5, y: -17.5}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82305410000000000800000000000000
+      internalID: 21300008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning11_4b
+      rect:
+        serializedVersion: 2
+        x: 882
+        y: 87
+        width: 64
+        height: 232
+      alignment: 9
+      pivot: {x: 0.453125, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: -116}
+        - {x: -32, y: 69.99999}
+        - {x: -8, y: -116}
+      - - {x: -17, y: 116}
+        - {x: -8, y: -116}
+        - {x: -32, y: 69.99999}
+      - - {x: 28.00001, y: 116}
+        - {x: -8, y: -116}
+        - {x: -17, y: 116}
+      - - {x: 0.9999988, y: -107}
+        - {x: -8, y: -116}
+        - {x: 28.00001, y: 116}
+      - - {x: 32, y: -32.00001}
+        - {x: 0.9999988, y: -107}
+        - {x: 28.00001, y: 116}
+      - - {x: 32, y: 36}
+        - {x: 32, y: -32.00001}
+        - {x: 28.00001, y: 116}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26305410000000000800000000000000
+      internalID: 21300066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning04_3b
+      rect:
+        serializedVersion: 2
+        x: 538
+        y: 134
+        width: 74
+        height: 232
+      alignment: 9
+      pivot: {x: 0.5067568, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -36.99999, y: -116}
+        - {x: -36.99999, y: -72}
+        - {x: 1, y: -116}
+      - - {x: -1, y: 116}
+        - {x: 1, y: -116}
+        - {x: -36.99999, y: -72}
+      - - {x: 36.99999, y: 116}
+        - {x: 1, y: -116}
+        - {x: -1, y: 116}
+      - - {x: 36.99999, y: -44}
+        - {x: 1, y: -116}
+        - {x: 36.99999, y: 116}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3305410000000000800000000000000
+      internalID: 21300028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning02_2b
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 29.02675
+        width: 232
+        height: 54.97325
+      alignment: 9
+      pivot: {x: 0.5, y: 0.9090466}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -116, y: -11.51337}
+        - {x: -116, y: 23.48663}
+        - {x: -67, y: -27.51337}
+      - - {x: -76.99999, y: 27.48663}
+        - {x: -67, y: -27.51337}
+        - {x: -116, y: 23.48663}
+      - - {x: 103, y: 27.48663}
+        - {x: -67, y: -27.51337}
+        - {x: -76.99999, y: 27.48663}
+      - - {x: 116, y: -27.51337}
+        - {x: -67, y: -27.51337}
+        - {x: 103, y: 27.48663}
+      - - {x: 116, y: 20.48663}
+        - {x: 116, y: -27.51337}
+        - {x: 103, y: 27.48663}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2305410000000000800000000000000
+      internalID: 21300012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning12_1b
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 557
+        width: 143
+        height: 232
+      alignment: 9
+      pivot: {x: 0.5104895, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -71.5, y: 88}
+        - {x: -71.5, y: 116}
+        - {x: -68.49999, y: 33.99999}
+      - - {x: -42.5, y: 116}
+        - {x: -68.49999, y: 33.99999}
+        - {x: -71.5, y: 116}
+      - - {x: -4.5, y: -61.00001}
+        - {x: -68.49999, y: 33.99999}
+        - {x: -42.5, y: 116}
+      - - {x: -35.5, y: 109}
+        - {x: -4.5, y: -61.00001}
+        - {x: -42.5, y: 116}
+      - - {x: 69.50001, y: -54.99999}
+        - {x: -4.5, y: -61.00001}
+        - {x: -35.5, y: 109}
+      - - {x: 46.5, y: -116}
+        - {x: -4.5, y: -61.00001}
+        - {x: 69.50001, y: -54.99999}
+      - - {x: 71.49999, y: -116}
+        - {x: 46.5, y: -116}
+        - {x: 69.50001, y: -54.99999}
+      - - {x: 71.49999, y: -75.99998}
+        - {x: 71.49999, y: -116}
+        - {x: 69.50001, y: -54.99999}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46305410000000000800000000000000
+      internalID: 21300068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning12_2b
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 322
+        width: 160
+        height: 232
+      alignment: 9
+      pivot: {x: 0.475, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -79.99998, y: 77.99999}
+        - {x: -79.99998, y: 116}
+        - {x: -57, y: -13}
+      - - {x: -9, y: 116}
+        - {x: -57, y: -13}
+        - {x: -79.99998, y: 116}
+      - - {x: 42.99999, y: -116}
+        - {x: -57, y: -13}
+        - {x: -9, y: 116}
+      - - {x: 79.99998, y: -46.99999}
+        - {x: 42.99999, y: -116}
+        - {x: -9, y: 116}
+      - - {x: 79.99998, y: -116}
+        - {x: 42.99999, y: -116}
+        - {x: 79.99998, y: -46.99999}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66305410000000000800000000000000
+      internalID: 21300070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning10_2b
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 322
+        width: 77
+        height: 232
+      alignment: 9
+      pivot: {x: 0.525974, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -38.5, y: -116}
+        - {x: -38.5, y: -94}
+        - {x: -2.5, y: -116}
+      - - {x: 2.5, y: 116}
+        - {x: -2.5, y: -116}
+        - {x: -38.5, y: -94}
+      - - {x: 38.49999, y: -28}
+        - {x: -2.5, y: -116}
+        - {x: 2.5, y: 116}
+      - - {x: 38.49999, y: 116}
+        - {x: 38.49999, y: -28}
+        - {x: 2.5, y: 116}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45305410000000000800000000000000
+      internalID: 21300052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning07_b
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 419
+        width: 207
+        height: 78
+      alignment: 9
+      pivot: {x: 0.5, y: 0.525641}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -103.5, y: 10}
+        - {x: -103.5, y: 39}
+        - {x: -81.49999, y: -26}
+      - - {x: 44.49999, y: 39}
+        - {x: -81.49999, y: -26}
+        - {x: -103.5, y: 39}
+      - - {x: 13.5, y: -38.99999}
+        - {x: -81.49999, y: -26}
+        - {x: 44.49999, y: 39}
+      - - {x: 103.5, y: -38.99999}
+        - {x: 13.5, y: -38.99999}
+        - {x: 44.49999, y: 39}
+      - - {x: 103.5, y: 34.99999}
+        - {x: 103.5, y: -38.99999}
+        - {x: 44.49999, y: 39}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44305410000000000800000000000000
+      internalID: 21300036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning10_5b
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 137
+        width: 68
+        height: 232
+      alignment: 9
+      pivot: {x: 0.5514706, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 2, y: 62.99999}
+        - {x: 2, y: 107}
+        - {x: 26.99999, y: 62.99999}
+      - - {x: 10, y: 116}
+        - {x: 26.99999, y: 62.99999}
+        - {x: 2, y: 107}
+      - - {x: 33.99999, y: 116}
+        - {x: 26.99999, y: 62.99999}
+        - {x: 10, y: 116}
+      - - {x: 33.99999, y: 83.99998}
+        - {x: 26.99999, y: 62.99999}
+        - {x: 33.99999, y: 116}
+      - - {x: 7, y: 29}
+        - {x: 7, y: 59}
+        - {x: 11, y: 28}
+      - - {x: 11, y: 61.00001}
+        - {x: 11, y: 28}
+        - {x: 7, y: 59}
+      - - {x: 30, y: 28}
+        - {x: 11, y: 28}
+        - {x: 11, y: 61.00001}
+      - - {x: 32.00001, y: 61.00001}
+        - {x: 30, y: 28}
+        - {x: 11, y: 61.00001}
+      - - {x: 32.99999, y: 32.00001}
+        - {x: 30, y: 28}
+        - {x: 32.00001, y: 61.00001}
+      - - {x: 32.99999, y: 54.99999}
+        - {x: 32.99999, y: 32.00001}
+        - {x: 32.00001, y: 61.00001}
+      - - {x: 3, y: -22}
+        - {x: 3, y: 19}
+        - {x: 25, y: -22}
+      - - {x: 28, y: 19}
+        - {x: 25, y: -22}
+        - {x: 3, y: 19}
+      - - {x: 30, y: -20}
+        - {x: 25, y: -22}
+        - {x: 28, y: 19}
+      - - {x: 30, y: 18}
+        - {x: 30, y: -20}
+        - {x: 28, y: 19}
+      - - {x: -33.99999, y: -116}
+        - {x: -33.99999, y: -97.00001}
+        - {x: -4, y: -116}
+      - - {x: -31, y: -80}
+        - {x: -4, y: -116}
+        - {x: -33.99999, y: -97.00001}
+      - - {x: -7.000001, y: -58}
+        - {x: -4, y: -116}
+        - {x: -31, y: -80}
+      - - {x: 13, y: -58}
+        - {x: -4, y: -116}
+        - {x: -7.000001, y: -58}
+      - - {x: 15, y: -91.99999}
+        - {x: -4, y: -116}
+        - {x: 13, y: -58}
+      - - {x: 15, y: -61.99999}
+        - {x: 15, y: -91.99999}
+        - {x: 13, y: -58}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5305410000000000800000000000000
+      internalID: 21300058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning09_2b
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 557
+        width: 77
+        height: 232
+      alignment: 9
+      pivot: {x: 0.5649351, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -38.49999, y: -48.99999}
+        - {x: -38.49999, y: 116}
+        - {x: -11.5, y: -116}
+      - - {x: -8.499999, y: 116}
+        - {x: -11.5, y: -116}
+        - {x: -38.49999, y: 116}
+      - - {x: 38.5, y: -116}
+        - {x: -11.5, y: -116}
+        - {x: -8.499999, y: 116}
+      - - {x: 1.5, y: 108}
+        - {x: 38.5, y: -116}
+        - {x: -8.499999, y: 116}
+      - - {x: 38.5, y: -99.99999}
+        - {x: 38.5, y: -116}
+        - {x: 1.5, y: 108}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4305410000000000800000000000000
+      internalID: 21300042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning04_1b
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 137
+        width: 54
+        height: 232
+      alignment: 9
+      pivot: {x: 0.5648148, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -26.99999, y: -116}
+        - {x: -26.99999, y: -29}
+        - {x: 7, y: -116}
+      - - {x: -24.00001, y: 116}
+        - {x: 7, y: -116}
+        - {x: -26.99999, y: -29}
+      - - {x: 26.99999, y: 116}
+        - {x: 7, y: -116}
+        - {x: -24.00001, y: 116}
+      - - {x: 26.99999, y: -46.00001}
+        - {x: 7, y: -116}
+        - {x: 26.99999, y: 116}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83305410000000000800000000000000
+      internalID: 21300024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning05_2b
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 68
+        width: 126
+        height: 27
+      alignment: 9
+      pivot: {x: 0.5119048, y: 0.462963}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -63.00001, y: 13.5}
+        - {x: 63, y: 13.5}
+        - {x: -63.00001, y: -13.5}
+      - - {x: -63.00001, y: -13.5}
+        - {x: 63, y: 13.5}
+        - {x: 63, y: -13.5}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04305410000000000800000000000000
+      internalID: 21300032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning10_4b
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 137
+        width: 67
+        height: 232
+      alignment: 9
+      pivot: {x: 0.5149254, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4.499999, y: -25.99999}
+        - {x: -4.499999, y: 87}
+        - {x: -1.500001, y: -30}
+      - - {x: 0.5, y: 116}
+        - {x: -1.500001, y: -30}
+        - {x: -4.499999, y: 87}
+      - - {x: 33.5, y: -30}
+        - {x: -1.500001, y: -30}
+        - {x: 0.5, y: 116}
+      - - {x: 33.5, y: 116}
+        - {x: 33.5, y: -30}
+        - {x: 0.5, y: 116}
+      - - {x: -33.5, y: -116}
+        - {x: -33.5, y: -82.00001}
+        - {x: -7.499999, y: -116}
+      - - {x: -7.499999, y: -50}
+        - {x: -7.499999, y: -116}
+        - {x: -33.5, y: -82.00001}
+      - - {x: 14.5, y: -85.99999}
+        - {x: -7.499999, y: -116}
+        - {x: -7.499999, y: -50}
+      - - {x: 10.5, y: -50}
+        - {x: 14.5, y: -85.99999}
+        - {x: -7.499999, y: -50}
+      - - {x: 15.5, y: -53}
+        - {x: 14.5, y: -85.99999}
+        - {x: 10.5, y: -50}
+      - - {x: 15.5, y: -77.99999}
+        - {x: 14.5, y: -85.99999}
+        - {x: 15.5, y: -53}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85305410000000000800000000000000
+      internalID: 21300056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning03_1b
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 87
+        width: 63
+        height: 232
+      alignment: 9
+      pivot: {x: 0.4365079, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -31.50001, y: -52}
+        - {x: -31.50001, y: 62.99999}
+        - {x: -12.5, y: -116}
+      - - {x: -21.5, y: 116}
+        - {x: -12.5, y: -116}
+        - {x: -31.50001, y: 62.99999}
+      - - {x: 27.5, y: 116}
+        - {x: -12.5, y: -116}
+        - {x: -21.5, y: 116}
+      - - {x: 31.50001, y: -116}
+        - {x: -12.5, y: -116}
+        - {x: 27.5, y: 116}
+      - - {x: 31.50001, y: 40.00001}
+        - {x: 31.50001, y: -116}
+        - {x: 27.5, y: 116}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43305410000000000800000000000000
+      internalID: 21300020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Tex_lightning02_3b: 21300014
+      Tex_lightning04_2b: 21300026
+      Tex_lightning02_2b: 21300012
+      Tex_lightning11_1b: 21300060
+      Tex_lightning04_3b: 21300028
+      Tex_lightning11_2b: 21300062
+      Tex_lightning11_3b: 21300064
+      Tex_lightning06_b: 21300034
+      Tex_lightning10_1b: 21300050
+      Tex_lightning12_1b: 21300068
+      Tex_lightning01_2b: 21300002
+      Tex_lightning01_4b: 21300006
+      Tex_lightning02_4b: 21300016
+      Tex_lightning12_3b: 21300072
+      Tex_lightning02_1b: 21300010
+      Tex_lightning02_5b: 21300018
+      Tex_lightning05_1b: 21300030
+      Tex_lightning05_2b: 21300032
+      Tex_lightning09_1b: 21300040
+      Tex_lightning10_3b: 21300054
+      Tex_lightning12_5b: 21300076
+      Tex_lightning13_1b: 21300078
+      Tex_lightning13_3b: 21300082
+      Tex_lightning03_1b: 21300020
+      Tex_lightning07_b: 21300036
+      Tex_lightning11_4b: 21300066
+      Tex_lightning04_1b: 21300024
+      Tex_lightning03_2b: 21300022
+      Tex_lightning09_4b: 21300046
+      Tex_lightning01_1b: 21300000
+      Tex_lightning08_b: 21300038
+      Tex_lightning01_5b: 21300008
+      Tex_lightning12_2b: 21300070
+      Tex_lightning12_4b: 21300074
+      Tex_lightning09_5b: 21300048
+      Tex_lightning10_5b: 21300058
+      Tex_lightning13_2b: 21300080
+      Tex_lightning09_2b: 21300042
+      Tex_lightning10_2b: 21300052
+      Tex_lightning10_4b: 21300056
+      Tex_lightning01_3b: 21300004
+      Tex_lightning09_3b: 21300044
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

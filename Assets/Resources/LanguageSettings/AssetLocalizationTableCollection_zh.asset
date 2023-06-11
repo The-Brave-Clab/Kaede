@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97269afb30aa84742ae3f3342603618a, type: 3}
+  m_Name: AssetLocalizationTableCollection_zh
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: zh
+  m_SharedData: {fileID: 11400000, guid: 6c1d30b85ba96334b914a490c25e974d, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 68003749888
+    m_Localized: 05e6dbb1274764148af0fbdcd8d9e8a6
+    m_Metadata:
+      m_Items: []
+  - m_Id: 326163161088
+    m_Localized: a045e05f95eb28043b1150a00548c572
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12658884927488
+    m_Localized: 05e6dbb1274764148af0fbdcd8d9e8a6
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12679873224704
+    m_Localized: 05e6dbb1274764148af0fbdcd8d9e8a6
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

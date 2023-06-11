@@ -1,0 +1,15 @@
+{
+    "Show": true,
+    "Dependencies": [],
+    "Components": [
+        {
+            "$type": "Unity.Build.Common.PlayerScriptingDefines, Unity.Build",
+            "Defines": [
+                "WEBGL_BUILD"
+            ]
+        },
+        {
+            "$type": "Y3ADV.Editor.Build.FillWebGLBuildConfigName, Y3ADV.Editor.Build"
+        }
+    ]
+}

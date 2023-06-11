@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/WebGLStartScene.unity
+    guid: 8c68476db74458d4585eae3f8a65c730
+  - enabled: 1
+    path: Assets/Scenes/StartScene.unity
+    guid: cd794ee08dc5db3468796dc2b76f89a1
+  - enabled: 1
+    path: Assets/Scenes/SelectionScene.unity
+    guid: 1e9243fe90fe7964bbaa2eb40b04a56c
+  - enabled: 1
+    path: Assets/Scenes/MainScene.unity
+    guid: fb1da494b031ad54d8a75c2653c0be06
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: ba43a13b64c83ad499495da669b4b5c5, type: 2}
+    com.unity.localization.settings: {fileID: 11400000, guid: fd0a4a36723ebb44bb579892f4782c7c, type: 2}

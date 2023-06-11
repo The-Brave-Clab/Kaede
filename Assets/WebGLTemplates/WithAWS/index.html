@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>{{{ PRODUCT_NAME }}}</title>
+
+    <style>
+      body { padding: 0; margin: 0 }
+      #unity-container { position: absolute }
+      #unity-container.unity-desktop { left: 50%; top: 50%; transform: translate(-50%, -50%) }
+      #unity-canvas { background: #fff }
+      #unity-loading-bar { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: none }
+      #unity-progress-bar-empty { width: 141px; height: 18px; margin-top: 10px; margin-left: 6.5px; background: #777 no-repeat center }
+      #unity-progress-bar-full { width: 0%; height: 18px; margin-top: 10px; background: #000 no-repeat center }
+    </style>
+
+    <script type="text/javascript" src="https://sdk.amazonaws.com/js/aws-sdk-2.1048.0.min.js"></script>
+    <script type="text/javascript" src="unity-config.js"></script>
+
+  </head>
+  <body>
+    <div id="unity-container" class="unity-desktop">
+      <canvas id="unity-canvas" width={{{ WIDTH }}} height={{{ HEIGHT }}}></canvas>
+      <div id="unity-loading-bar">
+        <div id="unity-progress-bar-empty">
+          <div id="unity-progress-bar-full"></div>
+        </div>
+      </div>
+    </div>
+    <div id="debug-controls" style="position: absolute; top: 10px; left: 10px; z-index: 100; background-color: rgba(255, 255, 255, 0.8); padding: 10px; border-radius: 5px; display: none">
+      <label for="scenario-id">Scenario ID:</label>
+      <input type="text" id="scenario-id" value="ms006_s011_a"><br>
+      <label for="language-code">Language Code:</label>
+      <input type="text" id="language-code" value="ja"><br>
+      <button id="reset-player">Reset Player</button><br><br>
+
+      <label for="master-volume">Master Volume:</label>
+      <input type="range" id="master-volume" min="0" max="100" value="100"><br>
+      <label for="bgm-volume">BGM Volume:</label>
+      <input type="range" id="bgm-volume" min="0" max="100" value="100"><br>
+      <label for="voice-volume">Voice Volume:</label>
+      <input type="range" id="voice-volume" min="0" max="100" value="100"><br>
+      <label for="sfx-volume">SFX Volume:</label>
+      <input type="range" id="sfx-volume" min="0" max="100" value="100"><br>
+      <button id="set-volume">Set Volume</button><br><br>
+
+      <button id="enter-fullscreen">Enter Fullscreen</button>
+      <button id="exit-fullscreen">Exit Fullscreen</button><br><br>
+
+      <label for="auto-mode">Auto Mode:</label>
+      <input type="checkbox" id="auto-mode"><br>
+      <label for="drama-mode">Drama Mode:</label>
+      <input type="checkbox" id="drama-mode">
+    </div>
+    <script>
+      var container = document.querySelector("#unity-container");
+      var canvas = document.querySelector("#unity-canvas");
+      var loadingBar = document.querySelector("#unity-loading-bar");
+      var progressBarFull = document.querySelector("#unity-progress-bar-full");
+
+      var myUnityInstance;
+      var exitFromUnity = false;
+
+      // Example function signatures
+      function ResetPlayer(scriptName, languageCode) { }
+      function SetVolume(master, bgm, voice, sfx) { }
+      function EnterFullscreen() { }
+      function ExitFullscreen() { }
+      function ToggleAutoMode(on) { }
+      function ToggleDramaMode(on) { }
+      function ToggleInputInterception(on) { }
+
+      // Example callbacks
+      function myOnScriptLoaded(script) {
+        console.warn(script);
+      }
+
+      function myOnMessageCommand(speaker, voiceId, message) {
+          console.warn("speaker: " + speaker);
+          console.warn("voice: " + voiceId);
+          console.warn("message: " + message);
+      }
+
+      function myOnScenarioStarted() {
+          console.warn("SCENARIO STARTED!");
+      }
+
+      function myOnScenarioFinished() {
+          console.warn("SCENARIO FINISHED!");
+      }
+
+      function myOnExitFullscreen() {
+        console.warn("Exit Fullscreen from Unity!");
+        // mark the exit event is triggered from Unity so we can skip calling ExitFullscreen in exitHandler
+        exitFromUnity = true;
+        // process actual exit fullscreen event
+        myUnityInstance.SetFullscreen(0);
+      }
+
+      function myOnToggleAutoMode(on) {
+        if (on)
+          console.warn("Auto mode is ON!");
+        else
+          console.warn("Auto mode is OFF!");
+      }
+
+      function myOnToggleDramaMode(on) {
+        if (on)
+          console.warn("Drama mode is ON!");
+        else
+          console.warn("Drama mode is OFF!");
+      }
+
+      // this will automatically called by Unity instance when it finishes loading
+      // all these functionalities will not be available until this is called
+      // auto mode, drama mode should not be available to the user before reset is called!
+      // b352a51964f6fc4813af8f08d403ec0d: MD5 hash of "GlobalRegisterCallbacks"
+      function b352a51964f6fc4813af8f08d403ec0d(callbacks, 
+                                                resetPlayerMethod, 
+                                                setVolumeMethod, 
+                                                enterFullscreenMethod, 
+                                                exitFullscreenMethod,
+                                                toggleAutoModeMethod,
+                                                toggleDramaModeMethod,
+                                                toggleInputInterception) {
+        // will be called when script is loaded. parameter is patched, translated, and normalized script text
+        callbacks.OnScriptLoaded = myOnScriptLoaded;
+        // will be called when scenario script hits "mes" and "mes_auto" command
+        // will also be called when script hits "caption" command
+        callbacks.OnMessageCommand = myOnMessageCommand;
+        // will be called when scenario script hits "init_end" command and play button is pressed
+        callbacks.OnScenarioStarted = myOnScenarioStarted;
+        // will be called when scenario script hits "end" command
+        callbacks.OnScenarioFinished = myOnScenarioFinished;
+        // will be and will ONLY be called when the user press "Exit Fullscreen" button inside the Unity instance
+        // will NOT be called when exit fullscreen from browser, for example by pressing ESC key
+        callbacks.OnExitFullscreen = myOnExitFullscreen;
+        // unlike exit fullscreen, this WILL be called no matter how auto mode is triggered, either through browser or Unity
+        callbacks.OnToggleAutoMode = myOnToggleAutoMode;
+        // unlike exit fullscreen, this WILL be called no matter how drama mode is triggered, either through browser or Unity
+        callbacks.OnToggleDramaMode = myOnToggleDramaMode;
+
+        // load/reset player with a specified scenario id (string) and language code (string)
+        // currently supports "jp", "zh", and "en" (ISO 639-1)
+        ResetPlayer = resetPlayerMethod;
+        // set the volume of the player
+        // DO NOT frequently call this! call this only when the volume stops changing i.e. user stops dragging the slider
+        // ranging from 0.0 to 1.0
+        SetVolume = setVolumeMethod;
+        // MUST call this when entering fullscreen mode
+        EnterFullscreen = enterFullscreenMethod;
+        // MUST call this when exiting fullscreen mode from browser i.e. by pressing ESC key
+        // Note this WILL NOT trigger onExitFullscreen callback!
+        ExitFullscreen = exitFullscreenMethod;
+        // call this when entering/exiting auto mode, this WILL trigger onToggleAutoMode callback
+        // Note this should disable drama mode toggle
+        // parameter is boolean
+        ToggleAutoMode = toggleAutoModeMethod;
+        // call this when entering/exiting drama mode, this WILL trigger onToggleDramaMode callback
+        // Note this should disable auto mode toggle
+        // parameter is boolean
+        ToggleDramaMode = toggleDramaModeMethod;
+        // call this when input on webpage is required or not required so Unity can decide to intercept or not
+        ToggleInputInterception = toggleInputInterception;
+
+        // show debug controls
+        document.getElementById('debug-controls').style.display = 'block';
+      }
+
+      document.addEventListener('fullscreenchange', exitHandler);
+      document.addEventListener('webkitfullscreenchange', exitHandler);
+      document.addEventListener('mozfullscreenchange', exitHandler);
+      document.addEventListener('MSFullscreenChange', exitHandler);
+
+      function exitHandler() {
+          if (!document.fullscreenElement && !document.webkitIsFullScreen && !document.mozFullScreen && !document.msFullscreenElement) {
+            if (exitFromUnity) {
+              exitFromUnity = false;
+            }
+            else {
+              ExitFullscreen();
+              console.warn("Exit Fullscreen from browser!");
+            }
+          }
+      }
+
+      function unityShowBanner(msg, type) {
+        if (type == 'error') {
+          alert('Error: ' + msg);
+        } else if (type == 'warning') {
+          alert('Warning: ' + msg);
+        }
+      }
+
+      unityConfig.showBanner = unityShowBanner;
+
+      // By default Unity keeps WebGL canvas render target size matched with
+      // the DOM size of the canvas element (scaled by window.devicePixelRatio)
+      // Set this to false if you want to decouple this synchronization from
+      // happening inside the engine, and you would instead like to size up
+      // the canvas DOM size and WebGL render target sizes yourself.
+      // unityConfig.matchWebGLToCanvasSize = false;
+
+      canvas.style.width = "{{{ WIDTH }}}px";
+      canvas.style.height = "{{{ HEIGHT }}}px";
+
+      loadingBar.style.display = "block";
+
+      var script = document.createElement("script");
+      script.src = loaderUrl;
+      script.onload = () => {
+        createUnityInstance(canvas, unityConfig, (progress) => {
+          progressBarFull.style.width = 100 * progress + "%";
+        }).then((unityInstance) => {
+          myUnityInstance = unityInstance;
+          loadingBar.style.display = "none";
+        }).catch((message) => {
+          alert(message);
+        });
+      };
+      document.body.appendChild(script);
+    </script>
+    <script>
+      function disableUnityInput() {
+        ToggleInputInterception(false);
+        console.log('disable input');
+      }
+
+      function enableUnityInput() {
+        ToggleInputInterception(true);
+        console.log('enable input');
+      }
+
+      document.querySelectorAll('input, textarea, select').forEach((element) => {
+        element.addEventListener('focus', disableUnityInput);
+        element.addEventListener('blur', enableUnityInput);
+      });
+
+      document.getElementById('reset-player').addEventListener('click', () => {
+        const scenarioId = document.getElementById('scenario-id').value;
+        const languageCode = document.getElementById('language-code').value;
+        ResetPlayer(scenarioId, languageCode);
+      });
+
+      document.getElementById('set-volume').addEventListener('click', () => {
+        const masterVolume = document.getElementById('master-volume').value / 100;
+        const bgmVolume = document.getElementById('bgm-volume').value / 100;
+        const voiceVolume = document.getElementById('voice-volume').value / 100;
+        const sfxVolume = document.getElementById('sfx-volume').value / 100;
+        SetVolume(masterVolume, bgmVolume, voiceVolume, sfxVolume);
+      });
+
+      document.getElementById('enter-fullscreen').addEventListener('click', () => {
+        if (myUnityInstance) {
+          myUnityInstance.SetFullscreen(1);
+        }
+        EnterFullscreen();
+      });
+
+      document.getElementById('exit-fullscreen').addEventListener('click', () => {
+        ExitFullscreen();
+      });
+
+      document.getElementById('auto-mode').addEventListener('change', (e) => {
+        ToggleAutoMode(e.target.checked);
+      });
+
+      document.getElementById('drama-mode').addEventListener('change', (e) => {
+        ToggleDramaMode(e.target.checked);
+      });
+    </script>
+  </body>
+</html>

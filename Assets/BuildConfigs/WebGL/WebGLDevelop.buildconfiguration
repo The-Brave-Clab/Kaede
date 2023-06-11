@@ -1,0 +1,21 @@
+{
+    "Show": true,
+    "Dependencies": [
+        "GlobalObjectId_V1-1-83f2795f2125cf7438f197749996171c-93214019566545601-0",
+        "GlobalObjectId_V1-1-8819a197b13515e418f92e3885b6a7a8-93214019566545601-0",
+        "GlobalObjectId_V1-1-34a3e91334f4ffe4ab7bc9dd14c07b9f-93214019566545601-0"
+    ],
+    "Components": [
+        {
+            "$type": "Unity.Build.Classic.ClassicBuildProfile, Unity.Build.Classic",
+            "$version": 1,
+            "Platform": "WebGL",
+            "Configuration": 2
+        },
+        {
+            "$type": "Unity.Build.Classic.PlayerConnectionSettings, Unity.Build.Classic",
+            "Mode": 0,
+            "WaitForConnection": false
+        }
+    ]
+}

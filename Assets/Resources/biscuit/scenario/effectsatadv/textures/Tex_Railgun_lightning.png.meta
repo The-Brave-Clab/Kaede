@@ -1,0 +1,1412 @@
+fileFormatVersion: 2
+guid: c0b34c693fae4840b13571b7f3f17ba2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: Tex_lightning01_1a
+  - first:
+      213: 21300002
+    second: Tex_lightning01_2a
+  - first:
+      213: 21300004
+    second: Tex_lightning01_3a
+  - first:
+      213: 21300006
+    second: Tex_lightning01_4a
+  - first:
+      213: 21300008
+    second: Tex_lightning01_5a
+  - first:
+      213: 21300010
+    second: Tex_lightning02_1a
+  - first:
+      213: 21300012
+    second: Tex_lightning02_2a
+  - first:
+      213: 21300014
+    second: Tex_lightning02_3a
+  - first:
+      213: 21300016
+    second: Tex_lightning02_4a
+  - first:
+      213: 21300018
+    second: Tex_lightning02_5a
+  - first:
+      213: 21300020
+    second: Tex_lightning03_1a
+  - first:
+      213: 21300022
+    second: Tex_lightning03_2a
+  - first:
+      213: 21300024
+    second: Tex_lightning04_1a
+  - first:
+      213: 21300026
+    second: Tex_lightning04_2a
+  - first:
+      213: 21300028
+    second: Tex_lightning04_3a
+  - first:
+      213: 21300030
+    second: Tex_lightning05_1a
+  - first:
+      213: 21300032
+    second: Tex_lightning05_2a
+  - first:
+      213: 21300034
+    second: Tex_lightning06_a
+  - first:
+      213: 21300036
+    second: Tex_lightning07_a
+  - first:
+      213: 21300038
+    second: Tex_lightning08_a
+  - first:
+      213: 21300040
+    second: Tex_lightning09_1a
+  - first:
+      213: 21300042
+    second: Tex_lightning09_2a
+  - first:
+      213: 21300044
+    second: Tex_lightning09_3a
+  - first:
+      213: 21300046
+    second: Tex_lightning09_4a
+  - first:
+      213: 21300048
+    second: Tex_lightning09_5a
+  - first:
+      213: 21300050
+    second: Tex_lightning10_1a
+  - first:
+      213: 21300052
+    second: Tex_lightning10_2a
+  - first:
+      213: 21300054
+    second: Tex_lightning10_3a
+  - first:
+      213: 21300056
+    second: Tex_lightning10_4a
+  - first:
+      213: 21300058
+    second: Tex_lightning10_5a
+  - first:
+      213: 21300060
+    second: Tex_lightning11_1a
+  - first:
+      213: 21300062
+    second: Tex_lightning11_2a
+  - first:
+      213: 21300064
+    second: Tex_lightning11_3a
+  - first:
+      213: 21300066
+    second: Tex_lightning11_4a
+  - first:
+      213: 21300068
+    second: Tex_lightning12_1a
+  - first:
+      213: 21300070
+    second: Tex_lightning12_2a
+  - first:
+      213: 21300072
+    second: Tex_lightning12_3a
+  - first:
+      213: 21300074
+    second: Tex_lightning12_4a
+  - first:
+      213: 21300076
+    second: Tex_lightning12_5a
+  - first:
+      213: 21300078
+    second: Tex_lightning13_1a
+  - first:
+      213: 21300080
+    second: Tex_lightning13_2a
+  - first:
+      213: 21300082
+    second: Tex_lightning13_3a
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 0
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 45
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 0
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 25
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: 0
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 45
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Tex_lightning11_2a
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 509
+        width: 215
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5209302, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -107.5, y: -128}
+        - {x: -107.5, y: 128}
+        - {x: 107.5, y: -128}
+      - - {x: 107.5, y: 128}
+        - {x: 107.5, y: -128}
+        - {x: -107.5, y: 128}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5305410000000000800000000000000
+      internalID: 21300062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning05_1a
+      rect:
+        serializedVersion: 2
+        x: 762
+        y: 435
+        width: 131
+        height: 16
+      alignment: 9
+      pivot: {x: 0.5, y: 0.53125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -65.5, y: 8}
+        - {x: 65.5, y: 8}
+        - {x: -65.5, y: -8}
+      - - {x: -65.5, y: -8}
+        - {x: 65.5, y: 8}
+        - {x: 65.5, y: -8}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3305410000000000800000000000000
+      internalID: 21300030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning10_1a
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 509
+        width: 79
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5379747, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -39.5, y: -128}
+        - {x: -39.5, y: 128}
+        - {x: 39.5, y: -128}
+      - - {x: 39.5, y: 128}
+        - {x: 39.5, y: -128}
+        - {x: -39.5, y: 128}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25305410000000000800000000000000
+      internalID: 21300050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning11_3a
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 768
+        width: 95
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5368421, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -47.5, y: -128}
+        - {x: -47.5, y: 128}
+        - {x: 47.5, y: -128}
+      - - {x: 47.5, y: 128}
+        - {x: 47.5, y: -128}
+        - {x: -47.5, y: 128}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06305410000000000800000000000000
+      internalID: 21300064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning06_a
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 94
+        height: 102
+      alignment: 9
+      pivot: {x: 0.4787234, y: 0.4852941}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -47, y: -51}
+        - {x: -47, y: 51}
+        - {x: 47, y: -51}
+      - - {x: 47, y: 51}
+        - {x: 47, y: -51}
+        - {x: -47, y: 51}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24305410000000000800000000000000
+      internalID: 21300034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning11_4a
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 768
+        width: 50
+        height: 256
+      alignment: 9
+      pivot: {x: 0.44, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -25, y: -128}
+        - {x: -25, y: 128}
+        - {x: 25, y: -128}
+      - - {x: 25, y: 128}
+        - {x: 25, y: -128}
+        - {x: -25, y: 128}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26305410000000000800000000000000
+      internalID: 21300066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning09_1a
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 768
+        width: 72
+        height: 256
+      alignment: 9
+      pivot: {x: 0.4722222, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -36, y: -128}
+        - {x: -36, y: 128}
+        - {x: 36, y: -128}
+      - - {x: 36, y: 128}
+        - {x: 36, y: -128}
+        - {x: -36, y: 128}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84305410000000000800000000000000
+      internalID: 21300040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning10_3a
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 250
+        width: 67
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5746269, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -33.5, y: -128}
+        - {x: -33.5, y: 128}
+        - {x: 33.5, y: -128}
+      - - {x: 33.5, y: 128}
+        - {x: 33.5, y: -128}
+        - {x: -33.5, y: 128}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65305410000000000800000000000000
+      internalID: 21300054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning01_1a
+      rect:
+        serializedVersion: 2
+        x: 762
+        y: 521
+        width: 252
+        height: 28
+      alignment: 9
+      pivot: {x: 0.5079365, y: 1.392857}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -126, y: 14}
+        - {x: 126, y: 14}
+        - {x: -126, y: -14}
+      - - {x: -126, y: -14}
+        - {x: 126, y: 14}
+        - {x: 126, y: -14}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02305410000000000800000000000000
+      internalID: 21300000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning05_2a
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 121
+        width: 119
+        height: 9
+      alignment: 9
+      pivot: {x: 0.5168067, y: 0.3888889}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -59.5, y: 4.5}
+        - {x: 59.5, y: 4.5}
+        - {x: -59.5, y: -4.5}
+      - - {x: -59.5, y: -4.5}
+        - {x: 59.5, y: 4.5}
+        - {x: 59.5, y: -4.5}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04305410000000000800000000000000
+      internalID: 21300032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning10_2a
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 768
+        width: 63
+        height: 256
+      alignment: 9
+      pivot: {x: 0.547619, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -31.5, y: -128}
+        - {x: -31.5, y: 128}
+        - {x: 31.5, y: -128}
+      - - {x: 31.5, y: 128}
+        - {x: 31.5, y: -128}
+        - {x: -31.5, y: 128}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45305410000000000800000000000000
+      internalID: 21300052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning01_3a
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 5
+        width: 256
+        height: 113
+      alignment: 9
+      pivot: {x: 0.5, y: 0.6106195}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -128, y: -56.5}
+        - {x: -128, y: 56.5}
+        - {x: 128, y: -56.5}
+      - - {x: 128, y: 56.5}
+        - {x: 128, y: -56.5}
+        - {x: -128, y: 56.5}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42305410000000000800000000000000
+      internalID: 21300004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning01_5a
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 1
+        width: 208
+        height: 101
+      alignment: 9
+      pivot: {x: 0.6153846, y: 0.6831683}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -104, y: -50.5}
+        - {x: -104, y: 50.5}
+        - {x: 104, y: -50.5}
+      - - {x: 104, y: 50.5}
+        - {x: 104, y: -50.5}
+        - {x: -104, y: 50.5}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82305410000000000800000000000000
+      internalID: 21300008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning07_a
+      rect:
+        serializedVersion: 2
+        x: 762
+        y: 454
+        width: 208
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.53125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -104, y: -32}
+        - {x: -104, y: 32}
+        - {x: 104, y: -32}
+      - - {x: 104, y: 32}
+        - {x: 104, y: -32}
+        - {x: -104, y: 32}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44305410000000000800000000000000
+      internalID: 21300036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning02_1a
+      rect:
+        serializedVersion: 2
+        x: 762
+        y: 552
+        width: 256
+        height: 28
+      alignment: 9
+      pivot: {x: 0.5, y: 1.428571}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -128, y: 14}
+        - {x: 128, y: 14}
+        - {x: -128, y: -14}
+      - - {x: -128, y: -14}
+        - {x: 128, y: 14}
+        - {x: 128, y: -14}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2305410000000000800000000000000
+      internalID: 21300010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning09_4a
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 509
+        width: 50
+        height: 256
+      alignment: 9
+      pivot: {x: 0.62, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -25, y: -128}
+        - {x: -25, y: 128}
+        - {x: 25, y: -128}
+      - - {x: 25, y: 128}
+        - {x: 25, y: -128}
+        - {x: -25, y: 128}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4305410000000000800000000000000
+      internalID: 21300046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning12_2a
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 250
+        width: 156
+        height: 256
+      alignment: 9
+      pivot: {x: 0.474359, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -78, y: -128}
+        - {x: -78, y: 128}
+        - {x: 78, y: -128}
+      - - {x: 78, y: 128}
+        - {x: 78, y: -128}
+        - {x: -78, y: 128}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66305410000000000800000000000000
+      internalID: 21300070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning01_4a
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 133
+        width: 256
+        height: 114
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3859649}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -128, y: -57}
+        - {x: -128, y: 57}
+        - {x: 128, y: -57}
+      - - {x: 128, y: 57}
+        - {x: 128, y: -57}
+        - {x: -128, y: 57}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62305410000000000800000000000000
+      internalID: 21300006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning03_2a
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 509
+        width: 50
+        height: 256
+      alignment: 9
+      pivot: {x: 0.56, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -25, y: -128}
+        - {x: -25, y: 128}
+        - {x: 25, y: -128}
+      - - {x: 25, y: 128}
+        - {x: 25, y: -128}
+        - {x: -25, y: 128}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63305410000000000800000000000000
+      internalID: 21300022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning10_4a
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 768
+        width: 52
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5096154, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -26, y: -128}
+        - {x: -26, y: 128}
+        - {x: 26, y: -128}
+      - - {x: 26, y: 128}
+        - {x: 26, y: -128}
+        - {x: -26, y: 128}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85305410000000000800000000000000
+      internalID: 21300056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning03_1a
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 250
+        width: 48
+        height: 256
+      alignment: 9
+      pivot: {x: 0.4166667, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: -128}
+        - {x: -24, y: 128}
+        - {x: 24, y: -128}
+      - - {x: 24, y: 128}
+        - {x: 24, y: -128}
+        - {x: -24, y: 128}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43305410000000000800000000000000
+      internalID: 21300020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning04_3a
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 250
+        width: 60
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5083333, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -30, y: -128}
+        - {x: -30, y: 128}
+        - {x: 30, y: -128}
+      - - {x: 30, y: 128}
+        - {x: 30, y: -128}
+        - {x: -30, y: 128}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3305410000000000800000000000000
+      internalID: 21300028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning02_5a
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 3
+        width: 192
+        height: 115
+      alignment: 9
+      pivot: {x: 0.3333333, y: 0.2695652}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -96, y: -57.5}
+        - {x: -96, y: 57.5}
+        - {x: 96, y: -57.5}
+      - - {x: 96, y: 57.5}
+        - {x: 96, y: -57.5}
+        - {x: -96, y: 57.5}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23305410000000000800000000000000
+      internalID: 21300018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning02_3a
+      rect:
+        serializedVersion: 2
+        x: 762
+        y: 911
+        width: 256
+        height: 113
+      alignment: 9
+      pivot: {x: 0.5, y: 0.7433628}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -128, y: -56.5}
+        - {x: -128, y: 56.5}
+        - {x: 128, y: -56.5}
+      - - {x: 128, y: 56.5}
+        - {x: 128, y: -56.5}
+        - {x: -128, y: 56.5}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2305410000000000800000000000000
+      internalID: 21300014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning02_2a
+      rect:
+        serializedVersion: 2
+        x: 762
+        y: 583
+        width: 256
+        height: 47
+      alignment: 9
+      pivot: {x: 0.5, y: 1.12766}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -128, y: -23.5}
+        - {x: -128, y: 23.5}
+        - {x: 128, y: -23.5}
+      - - {x: 128, y: 23.5}
+        - {x: 128, y: -23.5}
+        - {x: -128, y: 23.5}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2305410000000000800000000000000
+      internalID: 21300012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning13_1a
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 121
+        width: 256
+        height: 126
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4960317}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -128, y: -63}
+        - {x: -128, y: 63}
+        - {x: 128, y: -63}
+      - - {x: 128, y: 63}
+        - {x: 128, y: -63}
+        - {x: -128, y: 63}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6305410000000000800000000000000
+      internalID: 21300078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning13_2a
+      rect:
+        serializedVersion: 2
+        x: 762
+        y: 800
+        width: 256
+        height: 108
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5138889}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -128, y: -54}
+        - {x: -128, y: 54}
+        - {x: 128, y: -54}
+      - - {x: 128, y: 54}
+        - {x: 128, y: -54}
+        - {x: -128, y: 54}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07305410000000000800000000000000
+      internalID: 21300080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning12_4a
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 509
+        width: 78
+        height: 256
+      alignment: 9
+      pivot: {x: 1.025641, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -38.99999, y: -128}
+        - {x: -38.99999, y: 128}
+        - {x: 39.00001, y: -128}
+      - - {x: 39.00001, y: 128}
+        - {x: 39.00001, y: -128}
+        - {x: -38.99999, y: 128}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6305410000000000800000000000000
+      internalID: 21300074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning08_a
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 232
+        height: 256
+      alignment: 9
+      pivot: {x: 0.4827586, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -116, y: -128}
+        - {x: -116, y: 128}
+        - {x: 116, y: -128}
+      - - {x: 116, y: 128}
+        - {x: 116, y: -128}
+        - {x: -116, y: 128}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64305410000000000800000000000000
+      internalID: 21300038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning09_2a
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 509
+        width: 64
+        height: 256
+      alignment: 9
+      pivot: {x: 0.578125, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: -128}
+        - {x: -32, y: 128}
+        - {x: 32, y: -128}
+      - - {x: 32, y: 128}
+        - {x: 32, y: -128}
+        - {x: -32, y: 128}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4305410000000000800000000000000
+      internalID: 21300042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning04_1a
+      rect:
+        serializedVersion: 2
+        x: 973
+        y: 262
+        width: 37
+        height: 256
+      alignment: 9
+      pivot: {x: 0.6081081, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18.5, y: -128}
+        - {x: -18.5, y: 128}
+        - {x: 18.5, y: -128}
+      - - {x: 18.5, y: 128}
+        - {x: 18.5, y: -128}
+        - {x: -18.5, y: 128}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83305410000000000800000000000000
+      internalID: 21300024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning11_1a
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 250
+        width: 211
+        height: 256
+      alignment: 9
+      pivot: {x: 0.492891, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -105.5, y: -128}
+        - {x: -105.5, y: 128}
+        - {x: 105.5, y: -128}
+      - - {x: 105.5, y: 128}
+        - {x: 105.5, y: -128}
+        - {x: -105.5, y: 128}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5305410000000000800000000000000
+      internalID: 21300060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning12_3a
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 768
+        width: 118
+        height: 256
+      alignment: 9
+      pivot: {x: 0.6440678, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -59, y: -128}
+        - {x: -59, y: 128}
+        - {x: 59, y: -128}
+      - - {x: 59, y: 128}
+        - {x: 59, y: -128}
+        - {x: -59, y: 128}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86305410000000000800000000000000
+      internalID: 21300072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning12_5a
+      rect:
+        serializedVersion: 2
+        x: 373
+        y: 250
+        width: 79
+        height: 256
+      alignment: 9
+      pivot: {x: 1.037975, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -39.5, y: -128}
+        - {x: -39.5, y: 128}
+        - {x: 39.5, y: -128}
+      - - {x: 39.5, y: 128}
+        - {x: 39.5, y: -128}
+        - {x: -39.5, y: 128}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6305410000000000800000000000000
+      internalID: 21300076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning13_3a
+      rect:
+        serializedVersion: 2
+        x: 762
+        y: 693
+        width: 256
+        height: 104
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5048077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -128, y: -52}
+        - {x: -128, y: 52}
+        - {x: 128, y: -52}
+      - - {x: 128, y: 52}
+        - {x: 128, y: -52}
+        - {x: -128, y: 52}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27305410000000000800000000000000
+      internalID: 21300082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning10_5a
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 768
+        width: 54
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5648148, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -27, y: -128}
+        - {x: -27, y: 128}
+        - {x: 27, y: -128}
+      - - {x: 27, y: 128}
+        - {x: 27, y: -128}
+        - {x: -27, y: 128}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5305410000000000800000000000000
+      internalID: 21300058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning04_2a
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 250
+        width: 62
+        height: 256
+      alignment: 9
+      pivot: {x: 0.4919355, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -31, y: -128}
+        - {x: -31, y: 128}
+        - {x: 31, y: -128}
+      - - {x: 31, y: 128}
+        - {x: 31, y: -128}
+        - {x: -31, y: 128}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3305410000000000800000000000000
+      internalID: 21300026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning01_2a
+      rect:
+        serializedVersion: 2
+        x: 762
+        y: 633
+        width: 256
+        height: 57
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8596491}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -128, y: -28.5}
+        - {x: -128, y: 28.5}
+        - {x: 128, y: -28.5}
+      - - {x: 128, y: 28.5}
+        - {x: 128, y: -28.5}
+        - {x: -128, y: 28.5}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22305410000000000800000000000000
+      internalID: 21300002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning09_3a
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 509
+        width: 57
+        height: 256
+      alignment: 9
+      pivot: {x: 0.6842105, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -28.5, y: -128}
+        - {x: -28.5, y: 128}
+        - {x: 28.5, y: -128}
+      - - {x: 28.5, y: 128}
+        - {x: 28.5, y: -128}
+        - {x: -28.5, y: 128}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4305410000000000800000000000000
+      internalID: 21300044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning12_1a
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 509
+        width: 139
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5179856, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -69.50001, y: -128}
+        - {x: -69.50001, y: 128}
+        - {x: 69.49999, y: -128}
+      - - {x: 69.49999, y: 128}
+        - {x: 69.49999, y: -128}
+        - {x: -69.50001, y: 128}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46305410000000000800000000000000
+      internalID: 21300068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning02_4a
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 105
+        width: 186
+        height: 142
+      alignment: 9
+      pivot: {x: 0.311828, y: 0.6197183}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -93, y: -71}
+        - {x: -93, y: 71}
+        - {x: 93, y: -71}
+      - - {x: 93, y: 71}
+        - {x: 93, y: -71}
+        - {x: -93, y: 71}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03305410000000000800000000000000
+      internalID: 21300016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tex_lightning09_5a
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 250
+        width: 42
+        height: 256
+      alignment: 9
+      pivot: {x: 0.6904762, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: -128}
+        - {x: -21, y: 128}
+        - {x: 21, y: -128}
+      - - {x: 21, y: 128}
+        - {x: 21, y: -128}
+        - {x: -21, y: 128}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05305410000000000800000000000000
+      internalID: 21300048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Tex_lightning02_3a: 21300014
+      Tex_lightning06_a: 21300034
+      Tex_lightning11_3a: 21300064
+      Tex_lightning04_1a: 21300024
+      Tex_lightning09_2a: 21300042
+      Tex_lightning03_1a: 21300020
+      Tex_lightning01_5a: 21300008
+      Tex_lightning05_1a: 21300030
+      Tex_lightning11_2a: 21300062
+      Tex_lightning11_4a: 21300066
+      Tex_lightning11_1a: 21300060
+      Tex_lightning01_4a: 21300006
+      Tex_lightning03_2a: 21300022
+      Tex_lightning12_5a: 21300076
+      Tex_lightning13_1a: 21300078
+      Tex_lightning10_5a: 21300058
+      Tex_lightning13_3a: 21300082
+      Tex_lightning04_2a: 21300026
+      Tex_lightning10_2a: 21300052
+      Tex_lightning07_a: 21300036
+      Tex_lightning02_1a: 21300010
+      Tex_lightning09_1a: 21300040
+      Tex_lightning10_1a: 21300050
+      Tex_lightning05_2a: 21300032
+      Tex_lightning10_3a: 21300054
+      Tex_lightning10_4a: 21300056
+      Tex_lightning02_2a: 21300012
+      Tex_lightning01_2a: 21300002
+      Tex_lightning09_5a: 21300048
+      Tex_lightning09_3a: 21300044
+      Tex_lightning01_1a: 21300000
+      Tex_lightning12_1a: 21300068
+      Tex_lightning04_3a: 21300028
+      Tex_lightning02_5a: 21300018
+      Tex_lightning08_a: 21300038
+      Tex_lightning02_4a: 21300016
+      Tex_lightning01_3a: 21300004
+      Tex_lightning12_2a: 21300070
+      Tex_lightning12_4a: 21300074
+      Tex_lightning09_4a: 21300046
+      Tex_lightning13_2a: 21300080
+      Tex_lightning12_3a: 21300072
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
