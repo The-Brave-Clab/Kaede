@@ -44,6 +44,8 @@ namespace Y3ADV
 
             float time = 0.0f;
 
+            float test_time = 0.0f;
+
             while (scriptModule.paused || !scriptModule.autoMode || 
                    SoundManager.Instance.IsVoicePlaying() ||
                    !UIManager.Instance.message.IsCompleteDisplayText || time < 1.0f)
@@ -66,6 +68,13 @@ namespace Y3ADV
                 
                 if (UIManager.Instance.message.IsCompleteDisplayText)
                     time += Time.deltaTime;
+
+                if (StartupSettings.TestMode)
+                {
+                    test_time += Time.deltaTime;
+                    if (test_time > 0.2f)
+                        break;
+                }
             }
 
             if (controller != null)

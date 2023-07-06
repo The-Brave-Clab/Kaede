@@ -481,6 +481,7 @@ namespace Y3ADV
             if (StartupSettings.SpecifiedScenario)
             {
                 Application.Quit(0);
+                yield break;
             }
 
             GameManager.AddFinishedScenario(GameManager.ScriptName);

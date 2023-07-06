@@ -19,8 +19,16 @@ namespace Y3ADV
         private static readonly string overrideTranslationFile = "";
         public static string OverrideTranslationFile => overrideTranslationFile;
 
+        private static readonly bool testMode = false;
+        public static bool TestMode => testMode;
+
+        private static readonly bool batchMode = false;
+        public static bool BatchMode => batchMode;
+
         private const string SCENARIO_ARG = "scenario";
         private const string OVERRIDE_TRANSLATION_ARG = "override-translation";
+        private const string TEST_MODE_ARG = "test-mode";
+        private const string BATCH_MODE_ARG = "batchmode";
 
         static StartupSettings()
         {
@@ -35,6 +43,21 @@ namespace Y3ADV
             overrideTranslation = HasArg(OVERRIDE_TRANSLATION_ARG);
             if (overrideTranslation)
                 overrideTranslationFile = GetArgParam(OVERRIDE_TRANSLATION_ARG);
+
+            testMode = HasArg(TEST_MODE_ARG);
+            batchMode = HasArg(BATCH_MODE_ARG);
+
+            if (testMode && !specifiedScenario)
+            {
+                Debug.LogError("Can't enter test mode without specifying a scenario!");
+                Application.Quit(1);
+            }
+
+            if (batchMode && !testMode)
+            {
+                Debug.LogError("Can't enter batch mode without specifying test mode!");
+                Application.Quit(1);
+            }
 
             #endif
         }
@@ -65,7 +88,7 @@ namespace Y3ADV
             {
                 if (IsArg(args[i]))
                 {
-                    string currentArg = args[i].TrimStart(prefixes);
+                    string currentArg = args[i].TrimStart(prefixes).ToLowerInvariant();
                     argMap[currentArg] = new List<string>();
                     while (i < args.Length - 1)
                     {
@@ -84,19 +107,21 @@ namespace Y3ADV
 
         static bool HasArg(string arg)
         {
-            return argMap.ContainsKey(arg);
+            return argMap.ContainsKey(arg.ToLowerInvariant());
         }
 
         static string GetArgParam(string arg)
         {
-            if (!HasArg(arg))
+            var argLower = arg.ToLowerInvariant();
+            if (!HasArg(argLower))
                 return null;
-            return argMap[arg].Count == 0 ? null : argMap[arg][0];
+            return argMap[argLower].Count == 0 ? null : argMap[argLower][0];
         }
 
         static string[] GetArgParams(string arg)
         {
-            return HasArg(arg) ? argMap[arg].ToArray() : Array.Empty<string>();
+            var argLower = arg.ToLowerInvariant();
+            return HasArg(argLower) ? argMap[argLower].ToArray() : Array.Empty<string>();
         }
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSplashScreen)]
