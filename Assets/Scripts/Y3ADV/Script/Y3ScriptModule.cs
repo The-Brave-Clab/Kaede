@@ -478,9 +478,10 @@ namespace Y3ADV
             yield break;
 #else
             // We entered through command line args
-            if (CommandLineArguments.HasArg("scenario"))
+            if (StartupSettings.SpecifiedScenario)
             {
                 Application.Quit(0);
+                yield break;
             }
 
             GameManager.AddFinishedScenario(GameManager.ScriptName);

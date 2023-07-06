@@ -44,14 +44,14 @@ namespace Y3ADV
 
         void Start()
         {
-            Live2D.init();
+            if (!StartupSettings.BatchMode) Live2D.init();
         }
 
         protected override void OnDestroy()
         {
             base.OnDestroy();
-            
-            Live2D.dispose();
+
+            if (!StartupSettings.BatchMode) Live2D.dispose();
         }
 
         private void Update()

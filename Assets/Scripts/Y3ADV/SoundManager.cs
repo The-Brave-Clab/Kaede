@@ -33,6 +33,10 @@ namespace Y3ADV
 
         public void SetMasterVolume(float volume)
         {
+            if (StartupSettings.TestMode)
+            {
+                volume = 0.0f;
+            }
             masterVolume = Mathf.Clamp01(volume);
         }
 
@@ -80,6 +84,11 @@ namespace Y3ADV
             loopInfos = new Dictionary<AudioClip, LoopInfo>();
             WebGLInterops.RegisterSoundManagerGameObject(gameObject.name);
 #endif
+
+            if (StartupSettings.TestMode)
+            {
+                masterVolume = 0.0f;
+            }
         }
 
         public delegate void LoadCallback();

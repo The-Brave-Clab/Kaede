@@ -15,9 +15,16 @@ namespace Y3ADV
 
         public static void ForceImmediateExecution(this IEnumerator enumerator)
         {
-            while (enumerator.MoveNext())
+            try
             {
-                object current = enumerator.Current;
+                while (enumerator.MoveNext())
+                {
+                    object current = enumerator.Current;
+                }
+            }
+            catch (Exception ex)
+            {
+                SendBugNotification(ex.ToString());
             }
         }
 
@@ -48,6 +55,12 @@ namespace Y3ADV
 
         public static void SendBugNotification(string what)
         {
+            if (StartupSettings.TestMode)
+            {
+                TestManager.Fail(TestManager.FailReason.Exception);
+                return;
+            }
+
             Debug.LogError($"{GameManager.ScriptName}: {what}\n\t{Y3ScriptModule.InstanceInScene.CurrentStatement}");
             Dictionary<string, string> postData = new Dictionary<string, string>
             {
@@ -90,6 +103,11 @@ namespace Y3ADV
                 if (currentDistance >= distance) continue;
                 distance = currentDistance;
                 closestMatch = word;
+            }
+
+            if (StartupSettings.TestMode && distance > 0)
+            {
+                TestManager.Fail(TestManager.FailReason.BadParameter);
             }
 
             return closestMatch;

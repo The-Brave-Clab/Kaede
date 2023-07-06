@@ -132,6 +132,9 @@ namespace Y3ADV
 
             UnityWebRequest successfulRequest = null;
 
+            if (StartupSettings.TestMode)
+                cacheAsLocalFile = false;
+
             foreach (var path in paths)
             {
                 int retryCount = 5;
@@ -330,10 +333,9 @@ namespace Y3ADV
         public static IEnumerator LoadTranslation(string scenarioName, string languageCode,
             ProcessObjectCallback<TextAsset> cb = null)
         {
-#if !UNITY_WEBGL
-            if (CommandLineArguments.HasArg("override-translation"))
+            if (StartupSettings.OverrideTranslation)
             {
-                var filePath = CommandLineArguments.GetArgParam("override-translation");
+                var filePath = StartupSettings.OverrideTranslationFile;
                 if (File.Exists(filePath))
                 {
                     string jsonContent = File.ReadAllText(filePath);
@@ -343,7 +345,7 @@ namespace Y3ADV
                     yield break;
                 }
             }
-#endif
+
             yield return LoadFromFile(true, false,
             new []{$"{languageCode}/{scenarioName}/{scenarioName}.json"}, GameManager.AWSSettings.translationBucket,
             false,

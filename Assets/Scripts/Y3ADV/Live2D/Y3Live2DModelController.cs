@@ -153,6 +153,9 @@ namespace Y3ADV
 
         void Update()
         {
+            // skip live2d updating in batch mode
+            if (StartupSettings.BatchMode) return;
+
             if (live2DModel == null) LoadModel();
             
             live2DModel.setMatrix(Matrix4x4.identity);
@@ -216,6 +219,9 @@ namespace Y3ADV
 
         public void Render()
         {
+            // skip live2d rendering in batch mode
+            if (StartupSettings.BatchMode) return;
+
             RenderTexture active = RenderTexture.active;
             RenderTexture.active = targetTexture;
 
