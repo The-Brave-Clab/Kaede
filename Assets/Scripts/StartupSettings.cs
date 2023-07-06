@@ -50,13 +50,13 @@ namespace Y3ADV
             if (testMode && !specifiedScenario)
             {
                 Debug.LogError("Can't enter test mode without specifying a scenario!");
-                Application.Quit(1);
+                Application.Quit(-1);
             }
 
             if (batchMode && !testMode)
             {
                 Debug.LogError("Can't enter batch mode without specifying test mode!");
-                Application.Quit(1);
+                Application.Quit(-1);
             }
 
             #endif

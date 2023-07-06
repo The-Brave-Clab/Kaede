@@ -132,6 +132,9 @@ namespace Y3ADV
 
             UnityWebRequest successfulRequest = null;
 
+            if (StartupSettings.TestMode)
+                cacheAsLocalFile = false;
+
             foreach (var path in paths)
             {
                 int retryCount = 5;
