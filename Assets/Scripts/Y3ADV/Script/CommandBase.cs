@@ -60,6 +60,8 @@ namespace Y3ADV
             catch (Exception e)
             {
                 Debug.LogError($"Cannot parse Arg[{index}] = {args[index]} as {typeof(T).Name}. Using default value {defaultValue}.\n{e.Message}");
+                if (StartupSettings.TestMode)
+                    TestManager.Fail(TestManager.FailReason.BadParameter);
                 return defaultValue;
             }
         }

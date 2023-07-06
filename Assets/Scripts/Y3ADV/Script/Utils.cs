@@ -57,8 +57,8 @@ namespace Y3ADV
         {
             if (StartupSettings.TestMode)
             {
-                Debug.LogError($"Test failed due to exception: {what}");
-                Application.Quit(-1);
+                TestManager.Fail(TestManager.FailReason.Exception);
+                return;
             }
 
             Debug.LogError($"{GameManager.ScriptName}: {what}\n\t{Y3ScriptModule.InstanceInScene.CurrentStatement}");
@@ -107,8 +107,7 @@ namespace Y3ADV
 
             if (StartupSettings.TestMode && distance > 0)
             {
-                Debug.LogError("Test failed due to incorrect input.");
-                Application.Quit(-1);
+                TestManager.Fail(TestManager.FailReason.BadParameter);
             }
 
             return closestMatch;

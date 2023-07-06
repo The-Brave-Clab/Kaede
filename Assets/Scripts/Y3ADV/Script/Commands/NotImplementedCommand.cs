@@ -16,6 +16,11 @@ namespace Y3ADV
         public override IEnumerator Execute()
         {
             Debug.LogWarning($"Not Implemented Command {args[0]}");
+            if (StartupSettings.TestMode)
+            {
+                TestManager.Fail(TestManager.FailReason.NotImplemented);
+                yield return new WaitForSeconds(1.0f);
+            }
             yield return null;
         }
     }

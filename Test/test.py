@@ -1,10 +1,10 @@
-import sqlite3
 import subprocess
 import contextlib
 import joblib
 import pathlib
 import os
 import tqdm
+import multiprocessing
 
 @contextlib.contextmanager
 def tqdm_joblib(tqdm_object):
@@ -39,6 +39,7 @@ result_path = script_file_path / pathlib.Path('results.txt')
 log_folder = EnsureFolder(script_file_path / pathlib.Path('logs'))
 
 failed_test = []
+failed_reason = ["Passed", "BadParameter", "Exception", "NotImplemented"]
 
 def Test(case : str):
     global failed_test
@@ -53,11 +54,15 @@ def Test(case : str):
     if return_code == 0:
         log_path.unlink()
     else:
-        failed_test.append(case)
-        print(f'Failed: {case}')
+        failed_test.append((case, return_code))
 
 # read lines in test case file and remove empty lines
 test_cases = [line.strip() for line in test_case_path.read_text().splitlines() if line.strip()]
 
 with tqdm_joblib(tqdm.tqdm(test_cases)):
-    joblib.Parallel(n_jobs=8, backend="threading")(joblib.delayed(Test)(c) for c in test_cases)
+    joblib.Parallel(n_jobs=(multiprocessing.cpu_count()), backend="threading")(joblib.delayed(Test)(c) for c in test_cases)
+
+with open(result_path, 'w') as f:
+    for case, return_code in failed_test:
+        print(f"Test case {case} failed with code {return_code} ({failed_reason[return_code]})")
+        f.write(f"{case}\t{return_code}\n")
