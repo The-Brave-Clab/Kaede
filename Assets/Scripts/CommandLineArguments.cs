@@ -19,88 +19,104 @@ namespace Y3ADV
         private static readonly string overrideTranslationFile = "";
         public static string OverrideTranslationFile => overrideTranslationFile;
 
+        private const string SCENARIO_ARG = "scenario";
+        private const string OVERRIDE_TRANSLATION_ARG = "override-translation";
+
         static StartupSettings()
         {
-            specifiedScenario = CommandLineArguments.HasArg("scenario");
+            #if !WEBGL_BUILD
+
+            InitializeCommandLineArguments();
+
+            specifiedScenario = HasArg(SCENARIO_ARG);
             if (specifiedScenario)
-                specifiedScenarioName = CommandLineArguments.GetArgParam("scenario");
+                specifiedScenarioName = GetArgParam(SCENARIO_ARG);
 
-            overrideTranslation = CommandLineArguments.HasArg("override-translation");
+            overrideTranslation = HasArg(OVERRIDE_TRANSLATION_ARG);
             if (overrideTranslation)
-                overrideTranslationFile = CommandLineArguments.GetArgParam("override-translation");
+                overrideTranslationFile = GetArgParam(OVERRIDE_TRANSLATION_ARG);
+
+            #endif
         }
 
-        static class CommandLineArguments
+
+        #region CommandLineArguments
+        
+        #if !WEBGL_BUILD
+
+        private static string[] args;
+        private static Dictionary<string, List<string>> argMap;
+        private static readonly char[] prefixes = {'-', '+', '/'};
+
+        static bool IsArg(string arg)
         {
-            private static string[] args;
-            private static Dictionary<string, List<string>> argMap;
-            private static readonly char[] prefixes = {'-', '+', '/'};
+            return prefixes.Any(arg.StartsWith);
+        }
 
-            private static bool IsArg(string arg)
+        static void InitializeCommandLineArguments()
+        {
+            args = Environment.GetCommandLineArgs();
+
+            argMap = new Dictionary<string, List<string>>();
+
+            int i = 0;
+            
+            while (i < args.Length)
             {
-                return prefixes.Any(arg.StartsWith);
-            }
-
-            static CommandLineArguments()
-            {
-                args = Environment.GetCommandLineArgs();
-
-                argMap = new Dictionary<string, List<string>>();
-
-                int i = 0;
-                
-                while (i < args.Length)
+                if (IsArg(args[i]))
                 {
-                    if (IsArg(args[i]))
+                    string currentArg = args[i].TrimStart(prefixes);
+                    argMap[currentArg] = new List<string>();
+                    while (i < args.Length - 1)
                     {
-                        string currentArg = args[i].TrimStart(prefixes);
-                        argMap[currentArg] = new List<string>();
-                        while (i < args.Length - 1)
+                        ++i;
+                        if (IsArg(args[i]))
                         {
-                            ++i;
-                            if (IsArg(args[i]))
-                            {
-                                --i;
-                                break;
-                            }
-                            argMap[currentArg].Add(args[i]);
+                            --i;
+                            break;
                         }
-                    }
-                    ++i;
-                }
-            }
-
-            public static bool HasArg(string arg)
-            {
-                return argMap.ContainsKey(arg);
-            }
-
-            public static string GetArgParam(string arg)
-            {
-                if (!HasArg(arg))
-                    return null;
-                return argMap[arg].Count == 0 ? null : argMap[arg][0];
-            }
-
-            public static string[] GetArgParams(string arg)
-            {
-                return HasArg(arg) ? argMap[arg].ToArray() : Array.Empty<string>();
-            }
-
-            public static void LogParams()
-            {
-                string output = "";
-                foreach (var pair in argMap)
-                {
-                    output += $"{pair.Key}\n";
-                    foreach (var param in pair.Value)
-                    {
-                        output += $"\t{param}\n";
+                        argMap[currentArg].Add(args[i]);
                     }
                 }
-                
-                Debug.Log(output);
+                ++i;
             }
         }
+
+        static bool HasArg(string arg)
+        {
+            return argMap.ContainsKey(arg);
+        }
+
+        static string GetArgParam(string arg)
+        {
+            if (!HasArg(arg))
+                return null;
+            return argMap[arg].Count == 0 ? null : argMap[arg][0];
+        }
+
+        static string[] GetArgParams(string arg)
+        {
+            return HasArg(arg) ? argMap[arg].ToArray() : Array.Empty<string>();
+        }
+
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSplashScreen)]
+        static void LogParams()
+        {
+            string output = "";
+            foreach (var pair in argMap)
+            {
+                output += $"{pair.Key}\n";
+                foreach (var param in pair.Value)
+                {
+                    output += $"\t{param}\n";
+                }
+            }
+            
+            Debug.Log(output);
+        }
+        
+        #endif
+
+        #endregion
     }
 }

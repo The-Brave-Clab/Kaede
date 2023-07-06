@@ -330,7 +330,6 @@ namespace Y3ADV
         public static IEnumerator LoadTranslation(string scenarioName, string languageCode,
             ProcessObjectCallback<TextAsset> cb = null)
         {
-#if !UNITY_WEBGL
             if (StartupSettings.OverrideTranslation)
             {
                 var filePath = StartupSettings.OverrideTranslationFile;
@@ -343,7 +342,7 @@ namespace Y3ADV
                     yield break;
                 }
             }
-#endif
+
             yield return LoadFromFile(true, false,
             new []{$"{languageCode}/{scenarioName}/{scenarioName}.json"}, GameManager.AWSSettings.translationBucket,
             false,
