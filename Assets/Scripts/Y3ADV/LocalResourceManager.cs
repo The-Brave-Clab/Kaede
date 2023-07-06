@@ -331,9 +331,9 @@ namespace Y3ADV
             ProcessObjectCallback<TextAsset> cb = null)
         {
 #if !UNITY_WEBGL
-            if (CommandLineArguments.HasArg("override-translation"))
+            if (StartupSettings.OverrideTranslation)
             {
-                var filePath = CommandLineArguments.GetArgParam("override-translation");
+                var filePath = StartupSettings.OverrideTranslationFile;
                 if (File.Exists(filePath))
                 {
                     string jsonContent = File.ReadAllText(filePath);

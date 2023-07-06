@@ -6,11 +6,9 @@ public class StartSceneManager : MonoBehaviour
 {
     protected void Start()
     {
-        CommandLineArguments.LogParams();
-
-        if (CommandLineArguments.HasArg("scenario"))
+        if (StartupSettings.SpecifiedScenario)
         {
-            GameManager.StartScenario(CommandLineArguments.GetArgParam("scenario"));
+            GameManager.StartScenario(StartupSettings.SpecifiedScenarioName);
             SceneManager.UnloadSceneAsync("StartScene");
         }
     }
