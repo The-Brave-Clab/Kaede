@@ -30,8 +30,11 @@ namespace Y3ADV
             InitializeS3Bucket(ref awsSettings.assetBundleBucket);
         }
 
-        public static string GetObjectURL(in AWSSettingsAsset.Bucket bucket, string objectKey)
+        public static string GetObjectURL(in AWSSettingsAsset.Bucket bucket, string objectKey, bool ignoreLocalOverride = false)
         {
+            if (StartupSettings.OverrideLoadPath && ignoreLocalOverride && bucket.name == "yuyuyui-datamine-extracted")
+                return $"{StartupSettings.OverrideLoadPathUri}/{objectKey.Trim('/')}";
+
             var endpoint = bucket.useAccelerateEndpoint ?
                 (bucket.useDualStackEndpoint ? "s3-accelerate.dualstack" : "s3-accelerate") :
                 $"s3.{Instance.region.SystemName}";

@@ -34,9 +34,9 @@ def EnsureFolder(folder: pathlib.Path) -> pathlib.Path:
 
 script_file_path = pathlib.Path(__file__).parent
 build_path = script_file_path.parent / 'Builds' / 'WindowsReleaseIL2CPP' / 'Kaede.exe'
-test_case_path = script_file_path / pathlib.Path('cases.txt')
-result_path = script_file_path / pathlib.Path('results.txt')
-log_folder = EnsureFolder(script_file_path / pathlib.Path('logs'))
+test_case_path = script_file_path / 'cases.txt'
+result_path = script_file_path / 'results.txt'
+log_folder = EnsureFolder(script_file_path / 'logs')
 
 failed_test = []
 failed_reason = ["Passed", "BadParameter", "Exception", "NotImplemented"]
@@ -47,7 +47,7 @@ def Test(case : str):
     log_path = log_folder / f'{case}.txt'
 
     # Run Kaede, mute std output, wait for exit and get return code
-    process = subprocess.Popen([str(build_path), '-batchmode', '-nographics', '-logfile', str(log_path), '-test-mode', '-scenario', case], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    process = subprocess.Popen([str(build_path), '-batchmode', '-nographics', '-logfile', str(log_path), '-test-mode', '-scenario', case, '-override-load-path', str(local_asset_folder)], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     process.wait()
     return_code = process.returncode
 

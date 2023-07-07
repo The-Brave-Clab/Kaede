@@ -112,7 +112,7 @@ namespace Y3ADV
         // Handles Unity Assets, byte array, text (as TextAsset)
         private static IEnumerator LoadFromFile<T>(bool isAsset, bool isSound,
             string[] paths, AWSSettingsAsset.Bucket bucket, 
-            bool cacheAsLocalFile,
+            bool cacheAsLocalFile, bool ignoreLocalOverride,
             WebRequestToObjectCallback<T> wrcb, ProcessObjectCallback<T> ocb, ProcessBytesCallback bcb)
             where T : Object
         {
@@ -138,7 +138,7 @@ namespace Y3ADV
             foreach (var path in paths)
             {
                 int retryCount = 5;
-                var url = GameManager.GetObjectURL(bucket, path);
+                var url = GameManager.GetObjectURL(bucket, path, ignoreLocalOverride);
                 do
                 {
 #if !WEBGL_BUILD
@@ -243,7 +243,7 @@ namespace Y3ADV
             var realPaths = isSound ? 
                 paths.Select(p => $"sound/{p.Trim('/')}").ToArray() : 
                 paths.Select(p => $"assets/ios/_yuyuyuassetbundles/resources/{p.Trim('/')}").ToArray();
-            yield return LoadFromFile(true, isSound, realPaths, bucket, cacheAsLocalFile, wrcb, ocb, null);
+            yield return LoadFromFile(true, isSound, realPaths, bucket, cacheAsLocalFile, false, wrcb, ocb, null);
         }
 
         public static IEnumerator LoadTexture2DFromFile(string[] paths,
@@ -266,7 +266,7 @@ namespace Y3ADV
         {
             yield return LoadFromFile(true, false,
                 new[] {path},
-                GameManager.AWSSettings.assetBundleBucket, true,
+                GameManager.AWSSettings.assetBundleBucket, true, false,
                 www =>
                 {
                     if (www == null) return null;
@@ -288,14 +288,14 @@ namespace Y3ADV
         }
 
         public static IEnumerator LoadTextAndPatchFromFile(string[] paths, bool cacheAsFile,
-            ProcessObjectCallback<TextAsset> cb = null)
+            ProcessObjectCallback<TextAsset> cb = null, bool ignoreLocalOverride = false)
         {
             TextAsset loadedText = null;
             yield return LoadTextFromFile(paths, cacheAsFile, asset => loadedText = asset);
 
             if (loadedText == null) yield break;
             bool patchAvailable = false;
-            yield return LoadFromFile(true, false, paths, GameManager.AWSSettings.patchBucket, false,
+            yield return LoadFromFile(true, false, paths, GameManager.AWSSettings.patchBucket, false, ignoreLocalOverride,
                 www =>
                 {
                     if (www == null) return null;
@@ -348,7 +348,7 @@ namespace Y3ADV
 
             yield return LoadFromFile(true, false,
             new []{$"{languageCode}/{scenarioName}/{scenarioName}.json"}, GameManager.AWSSettings.translationBucket,
-            false,
+            false, false,
             www => www == null ? null : new TextAsset(www.downloadHandler.text),
             cb, null);
         }
@@ -380,7 +380,7 @@ namespace Y3ADV
             var realPaths = 
                 paths.Select(p => $"assets/ios/_yuyuyuassetbundles/resources/{p.Trim('/')}").ToArray();
             yield return LoadFromFile<TextAsset>(false, false, realPaths,
-                GameManager.AWSSettings.extractedBucket, true,
+                GameManager.AWSSettings.extractedBucket, true, false,
                 null, null, cb);
         }
 
