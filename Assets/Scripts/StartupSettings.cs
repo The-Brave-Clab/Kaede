@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using UnityEngine;
 
@@ -7,16 +8,14 @@ namespace Y3ADV
 {
     public static class StartupSettings
     {
-        private static readonly bool specifiedScenario = false;
-        public static bool SpecifiedScenario => specifiedScenario;
+        public static bool SpecifiedScenario => specifiedScenarioName != null;
 
-        private static readonly string specifiedScenarioName = "";
+        private static readonly string specifiedScenarioName = null;
         public static string SpecifiedScenarioName => specifiedScenarioName;
 
-        private static readonly bool overrideTranslation = false;
-        public static bool OverrideTranslation => overrideTranslation;
+        public static bool OverrideTranslation => overrideTranslationFile != null;
 
-        private static readonly string overrideTranslationFile = "";
+        private static readonly string overrideTranslationFile = null;
         public static string OverrideTranslationFile => overrideTranslationFile;
 
         private static readonly bool testMode = false;
@@ -24,11 +23,17 @@ namespace Y3ADV
 
         private static readonly bool batchMode = false;
         public static bool BatchMode => batchMode;
+        
+        public static bool OverrideLoadPath => overrideLoadPathUri != null;
+        
+        private static readonly Uri overrideLoadPathUri = null;
+        public static Uri OverrideLoadPathUri => overrideLoadPathUri;
 
         private const string SCENARIO_ARG = "scenario";
         private const string OVERRIDE_TRANSLATION_ARG = "override-translation";
         private const string TEST_MODE_ARG = "test-mode";
         private const string BATCH_MODE_ARG = "batchmode";
+        private const string OVERRIDE_LOAD_PATH_ARG = "override-load-path";
 
         static StartupSettings()
         {
@@ -36,18 +41,30 @@ namespace Y3ADV
 
             InitializeCommandLineArguments();
 
-            specifiedScenario = HasArg(SCENARIO_ARG);
-            if (specifiedScenario)
+            if (HasArg(SCENARIO_ARG))
                 specifiedScenarioName = GetArgParam(SCENARIO_ARG);
 
-            overrideTranslation = HasArg(OVERRIDE_TRANSLATION_ARG);
-            if (overrideTranslation)
+            if (HasArg(OVERRIDE_TRANSLATION_ARG))
                 overrideTranslationFile = GetArgParam(OVERRIDE_TRANSLATION_ARG);
+
+            if (HasArg(OVERRIDE_LOAD_PATH_ARG))
+            {
+                var localPath = GetArgParam(OVERRIDE_LOAD_PATH_ARG);
+                if (Directory.Exists(localPath))
+                {
+                    overrideLoadPathUri = new Uri(localPath);
+                }
+                else
+                {
+                    Debug.LogError($"Invalid override load path: {localPath}");
+                    overrideLoadPathUri = null;
+                }
+            }
 
             testMode = HasArg(TEST_MODE_ARG);
             batchMode = HasArg(BATCH_MODE_ARG);
 
-            if (testMode && !specifiedScenario)
+            if (testMode && !SpecifiedScenario)
             {
                 Debug.LogError("Can't enter test mode without specifying a scenario!");
                 Application.Quit(-1);
@@ -56,6 +73,12 @@ namespace Y3ADV
             if (batchMode && !testMode)
             {
                 Debug.LogError("Can't enter batch mode without specifying test mode!");
+                Application.Quit(-1);
+            }
+
+            if (testMode && !OverrideLoadPath)
+            {
+                Debug.LogError("Can't enter test mode without specifying an override local load path!");
                 Application.Quit(-1);
             }
 
