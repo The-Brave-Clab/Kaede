@@ -55,12 +55,13 @@ namespace Y3ADV
         public static IEnumerator LoadStill(string scriptName, string resourceName, 
             LocalResourceManager.ProcessObjectCallback<Texture2D> cb = null)
         {
-            yield return LocalResourceManager.LoadTexture2DFromFile(
-                new[]
-                {
-                    $"adv/{scriptName}/still/{resourceName}.png",
-                    $"adv/{scriptName}/{resourceName}.png" // ugly fix for es070_001_m006_a
-                }, cb);
+            if (scriptName == "es058_002_s002_a") scriptName = "es058_002_m006_a"; // fix for es058_002_s002_a
+            var paths = new[]
+            {
+                $"adv/{scriptName}/still/{resourceName}.png",
+                $"adv/{scriptName}/{resourceName}.png" // fix for es070_001_m006_a
+            };
+            yield return LocalResourceManager.LoadTexture2DFromFile(paths, cb);
         }
     }
 }
