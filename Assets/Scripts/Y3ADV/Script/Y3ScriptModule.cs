@@ -69,7 +69,7 @@ namespace Y3ADV
             string script = "";
             yield return LocalResourceManager.LoadTextAndPatchFromFile(
                 new[] {GameManager.GetScenarioFile(GameManager.ScriptName, "script")},
-                false, textAsset => { script = textAsset.text; });
+                false, textAsset => { script = textAsset.text; }, true);
 
             bool translationLoaded = false;
             
