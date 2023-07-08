@@ -32,7 +32,7 @@ namespace Y3ADV
 
         public static string GetObjectURL(in AWSSettingsAsset.Bucket bucket, string objectKey, bool ignoreLocalOverride = false)
         {
-            if (StartupSettings.OverrideLoadPath && ignoreLocalOverride && bucket.name == "yuyuyui-datamine-extracted")
+            if (StartupSettings.OverrideLoadPath && !ignoreLocalOverride && bucket.name == "yuyuyui-datamine-extracted")
                 return $"{StartupSettings.OverrideLoadPathUri}/{objectKey.Trim('/')}";
 
             var endpoint = bucket.useAccelerateEndpoint ?
