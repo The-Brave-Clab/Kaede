@@ -32,7 +32,7 @@ namespace Y3ADV
                     $"advfunction/{includeFileName}.txt",
                     $"{GameManager.GetScenarioPath()}/{includeFileName}.txt"
                 },
-                true, cb);
+                true, false, cb);
         }
     }
 }
