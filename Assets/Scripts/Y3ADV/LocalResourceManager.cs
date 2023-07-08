@@ -132,7 +132,7 @@ namespace Y3ADV
 
             UnityWebRequest successfulRequest = null;
 
-            if (StartupSettings.TestMode)
+            if (StartupSettings.TestMode || (StartupSettings.OverrideLoadPath && !ignoreLocalOverride))
                 cacheAsLocalFile = false;
 
             foreach (var path in paths)
@@ -236,20 +236,20 @@ namespace Y3ADV
         }
 
         private static IEnumerator LoadAssetFromFile<T>(bool isSound, string[] paths, AWSSettingsAsset.Bucket bucket,
-            bool cacheAsLocalFile,
+            bool cacheAsLocalFile, bool ignoreLocalOverride,
             WebRequestToObjectCallback<T> wrcb = null, ProcessObjectCallback<T> ocb = null)
             where T : Object
         {
             var realPaths = isSound ? 
                 paths.Select(p => $"sound/{p.Trim('/')}").ToArray() : 
                 paths.Select(p => $"assets/ios/_yuyuyuassetbundles/resources/{p.Trim('/')}").ToArray();
-            yield return LoadFromFile(true, isSound, realPaths, bucket, cacheAsLocalFile, false, wrcb, ocb, null);
+            yield return LoadFromFile(true, isSound, realPaths, bucket, cacheAsLocalFile, ignoreLocalOverride, wrcb, ocb, null);
         }
 
         public static IEnumerator LoadTexture2DFromFile(string[] paths,
             ProcessObjectCallback<Texture2D> cb = null)
         {
-            yield return LoadAssetFromFile(false, paths, GameManager.AWSSettings.extractedBucket, true,
+            yield return LoadAssetFromFile(false, paths, GameManager.AWSSettings.extractedBucket, true, false,
                 www =>
                 {
                     if (www == null) return null;
@@ -275,10 +275,10 @@ namespace Y3ADV
                 }, cb, null);
         }
 
-        public static IEnumerator LoadTextFromFile(string[] paths, bool cacheAsFile,
+        public static IEnumerator LoadTextFromFile(string[] paths, bool cacheAsFile, bool ignoreLocalOverride,
             ProcessObjectCallback<TextAsset> cb = null)
         {
-            yield return LoadAssetFromFile(false, paths, GameManager.AWSSettings.extractedBucket, cacheAsFile,
+            yield return LoadAssetFromFile(false, paths, GameManager.AWSSettings.extractedBucket, cacheAsFile, ignoreLocalOverride,
                 www =>
                 {
                     if (www == null) return null;
@@ -291,7 +291,7 @@ namespace Y3ADV
             ProcessObjectCallback<TextAsset> cb = null, bool ignoreLocalOverride = false)
         {
             TextAsset loadedText = null;
-            yield return LoadTextFromFile(paths, cacheAsFile, asset => loadedText = asset);
+            yield return LoadTextFromFile(paths, cacheAsFile, ignoreLocalOverride, asset => loadedText = asset);
 
             if (loadedText == null) yield break;
             bool patchAvailable = false;
@@ -348,7 +348,7 @@ namespace Y3ADV
 
             yield return LoadFromFile(true, false,
             new []{$"{languageCode}/{scenarioName}/{scenarioName}.json"}, GameManager.AWSSettings.translationBucket,
-            false, false,
+            false, true,
             www => www == null ? null : new TextAsset(www.downloadHandler.text),
             cb, null);
         }
@@ -356,7 +356,7 @@ namespace Y3ADV
         public static IEnumerator LoadAudioClipFromFile(string[] paths, bool cacheAsLocalFile, bool analyzeLoopInfo,
             ProcessObjectCallback<AudioClip> cb = null)
         {
-            yield return LoadAssetFromFile(true, paths, GameManager.AWSSettings.extractedBucket, cacheAsLocalFile,
+            yield return LoadAssetFromFile(true, paths, GameManager.AWSSettings.extractedBucket, cacheAsLocalFile, false,
                 request =>
                 {
                     AudioClip newClip = DownloadHandlerAudioClip.GetContent(request);

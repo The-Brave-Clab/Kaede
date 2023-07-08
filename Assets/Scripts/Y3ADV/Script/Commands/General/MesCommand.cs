@@ -12,7 +12,15 @@ namespace Y3ADV
         public MesCommand(Y3ScriptModule module, string[] arguments) : base(module, arguments)
         {
             resourceSplit = originalArgs[1].Split(':');
-            controller = resourceSplit.Length > 1 ? FindEntity<Y3Live2DModelController>(originalArgs[1].Split(':')[0]) : null;
+            if (resourceSplit.Length > 1)
+            {
+                var entityName = originalArgs[1].Split(':')[0];
+                controller = string.IsNullOrEmpty(entityName) ? null : FindEntity<Y3Live2DModelController>(entityName);
+            }
+            else
+            {
+                controller = null;
+            }
         }
 
         public override bool ShouldWait => true;
