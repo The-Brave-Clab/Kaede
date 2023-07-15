@@ -1,0 +1,9 @@
+{
+  "name": "com.srx.thirdparty",
+  "displayName": "Third Party Libraries",
+  "version": "1.0.0",
+  "unity": "2022.3",
+  "keywords": [],
+  "description": "This package contains third party libraries and plugins for Yuyuyui Scenario Projects.",
+  "dependencies": {}
+}
