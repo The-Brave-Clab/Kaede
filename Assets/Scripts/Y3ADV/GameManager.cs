@@ -119,6 +119,8 @@ namespace Y3ADV
         private void SetPresentationParams()
         {
             Application.targetFrameRate = -1;
+            if (StartupSettings.TestMode)
+                Application.targetFrameRate = 60;
 #if UNITY_IOS
             UnityEngine.iOS.Device.hideHomeButton = false;
             UnityEngine.iOS.Device.deferSystemGesturesMode = UnityEngine.iOS.SystemGestureDeferMode.All;
