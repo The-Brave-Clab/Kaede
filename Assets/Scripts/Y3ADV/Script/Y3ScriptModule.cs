@@ -10,12 +10,13 @@ using Y3ADV.Database;
 
 namespace Y3ADV
 {
-    public class Y3ScriptModule : MonoBehaviour
+    public class Y3ScriptModule : MonoBehaviour, IStateSavable<ScenarioSyncPoint>
     {
         private List<string> statements = null;
 
         private string currentStatement;
         public string CurrentStatement => string.IsNullOrEmpty(currentStatement) ? "" : currentStatement;
+        public int currentStatementIndex = 0;
 
         private static Dictionary<string, string> aliases = null;
         private static Dictionary<string, Expression> variables = null;
@@ -38,6 +39,8 @@ namespace Y3ADV
         private bool shouldSkipMesCommand;
         [NonSerialized]
         public bool mesCommandOnGoing;
+
+        private Coroutine scenarioCoroutine = null;
 
         public bool ShouldSkipMesCommand
         {
@@ -193,7 +196,16 @@ namespace Y3ADV
         private IEnumerator Start()
         {
             yield return Load();
-            StartCoroutine(ExecuteCommands(statements));
+            currentStatementIndex = 0;
+            scenarioCoroutine = StartCoroutine(ExecuteCommands(statements));
+        }
+
+        private void StopAndStartFromIndex(int index)
+        {
+            if (scenarioCoroutine != null)
+                StopCoroutine(scenarioCoroutine);
+            currentStatementIndex = index;
+            scenarioCoroutine = StartCoroutine(ExecuteCommands(statements));
         }
 
         public IEnumerator ExecuteCommands(List<string> statementsList)
@@ -201,8 +213,10 @@ namespace Y3ADV
 #if !WEBGL_BUILD
             var lastFrameCount = Time.frameCount;
 #endif
-            foreach (var statement in statementsList)
+            while (true)
             {
+                var statement = statementsList[currentStatementIndex];
+                ++currentStatementIndex;
                 currentStatement = statement;
                 if (recordingFunction && !statement.StartsWith("endfunction"))
                 {
@@ -242,6 +256,9 @@ namespace Y3ADV
                         StartCoroutine(command.Execute().WithException());
                     }
                 }
+
+                if (currentStatementIndex == statementsList.Count)
+                    break;
             }
 
             yield return null;
@@ -492,6 +509,33 @@ namespace Y3ADV
 
             yield return SceneManager.UnloadSceneAsync("MainScene");
 #endif
+        }
+
+        public ScenarioSyncPoint GetState()
+        {
+            return new()
+            {
+                currentStatementIndex = currentStatementIndex,
+
+                actors = Y3Live2DManager.AllControllers.Select(c => c.GetState()).ToList(),
+            };
+        }
+
+        public void SetState(ScenarioSyncPoint state)
+        {
+            StopAndStartFromIndex(state.currentStatementIndex);
+
+            foreach (var actorState in state.actors)
+            {
+                var controller = Y3Live2DManager.AllControllers.FirstOrDefault(c => c.modelName == actorState.name);
+                if (controller == null)
+                {
+                    Debug.LogError($"Cannot find actor {actorState.name} to restore state.");
+                    continue;
+                }
+
+                controller.SetState(actorState);
+            }
         }
     }
 }

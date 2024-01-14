@@ -28,6 +28,8 @@ namespace Y3ADV
 
         public bool autoDeleteActor = false;
 
+        public static List<Y3Live2DModelController> AllControllers => Instance.allControllers;
+
         public static void AddController(Y3Live2DModelController controller)
         {
             if (Instance.allControllers == null)
