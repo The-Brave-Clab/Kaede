@@ -29,6 +29,8 @@ namespace Y3ADV
         public bool autoDeleteActor = false;
 
         public static List<Y3Live2DModelController> AllControllers => Instance.allControllers;
+        public static List<Y3Live2DModelController> LoadedControllers => Instance.loadedControllers;
+        public static Transform Wrapper => Instance.live2DWrapper;
 
         public static void AddController(Y3Live2DModelController controller)
         {
@@ -103,22 +105,26 @@ namespace Y3ADV
 
         public delegate void ModelLoadedCallback(Y3Live2DModelController controller);
         
+        public static void CloneLoadedModel(Y3Live2DModelController loadedController, ModelLoadedCallback cb = null)
+        {
+            GameObject loadedObject = loadedController.gameObject;
+            GameObject clonedObject = Instantiate(loadedObject, Instance.live2DWrapper);
+            clonedObject.transform.localPosition = Vector3.zero;
+            clonedObject.name = loadedController.modelName;
+            clonedObject.SetActive(true);
+
+            Y3Live2DModelController clonedController = clonedObject.GetComponent<Y3Live2DModelController>();
+            clonedController.modelName = loadedController.modelName;
+
+            cb?.Invoke(clonedObject.GetComponent<Y3Live2DModelController>());
+        }
+
         public static IEnumerator ActorSetup(ModelInfo modelInfo, ModelLoadedCallback cb = null)
         {
-            void CloneLoadedModel(Y3Live2DModelController controller)
+            yield return LoadModel(modelInfo, loadedController =>
             {
-                GameObject loadedObject = controller.gameObject;
-                GameObject clonedObject = Instantiate(loadedObject, Instance.live2DWrapper);
-                clonedObject.transform.localPosition = Vector3.zero;
-                clonedObject.name = controller.modelName;
-                clonedObject.SetActive(true);
-
-                Y3Live2DModelController clonedController = clonedObject.GetComponent<Y3Live2DModelController>();
-                clonedController.modelName = controller.modelName;
-                
-                cb?.Invoke(clonedObject.GetComponent<Y3Live2DModelController>());
-            }
-            yield return LoadModel(modelInfo, CloneLoadedModel);
+                CloneLoadedModel(loadedController, cb);
+            });
         }
         
         public static IEnumerator LoadModel(ModelInfo modelInfo, ModelLoadedCallback cb = null)

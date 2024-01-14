@@ -305,7 +305,7 @@ namespace Y3ADV
             };
         }
 
-        protected void SetTransformState(EntityTransform state)
+        protected void RestoreTransformState(EntityTransform state)
         {
             var t = transform;
 

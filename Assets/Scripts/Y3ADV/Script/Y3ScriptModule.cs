@@ -541,20 +541,34 @@ namespace Y3ADV
             };
         }
 
-        public IEnumerator SetState(ScenarioSyncPoint state)
+        public IEnumerator RestoreState(ScenarioSyncPoint state)
         {
             Stop();
 
+            foreach (var o in Y3Live2DManager.Wrapper)
+            {
+                Transform t = (Transform) o;
+                Destroy(t.gameObject);
+            }
+
             foreach (var actorState in state.actors)
             {
-                var controller = Y3Live2DManager.AllControllers.FirstOrDefault(c => c.modelName == actorState.name);
-                if (controller == null)
+                IEnumerator RestoreActorState(ActorState state)
                 {
-                    Debug.LogError($"Cannot find actor {actorState.name} to restore state.");
-                    continue;
+                    Y3Live2DModelController controller = null;
+
+                    var loadedController = Y3Live2DManager.LoadedControllers.FirstOrDefault(c => c.modelName == state.name);
+                    if (loadedController == null)
+                    {
+                        Debug.LogError($"Cannot find actor {state.name}!");
+                        yield break;
+                    }
+                    Y3Live2DManager.CloneLoadedModel(loadedController, clonedController => controller = clonedController);
+
+                    yield return controller.RestoreState(state);
                 }
 
-                yield return controller.SetState(actorState);
+                StartCoroutine(RestoreActorState(actorState));
             }
 
             foreach (var o in UIManager.Instance.spriteWrapper)
@@ -565,7 +579,7 @@ namespace Y3ADV
 
             if (state.sprites != null)
             {
-                IEnumerator SetSpriteState(SpriteState spriteState)
+                IEnumerator RestoreSpriteState(SpriteState spriteState)
                 {
                     GameObject spriteObject = null;
                     SpriteImage entity = null;
@@ -576,11 +590,11 @@ namespace Y3ADV
                             entity = spriteObject.GetComponent<SpriteImage>();
                         });
                     
-                    yield return entity.SetState(spriteState);
+                    yield return entity.RestoreState(spriteState);
                 }
                 foreach (var spriteState in state.sprites)
                 {
-                    StartCoroutine(SetSpriteState(spriteState));
+                    StartCoroutine(RestoreSpriteState(spriteState));
                 }
             }
 

@@ -51,7 +51,7 @@ namespace Y3ADV
             };
         }
 
-        public IEnumerator SetState(SpriteState state)
+        public IEnumerator RestoreState(SpriteState state)
         {
             if (name != state.name || resourceName != state.resourceName)
             {
@@ -59,7 +59,7 @@ namespace Y3ADV
                 yield break;
             }
 
-            SetTransformState(state.transform);
+            RestoreTransformState(state.transform);
         }
     }
 }

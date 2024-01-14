@@ -9,7 +9,7 @@ namespace Y3ADV
     public interface IStateSavable<T> where T : struct
     {
         T GetState();
-        IEnumerator SetState(T state);
+        IEnumerator RestoreState(T state);
     }
 
     [Serializable]

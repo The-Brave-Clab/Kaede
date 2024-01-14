@@ -529,7 +529,7 @@ namespace Y3ADV
             };
         }
 
-        public IEnumerator SetState(ActorState state)
+        public IEnumerator RestoreState(ActorState state)
         {
             if (modelName != state.name)
             {
@@ -537,15 +537,24 @@ namespace Y3ADV
                 yield break;
             }
 
-            StartMotion(state.currentMotion);
-            StartFaceMotion(state.currentFaceMotion);
-
             Layer = state.layer;
 
             hidden = state.hidden;
 
             useEyeBlink = state.eyeBlink;
             manualEyeOpen = state.manualEyeOpen;
+
+            addAngleX = state.faceAngle.x;
+            addAngleY = state.faceAngle.y;
+            addBodyAngleX = state.bodyAngle;
+
+            addEyeX = state.addEye;
+
+            // Wait for model to load
+            yield return null;
+
+            StartMotion(state.currentMotion);
+            StartFaceMotion(state.currentFaceMotion);
 
             foreach (var model in state.mouthSynced)
             {
@@ -556,13 +565,7 @@ namespace Y3ADV
                     Debug.LogError($"Cannot find model '{model}' to sync mouth with.");
             }
 
-            addAngleX = state.faceAngle.x;
-            addAngleY = state.faceAngle.y;
-            addBodyAngleX = state.bodyAngle;
-
-            addEyeX = state.addEye;
-
-            SetTransformState(state.transform);
+            RestoreTransformState(state.transform);
         }
     }
 }
