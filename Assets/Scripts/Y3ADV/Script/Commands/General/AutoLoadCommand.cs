@@ -44,56 +44,15 @@ namespace Y3ADV
             //             textAsset.text.Split(new[] {'\n', '\r'}, StringSplitOptions.RemoveEmptyEntries).ToList();
             //     });
 
-            // First round of scanning the script file
-            // Gather aliases and replace subroutines(functions)
             aliases = new Dictionary<string, string>();
-            List<string> allStatements = new List<string>(scriptModule.StatementCount());
-            Y3ScriptFunction currentRecordingFunction = null;
-            Dictionary<string, Y3ScriptFunction> functions = new();
-
-            for (int i = 0; i < scriptModule.StatementCount(); ++i)
-            {
-                string statement = scriptModule.GetStatementAtIndex(i).Trim(' ', '\t');
-                string[] statementArgs = statement.Split(new[] {'\t'}, StringSplitOptions.None);
-                bool recordingFunction = currentRecordingFunction != null;
-                if (recordingFunction && !statement.StartsWith("endfunction"))
-                {
-                    currentRecordingFunction.AddStatement(statement);
-                    continue;
-                }
-                if (statementArgs[0] == "sub")
-                {
-                    List<string> parameters = new List<string>(statementArgs.Length - 2);
-                    for (int j = 2; j < statementArgs.Length; ++j)
-                    {
-                        parameters.Add(statementArgs[j]);
-                    }
-
-                    List<string> subStatements = functions[statementArgs[1]].GetStatements(parameters);
-                    allStatements.AddRange(subStatements);
-                }
-                else if (statementArgs[0] == "function")
-                {
-                    currentRecordingFunction = new Y3ScriptFunction(scriptModule, statement);
-                    functions[statementArgs[1]] = currentRecordingFunction;
-                }
-                else if (statementArgs[0] == "endfunction")
-                {
-                    currentRecordingFunction = null;
-                }
-                else
-                {
-                    allStatements.Add(statement);
-                }
-            }
 
             HashSet<LoadData> allLoadData = new();
 
-            // Second round of scanning the script
             // Only process the statements that requires assets
             // Add them to the hashset for coroutine dispatching
-            foreach (var statement in allStatements)
+            for (int i = 0; i < scriptModule.StatementCount(); ++i)
             {
+                var statement = scriptModule.GetStatementAtIndex(i);
                 string[] statementArgs = statement.Split(new[] {'\t'}, StringSplitOptions.None);
 
                 switch (statementArgs[0])
