@@ -568,7 +568,7 @@ namespace Y3ADV
                     yield return controller.RestoreState(state);
                 }
 
-                StartCoroutine(RestoreActorState(actorState));
+                GameManager.AddCoroutine(RestoreActorState(actorState));
             }
 
             foreach (var o in UIManager.Instance.spriteWrapper)
@@ -594,13 +594,13 @@ namespace Y3ADV
                 }
                 foreach (var spriteState in state.sprites)
                 {
-                    StartCoroutine(RestoreSpriteState(spriteState));
+                    GameManager.AddCoroutine(RestoreSpriteState(spriteState));
                 }
             }
 
-            StartFromIndex(state.currentStatementIndex);
+            yield return new WaitUntil(GameManager.AllCoroutineFinished);
 
-            yield return null;
+            StartFromIndex(state.currentStatementIndex);
         }
     }
 }
