@@ -511,6 +511,8 @@ namespace Y3ADV
                 currentMotion = currentMotionName,
                 currentFaceMotion = currentFaceMotionName,
 
+                layer = Layer,
+
                 hidden = hidden,
 
                 eyeBlink = useEyeBlink,
@@ -523,13 +525,7 @@ namespace Y3ADV
 
                 addEye = addEyeX,
 
-                transform = new()
-                {
-                    position = Position,
-                    angle = t.eulerAngles.z,
-                    scale = t.localScale.x,
-                    layer = Layer
-                }
+                transform = GetTransformState()
             };
         }
 
@@ -543,6 +539,8 @@ namespace Y3ADV
 
             StartMotion(state.currentMotion);
             StartFaceMotion(state.currentFaceMotion);
+
+            Layer = state.layer;
 
             hidden = state.hidden;
 
@@ -564,11 +562,7 @@ namespace Y3ADV
 
             addEyeX = state.addEye;
 
-            var t = transform;
-            Position = state.transform.position;
-            t.eulerAngles = new Vector3(0, 0, state.transform.angle);
-            t.localScale = Vector3.one * state.transform.scale;
-            Layer = state.transform.layer;
+            SetTransformState(state.transform);
         }
     }
 }

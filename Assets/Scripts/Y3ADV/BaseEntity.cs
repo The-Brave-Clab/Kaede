@@ -15,6 +15,26 @@ namespace Y3ADV
             set => ((RectTransform)transform).anchoredPosition3D = TransformVector(value);
         }
 
+        public Vector2 Pivot
+        {
+            get => ((RectTransform)transform).pivot;
+            set
+            {
+                RectTransform rt = ((RectTransform)transform);
+                if (rt.pivot == value) return;
+
+                Vector2 anchoredPosition = Position;
+                var sizeDelta = rt.sizeDelta;
+                var pivot = rt.pivot;
+                anchoredPosition.x -= sizeDelta.x * pivot.x;
+                anchoredPosition.x += sizeDelta.x * value.x;
+                anchoredPosition.y -= sizeDelta.y * pivot.y;
+                anchoredPosition.y += sizeDelta.y * value.y;
+                rt.pivot = value;
+                Position = anchoredPosition;
+            }
+        }
+
         public static float ScreenWidthScalar => 
             GameSettings.Fixed16By9 ? 
                 1.0f :
@@ -268,6 +288,31 @@ namespace Y3ADV
 
             yield return seq.WaitForCompletion();
             RemoveSequence(seq);
+        }
+
+        protected EntityTransform GetTransformState()
+        {
+            var t = transform;
+
+            return new()
+            {
+                position = Position,
+                angle = t.eulerAngles.z,
+                scale = t.localScale.x,
+                pivot = Pivot,
+                color = GetColor()
+            };
+        }
+
+        protected void SetTransformState(EntityTransform state)
+        {
+            var t = transform;
+
+            Position = state.position;
+            t.eulerAngles = new Vector3(0, 0, state.angle);
+            t.localScale = Vector3.one * state.scale;
+            Pivot = state.pivot;
+            SetColor(state.color);
         }
     }
 }

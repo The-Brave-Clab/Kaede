@@ -33,7 +33,8 @@ namespace Y3ADV
         public Vector3 position;
         public float angle;
         public float scale;
-        public int layer;
+        public Vector2 pivot;
+        public Color color;
     }
 
     [Serializable]
@@ -43,6 +44,8 @@ namespace Y3ADV
         public string currentMotion;
         public string currentFaceMotion;
 
+        public int layer;
+
         public bool hidden;
 
         public bool eyeBlink;
@@ -50,8 +53,8 @@ namespace Y3ADV
 
         public List<string> mouthSynced;
 
-        [FormerlySerializedAs("actorFaceAngle")] [FormerlySerializedAs("actorAngle")] public Vector2 faceAngle;
-        [FormerlySerializedAs("actorBodyAngle")] public float bodyAngle;
+        public Vector2 faceAngle;
+        public float bodyAngle;
 
         public float addEye;
 
