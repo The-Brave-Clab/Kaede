@@ -92,6 +92,13 @@ namespace Y3ADV
             return controller != null && controller.modelName == modelName;
         }
 
+        public static Y3Live2DModelController FindController(string modelName)
+        {
+            if (Instance == null) return null;
+            if (Instance.allControllers == null) return null;
+            return Instance.allControllers.FirstOrDefault(c => IsTargetController(c, modelName));
+        }
+
         public delegate void ModelLoadedCallback(Y3Live2DModelController controller);
         
         public static IEnumerator ActorSetup(ModelInfo modelInfo, ModelLoadedCallback cb = null)
@@ -103,6 +110,9 @@ namespace Y3ADV
                 clonedObject.transform.localPosition = Vector3.zero;
                 clonedObject.name = controller.modelName;
                 clonedObject.SetActive(true);
+
+                Y3Live2DModelController clonedController = clonedObject.GetComponent<Y3Live2DModelController>();
+                clonedController.modelName = controller.modelName;
                 
                 cb?.Invoke(clonedObject.GetComponent<Y3Live2DModelController>());
             }

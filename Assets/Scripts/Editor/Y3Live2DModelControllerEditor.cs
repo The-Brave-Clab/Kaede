@@ -25,7 +25,7 @@ namespace Y3ADV.Editor
             {
                 Live2DDebugWindow.ShowWindow();
             }
-            
+
             base.OnInspectorGUI();
 
             if (component != null)

@@ -12,7 +12,7 @@ using Object = UnityEngine.Object;
 
 namespace Y3ADV
 {
-    public class Y3Live2DModelController : BaseEntity
+    public class Y3Live2DModelController : BaseEntity, IStateSavable<ActorState>
     {
         [Serializable]
         public class Motion
@@ -36,6 +36,9 @@ namespace Y3ADV
         private L2DPose pose;
         private MotionQueueManager motionMgr;
         private MotionQueueManager faceMotionMgr;
+
+        private string currentMotionName = "";
+        private string currentFaceMotionName = "";
 
         private Live2DModelUnity live2DModel;
         private EyeBlinkMotion eyeBlink = new EyeBlinkMotion();
@@ -281,6 +284,7 @@ namespace Y3ADV
             var motion = motions[motionName];
             motion.setLoop(loop);
             nextMotion = motion;
+            currentMotionName = motionName;
         }
 
         public void StartFaceMotion(string motionName)
@@ -289,6 +293,7 @@ namespace Y3ADV
 
             var motion = motions[motionName];
             faceMotionMgr.startMotion(motion);
+            currentFaceMotionName = motionName;
         }
 
         private void OnEnable()
@@ -494,6 +499,76 @@ namespace Y3ADV
 
             yield return s.WaitForCompletion();
             RemoveSequence(s);
+        }
+
+        public ActorState GetState()
+        {
+            var t = transform;
+
+            return new()
+            {
+                name = modelName,
+                currentMotion = currentMotionName,
+                currentFaceMotion = currentFaceMotionName,
+
+                hidden = hidden,
+
+                eyeBlink = useEyeBlink,
+                manualEyeOpen = manualEyeOpen,
+
+                mouthSynced = mouthSynced.Select(x => x.modelName).ToList(),
+
+                faceAngle = new Vector2(addAngleX, addAngleY),
+                bodyAngle = addBodyAngleX,
+
+                addEye = addEyeX,
+
+                transform = new()
+                {
+                    position = Position,
+                    angle = t.eulerAngles.z,
+                    scale = t.localScale.x,
+                    layer = Layer
+                }
+            };
+        }
+
+        public void SetState(ActorState state)
+        {
+            if (modelName != state.name)
+            {
+                Debug.LogError("Applying state to wrong model!");
+                return;
+            }
+
+            StartMotion(state.currentMotion);
+            StartFaceMotion(state.currentFaceMotion);
+
+            hidden = state.hidden;
+
+            useEyeBlink = state.eyeBlink;
+            manualEyeOpen = state.manualEyeOpen;
+
+            foreach (var model in state.mouthSynced)
+            {
+                var targetController = Y3Live2DManager.FindController(model);
+                if (targetController != null)
+                    AddMouthSync(targetController);
+                else
+                    Debug.LogError($"Cannot find model '{model}' to sync mouth with.");
+            }
+
+            addAngleX = state.faceAngle.x;
+            addAngleY = state.faceAngle.y;
+            addBodyAngleX = state.bodyAngle;
+
+            addEyeX = state.addEye;
+
+            var t = transform;
+            Position = state.transform.position;
+            t.eulerAngles = new Vector3(0, 0, state.transform.angle);
+            t.localScale = Vector3.one * state.transform.scale;
+            Layer = state.transform.layer;
         }
     }
 }
