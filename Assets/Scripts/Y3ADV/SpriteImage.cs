@@ -1,10 +1,13 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Y3ADV
 {
-    public class SpriteImage : BaseEntity
+    public class SpriteImage : BaseEntity, IStateSavable<SpriteState>
     {
+        public string resourceName;
+
         private Image image = null;
         private RectTransform rectTransform = null;
 
@@ -35,6 +38,28 @@ namespace Y3ADV
         {
             Vector3 result = new Vector3(vec.x / ScreenWidthScalar, vec.y, vec.z);
             return result;
+        }
+
+        public SpriteState GetState()
+        {
+            return new()
+            {
+                name = gameObject.name,
+                resourceName = resourceName,
+
+                transform = GetTransformState()
+            };
+        }
+
+        public IEnumerator SetState(SpriteState state)
+        {
+            if (name != state.name || resourceName != state.resourceName)
+            {
+                Debug.LogError("Applying state to wrong sprite!");
+                yield break;
+            }
+
+            SetTransformState(state.transform);
         }
     }
 }

@@ -296,6 +296,7 @@ namespace Y3ADV
 
             return new()
             {
+                enabled = gameObject.activeSelf,
                 position = Position,
                 angle = t.eulerAngles.z,
                 scale = t.localScale.x,
@@ -308,6 +309,7 @@ namespace Y3ADV
         {
             var t = transform;
 
+            gameObject.SetActive(state.enabled);
             Position = state.position;
             t.eulerAngles = new Vector3(0, 0, state.angle);
             t.localScale = Vector3.one * state.scale;

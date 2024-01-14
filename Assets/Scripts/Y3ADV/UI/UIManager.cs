@@ -141,7 +141,7 @@ namespace Y3ADV
             return result;
         }
 
-        public GameObject Sprite(Texture2D texture, string name)
+        public GameObject Sprite(Texture2D texture, string name, string resourceName)
         {
             GameObject result = Instantiate(spritePrefab, spriteWrapper);
             result.name = name;
@@ -153,6 +153,9 @@ namespace Y3ADV
 
             RectTransform rectTransform = result.GetComponent<RectTransform>();
             rectTransform.sizeDelta = new Vector2(texture.width, texture.height);
+
+            SpriteImage spriteImage = result.GetComponent<SpriteImage>();
+            spriteImage.resourceName = resourceName;
 
             return result;
         }

@@ -43,7 +43,7 @@ namespace Y3ADV
             yield return LoadSprite(resourceName, 
                 texture2D =>
                 {
-                    spriteObject = UIManager.Instance.Sprite(texture2D, objectName);
+                    spriteObject = UIManager.Instance.Sprite(texture2D, objectName, resourceName);
                     spriteObject.SetActive(false);
                     sprite = spriteObject.GetComponent<Image>();
                     sprite.color = new Color(1, 1, 1, 0);

@@ -196,14 +196,17 @@ namespace Y3ADV
         private IEnumerator Start()
         {
             yield return Load();
-            currentStatementIndex = 0;
-            scenarioCoroutine = StartCoroutine(ExecuteCommands(statements));
+            StartFromIndex(0);
         }
 
-        private void StopAndStartFromIndex(int index)
+        private void Stop()
         {
             if (scenarioCoroutine != null)
                 StopCoroutine(scenarioCoroutine);
+        }
+
+        private void StartFromIndex(int index)
+        {
             currentStatementIndex = index;
             scenarioCoroutine = StartCoroutine(ExecuteCommands(statements));
         }
@@ -518,12 +521,13 @@ namespace Y3ADV
                 currentStatementIndex = currentStatementIndex,
 
                 actors = Y3Live2DManager.AllControllers.Select(c => c.GetState()).ToList(),
+                sprites = UIManager.Instance.spriteWrapper.GetComponentsInChildren<SpriteImage>().Select(s => s.GetState()).ToList(),
             };
         }
 
-        public void SetState(ScenarioSyncPoint state)
+        public IEnumerator SetState(ScenarioSyncPoint state)
         {
-            StopAndStartFromIndex(state.currentStatementIndex);
+            Stop();
 
             foreach (var actorState in state.actors)
             {
@@ -534,8 +538,39 @@ namespace Y3ADV
                     continue;
                 }
 
-                controller.SetState(actorState);
+                yield return controller.SetState(actorState);
             }
+
+            foreach (var o in UIManager.Instance.spriteWrapper)
+            {
+                Transform t = (Transform) o;
+                Destroy(t.gameObject);
+            }
+
+            if (state.sprites != null)
+            {
+                IEnumerator SetSpriteState(SpriteState spriteState)
+                {
+                    GameObject spriteObject = null;
+                    SpriteImage entity = null;
+                    yield return SpriteCommand.LoadSprite(spriteState.resourceName,
+                        texture2D =>
+                        {
+                            spriteObject = UIManager.Instance.Sprite(texture2D, spriteState.name, spriteState.resourceName);
+                            entity = spriteObject.GetComponent<SpriteImage>();
+                        });
+                    
+                    yield return entity.SetState(spriteState);
+                }
+                foreach (var spriteState in state.sprites)
+                {
+                    StartCoroutine(SetSpriteState(spriteState));
+                }
+            }
+
+            StartFromIndex(state.currentStatementIndex);
+
+            yield return null;
         }
     }
 }

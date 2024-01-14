@@ -529,12 +529,12 @@ namespace Y3ADV
             };
         }
 
-        public void SetState(ActorState state)
+        public IEnumerator SetState(ActorState state)
         {
             if (modelName != state.name)
             {
                 Debug.LogError("Applying state to wrong model!");
-                return;
+                yield break;
             }
 
             StartMotion(state.currentMotion);

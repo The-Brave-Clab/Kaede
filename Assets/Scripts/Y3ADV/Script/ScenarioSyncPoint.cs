@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -8,7 +9,7 @@ namespace Y3ADV
     public interface IStateSavable<T> where T : struct
     {
         T GetState();
-        void SetState(T state);
+        IEnumerator SetState(T state);
     }
 
     [Serializable]
@@ -16,9 +17,8 @@ namespace Y3ADV
     {
         public int currentStatementIndex;
 
-        // Actors
         public List<ActorState> actors;
-        // Sprites
+        public List<SpriteState> sprites;
         // Backgrounds
         // Still
         // Caption
@@ -30,6 +30,7 @@ namespace Y3ADV
     [Serializable]
     public struct EntityTransform
     {
+        public bool enabled;
         public Vector3 position;
         public float angle;
         public float scale;
@@ -61,4 +62,12 @@ namespace Y3ADV
         public EntityTransform transform;
     }
 
+    [Serializable]
+    public struct SpriteState
+    {
+        public string name;
+        public string resourceName;
+
+        public EntityTransform transform;
+    }
 }
