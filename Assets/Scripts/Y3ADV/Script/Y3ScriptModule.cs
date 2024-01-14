@@ -23,12 +23,6 @@ namespace Y3ADV
 
         private static Dictionary<string, Type> commandTypes = null;
 
-        private Dictionary<string, Y3ScriptFunction> functions = null;
-        private Y3ScriptFunction currentRecordingFunction = null;
-        private bool recordingFunction = false;
-
-        private Dictionary<string, List<string>> includeFiles = null;
-
         [Header("Global Configs")]
         public bool lipSync = true;
         public float lipSyncScale = 0.25f;
@@ -67,7 +61,7 @@ namespace Y3ADV
             return statements[i];
         }
 
-        private IEnumerator Load()
+        private IEnumerator Load(Action<string> onLoaded = null)
         {
             string script = "";
             yield return LocalResourceManager.LoadTextAndPatchFromFile(
@@ -98,14 +92,7 @@ namespace Y3ADV
             WebGLInterops.OnScriptLoaded(script.Replace("\r", ""));
 #endif
 
-            RegisterCommands();
-
-            var originalStatements = GetStatementsFromScript(script);
-            includeFiles = new Dictionary<string, List<string>>();
-            yield return PreloadIncludeFiles(originalStatements);
-
-            statements = new List<string>();
-            yield return PreprocessInclude(originalStatements, statements);
+            onLoaded?.Invoke(script);
         }
 
         public static List<string> GetStatementsFromScript(string script)
@@ -125,7 +112,7 @@ namespace Y3ADV
             return result;
         }
 
-        private IEnumerator PreloadIncludeFiles(List<string> statements)
+        private IEnumerator PreloadIncludeFiles(List<string> statements, Dictionary<string, List<string>> includeFiles)
         {
             var includeStatements = statements.Where(s => s.StartsWith("include")).ToList();
             foreach (var s in includeStatements)
@@ -141,11 +128,11 @@ namespace Y3ADV
                 Debug.Log($"Pre-Loaded include file {includeFileName}");
                 var includeFileStatements = GetStatementsFromScript(includeFileContent);
                 includeFiles[includeFileName] = includeFileStatements;
-                yield return PreloadIncludeFiles(includeFileStatements);
+                yield return PreloadIncludeFiles(includeFileStatements, includeFiles);
             }
         }
 
-        private IEnumerator PreprocessInclude(List<string> originalStatements, List<string> outputStatements)
+        private IEnumerator PreprocessInclude(List<string> originalStatements, Dictionary<string, List<string>> includeFiles, List<string> outputStatements)
         {
             foreach (var s in originalStatements)
             {
@@ -160,9 +147,77 @@ namespace Y3ADV
                 if (includeFileName == "define_function") includeFileName = "define_functions"; // a fix
                 var includeStatements = includeFiles[includeFileName];
                 var processedIncludeStatements = new List<string>();
-                yield return PreprocessInclude(includeStatements, processedIncludeStatements);
+                yield return PreprocessInclude(includeStatements, includeFiles, processedIncludeStatements);
                 outputStatements.AddRange(processedIncludeStatements);
             }
+        }
+
+        private IEnumerator PreprocessFunctions(List<string> statements, Action<List<string>> onProcessed)
+        {
+            Dictionary<string, Y3ScriptFunction> functions = new Dictionary<string, Y3ScriptFunction>();
+            Y3ScriptFunction currentFunction = null;
+            bool recordingFunction = false;
+
+            List<string> outputStatements = new List<string>();
+
+            foreach (var s in statements)
+            {
+                // if recording function, just add to current function
+                if (recordingFunction && !s.StartsWith("endfunction"))
+                {
+                    currentFunction.AddStatement(s);
+                    continue;
+                }
+
+                // if recording and we should end, finish recording
+                if (recordingFunction && s.StartsWith("endfunction"))
+                {
+                    currentFunction.FinishDefinition();
+                    functions.Add(currentFunction.functionName, currentFunction);
+
+                    currentFunction = null;
+                    recordingFunction = false;
+                    continue;
+                }
+
+                // if not recording and we should start, start recording
+                if (s.StartsWith("function"))
+                {
+                    currentFunction = new Y3ScriptFunction(this, s);
+                    recordingFunction = true;
+                    continue;
+                }
+
+                // if not recording and we should call a function, call it
+                if (s.StartsWith("sub"))
+                {
+                    var split = s.Split('\t');
+                    var functionName = split[1];
+                    var parameters = new List<string>(split.Length - 2);
+                    for (int i = 2; i < split.Length; ++i)
+                    {
+                        parameters.Add(split[i]);
+                    }
+                    
+                    if (!functions.ContainsKey(functionName))
+                    {
+                        Debug.LogError($"Function {functionName} doesn't exist!");
+                        continue;
+                    }
+                    
+                    Y3ScriptFunction f = functions[functionName];
+                    var functionStatements = f.GetStatements(parameters);
+
+                    outputStatements.AddRange(functionStatements);
+                    continue;
+                }
+
+                // if not recording and we should do something else, just add it
+                outputStatements.Add(s);
+            }
+
+            onProcessed(outputStatements);
+            yield return null;
         }
 
         public CommandBase ParseCommand(string statement)
@@ -186,7 +241,6 @@ namespace Y3ADV
         {
             aliases = new Dictionary<string, string>();
             variables = new Dictionary<string, Expression>();
-            functions = new Dictionary<string, Y3ScriptFunction>();
             shouldSkipMesCommand = false;
             mesCommandOnGoing = false;
 
@@ -195,7 +249,20 @@ namespace Y3ADV
 
         private IEnumerator Start()
         {
-            yield return Load();
+            string script = "";
+            yield return Load(s => script = s);
+
+            RegisterCommands();
+
+            var originalStatements = GetStatementsFromScript(script);
+            var includeFiles = new Dictionary<string, List<string>>();
+            yield return PreloadIncludeFiles(originalStatements, includeFiles);
+
+            statements = new List<string>();
+            yield return PreprocessInclude(originalStatements, includeFiles, statements);
+
+            yield return PreprocessFunctions(statements, s => statements = s);
+
             StartFromIndex(0);
         }
 
@@ -221,14 +288,8 @@ namespace Y3ADV
                 var statement = statementsList[currentStatementIndex];
                 ++currentStatementIndex;
                 currentStatement = statement;
-                if (recordingFunction && !statement.StartsWith("endfunction"))
-                {
-                    currentRecordingFunction.AddStatement(statement);
-                    continue;
-                }
 #if !WEBGL_BUILD
-                if (!recordingFunction)
-                    Debug.Log($"[+{Time.frameCount - lastFrameCount}]\t{statement}");
+                Debug.Log($"[+{Time.frameCount - lastFrameCount}]\t{statement}");
                 lastFrameCount = Time.frameCount;
 #endif
                 CommandBase command;
@@ -384,9 +445,9 @@ namespace Y3ADV
                 {"caption_font_color", typeof(NotImplementedCommand)},
                 {"caption_font_size", typeof(NotImplementedCommand)},
                 {"wait", typeof(WaitCommand)},
-                {"function", typeof(FunctionCommand)},
-                {"endfunction", typeof(EndFunctionCommand)},
-                {"sub", typeof(SubCommand)},
+                // {"function", typeof(FunctionCommand)},
+                // {"endfunction", typeof(EndFunctionCommand)},
+                // {"sub", typeof(SubCommand)},
                 {"end", typeof(EndCommand)},
             };
         }
@@ -438,51 +499,6 @@ namespace Y3ADV
 
             var result = exp.Evaluate();
             return (T) Convert.ChangeType(result, typeof(T));
-        }
-
-        public void StartRecordingFunction(string statement)
-        {
-            currentRecordingFunction = new Y3ScriptFunction(this, statement);
-            recordingFunction = true;
-        }
-
-        public void StopRecordingFunction()
-        {
-            currentRecordingFunction.FinishDefinition();
-            functions.Add(currentRecordingFunction.functionName, currentRecordingFunction);
-
-            currentRecordingFunction = null;
-            recordingFunction = false;
-        }
-
-        public IEnumerator ExecuteFunction(string functionName, List<string> args)
-        {
-            if (!functions.ContainsKey(functionName))
-            {
-                Debug.LogError($"Function {functionName} doesn't exist!");
-                yield break;
-            }
-
-            Y3ScriptFunction f = functions[functionName];
-
-            yield return f.Execute(args);
-        }
-
-        public List<string> GetFunctionStatements(string functionName)
-        {
-            if (!functions.ContainsKey(functionName))
-            {
-                Debug.LogError($"Function {functionName} doesn't exist!");
-                return null;
-            }
-
-            Y3ScriptFunction f = functions[functionName];
-            return f.Statements;
-        }
-
-        public bool IsRecordingFunction()
-        {
-            return recordingFunction;
         }
 
         public void ExitAdv()
