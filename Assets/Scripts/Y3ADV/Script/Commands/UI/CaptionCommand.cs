@@ -22,7 +22,7 @@ namespace Y3ADV
             y = Arg(5, 0.0f);
         }
 
-        public override bool ShouldWait => wait;
+        public override bool SyncExecution => wait;
         public override IEnumerator Execute()
         {
             // TODO: We ignore the resource name, since there's no two captions appear at the same time FOR NOW.

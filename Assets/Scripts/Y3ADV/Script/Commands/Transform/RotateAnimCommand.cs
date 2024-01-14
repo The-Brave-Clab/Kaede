@@ -21,7 +21,7 @@ namespace Y3ADV
             originalAngle = eulerAngles.z;
         }
 
-        public override bool ShouldWait => wait;
+        public override bool SyncExecution => wait;
         
         public override IEnumerator Execute()
         {

@@ -11,7 +11,7 @@ namespace Y3ADV
             controller = FindEntity<BaseEntity>(originalArgs[1]);
         }
 
-        public override bool ShouldWait => false;
+        public override bool SyncExecution => false;
         public override IEnumerator Execute()
         {
             yield return controller.StopAnim("move");

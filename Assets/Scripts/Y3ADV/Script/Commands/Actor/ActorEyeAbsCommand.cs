@@ -13,7 +13,7 @@ namespace Y3ADV
             controller = FindEntity<Y3Live2DModelController>(originalArgs[1]);
         }
 
-        public override bool ShouldWait => false;
+        public override bool SyncExecution => false;
         public override IEnumerator Execute()
         {
             float absoluteAngle = Arg(2, 0.0f);

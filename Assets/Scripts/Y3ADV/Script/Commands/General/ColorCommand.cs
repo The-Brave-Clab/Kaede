@@ -29,7 +29,7 @@ namespace Y3ADV
             entity = FindEntity<BaseEntity>(originalArgs[1]);
         }
 
-        public override bool ShouldWait => wait;
+        public override bool SyncExecution => wait;
         public override IEnumerator Execute()
         {
             Color originalColor = entity.GetColor();

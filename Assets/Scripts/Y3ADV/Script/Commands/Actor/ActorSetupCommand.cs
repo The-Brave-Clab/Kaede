@@ -12,7 +12,7 @@ namespace Y3ADV
             obj = GameObject.Find(originalArgs[1]);
         }
 
-        public override bool ShouldWait => true;
+        public override bool SyncExecution => true;
         public override IEnumerator Execute()
         {
             string modelName = Arg(1, "");

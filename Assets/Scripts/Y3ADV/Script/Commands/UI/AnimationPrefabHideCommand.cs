@@ -13,7 +13,7 @@ namespace Y3ADV
             obj = FindEntity<AnimPrefabEntity>(originalArgs[1]).gameObject;
         }
 
-        public override bool ShouldWait => false;
+        public override bool SyncExecution => false;
         public override IEnumerator Execute()
         {
             Object.Destroy(obj);

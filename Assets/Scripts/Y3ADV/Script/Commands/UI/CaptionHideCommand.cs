@@ -16,7 +16,7 @@ namespace Y3ADV
             duration = Arg(2, 0.0f);
         }
 
-        public override bool ShouldWait => wait;
+        public override bool SyncExecution => wait;
         public override IEnumerator Execute()
         {
             var captionBG = UIManager.Instance.captionBox;

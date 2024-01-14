@@ -10,7 +10,7 @@ namespace Y3ADV
         {
         }
 
-        public override bool ShouldWait => true;
+        public override bool SyncExecution => true;
         public override IEnumerator Execute()
         {
             yield return LoadVoice(GameManager.ScriptName, args[1]);

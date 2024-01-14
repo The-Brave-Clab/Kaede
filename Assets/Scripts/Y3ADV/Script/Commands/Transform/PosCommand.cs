@@ -16,7 +16,7 @@ namespace Y3ADV
             controller = FindEntity<BaseEntity>(originalArgs[1]);
         }
 
-        public override bool ShouldWait => wait;
+        public override bool SyncExecution => wait;
         public override IEnumerator Execute()
         {
             float x = Arg(2, 0.0f);

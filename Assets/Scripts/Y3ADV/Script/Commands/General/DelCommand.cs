@@ -13,7 +13,7 @@ namespace Y3ADV
             obj = GameObject.Find(originalArgs[1]);
         }
 
-        public override bool ShouldWait => false;
+        public override bool SyncExecution => false;
         public override IEnumerator Execute()
         {
             Object.Destroy(obj);

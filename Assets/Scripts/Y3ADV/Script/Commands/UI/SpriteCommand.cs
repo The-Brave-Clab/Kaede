@@ -37,7 +37,7 @@ namespace Y3ADV
             wait = Arg(8, true);
         }
 
-        public override bool ShouldWait => wait;
+        public override bool SyncExecution => wait;
         public override IEnumerator MustWait()
         {
             yield return LoadSprite(resourceName, 

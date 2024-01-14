@@ -15,7 +15,7 @@ namespace Y3ADV
             slave = FindEntity<Y3Live2DModelController>(originalArgs[1]);
         }
 
-        public override bool ShouldWait => true;
+        public override bool SyncExecution => true;
         public override IEnumerator Execute()
         {
             master.AddMouthSync(slave);

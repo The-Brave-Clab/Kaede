@@ -10,8 +10,8 @@ namespace Y3ADV
         {
         }
 
-        public override bool ShouldWait => true;
-        public override bool ShouldForceImmediateExecution => true;
+        public override bool SyncExecution => true;
+        public override bool ImmediateExecution => true;
         
         public override IEnumerator Execute()
         {

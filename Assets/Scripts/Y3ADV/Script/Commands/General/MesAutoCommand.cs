@@ -6,6 +6,6 @@ namespace Y3ADV
         {
         }
 
-        public override bool ShouldWait => false;
+        public override bool SyncExecution => false;
     }
 }

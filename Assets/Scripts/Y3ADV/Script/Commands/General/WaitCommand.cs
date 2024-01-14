@@ -10,7 +10,7 @@ namespace Y3ADV
         {
         }
 
-        public override bool ShouldWait => true;
+        public override bool SyncExecution => true;
         public override IEnumerator Execute()
         {
             float duration = Arg(1, 0.0f);

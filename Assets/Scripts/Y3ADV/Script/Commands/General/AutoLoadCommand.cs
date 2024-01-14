@@ -16,7 +16,7 @@ namespace Y3ADV
         {
         }
 
-        public override bool ShouldWait => true;
+        public override bool SyncExecution => true;
         
         private Dictionary<string, string> aliases = null;
 

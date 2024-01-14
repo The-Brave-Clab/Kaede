@@ -9,7 +9,7 @@ namespace Y3ADV
         {
         }
 
-        public override bool ShouldWait => true;
+        public override bool SyncExecution => true;
         public override IEnumerator Execute()
         {
             string functionName = Arg(1, "");

@@ -19,7 +19,7 @@ namespace Y3ADV
             actorEntity = FindEntity<Y3Live2DModelController>(originalArgs[1]);
         }
 
-        public override bool ShouldWait => wait;
+        public override bool SyncExecution => wait;
         public override IEnumerator Execute()
         {
             Vector3 pos = actorEntity.Position;

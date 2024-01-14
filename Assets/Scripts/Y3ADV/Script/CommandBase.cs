@@ -14,12 +14,12 @@ namespace Y3ADV
 
         protected Y3ScriptModule scriptModule = null;
 
-        public abstract bool ShouldWait
+        public abstract bool SyncExecution
         {
             get;
         }
 
-        public virtual bool ShouldForceImmediateExecution => false;
+        public virtual bool ImmediateExecution => false;
 
         public CommandBase(Y3ScriptModule module, string[] arguments)
         {

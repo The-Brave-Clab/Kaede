@@ -11,7 +11,7 @@ namespace Y3ADV
         {
         }
 
-        public override bool ShouldWait => false;
+        public override bool SyncExecution => false;
         public override IEnumerator Execute()
         {
             Y3Live2DManager.Instance.autoDeleteActor = Arg(1, false);

@@ -225,7 +225,7 @@ namespace Y3ADV
                     throw;
                 }
 
-                if (command.ShouldForceImmediateExecution)
+                if (command.ImmediateExecution)
                 {
                     command.MustWait().ForceImmediateExecution();
                     command.Execute().ForceImmediateExecution();
@@ -233,7 +233,7 @@ namespace Y3ADV
                 else
                 {
                     yield return command.MustWait().WithException();
-                    if (command.ShouldWait)
+                    if (command.SyncExecution)
                     {
                         yield return command.Execute().WithException();
                     }

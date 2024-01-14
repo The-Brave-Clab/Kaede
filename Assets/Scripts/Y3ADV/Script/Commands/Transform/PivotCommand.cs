@@ -16,7 +16,7 @@ namespace Y3ADV
             rectTransform = baseEntity.GetComponent<RectTransform>();
         }
 
-        public override bool ShouldWait => true;
+        public override bool SyncExecution => true;
         public override IEnumerator Execute()
         {
             float x = Arg(2, 0.0f);

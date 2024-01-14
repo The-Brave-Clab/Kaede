@@ -26,8 +26,8 @@ namespace Y3ADV
             wait = Arg(5, true);
         }
 
-        public override bool ShouldWait => wait;
-        public override bool ShouldForceImmediateExecution => !wait;
+        public override bool SyncExecution => wait;
+        public override bool ImmediateExecution => !wait;
 
         public override IEnumerator Execute()
         {

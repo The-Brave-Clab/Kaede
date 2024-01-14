@@ -19,8 +19,8 @@ namespace Y3ADV
             allEntities = Object.FindObjectsOfType<BaseEntity>().Where(c => c != targetController).ToArray();
         }
 
-        public override bool ShouldWait => false;
-        public override bool ShouldForceImmediateExecution => true;
+        public override bool SyncExecution => false;
+        public override bool ImmediateExecution => true;
         public override IEnumerator Execute()
         {
             foreach (var entity in allEntities)

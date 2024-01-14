@@ -20,7 +20,7 @@ namespace Y3ADV
             originalPosition = controller.Position;
         }
 
-        public override bool ShouldWait => wait;
+        public override bool SyncExecution => wait;
         
         public override IEnumerator Execute()
         {
