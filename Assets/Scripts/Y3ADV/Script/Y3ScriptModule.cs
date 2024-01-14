@@ -103,7 +103,6 @@ namespace Y3ADV
 
             statements = new List<string>();
             yield return PreprocessInclude(originalStatements, statements);
-            StartCoroutine(ExecuteCommands(statements));
         }
 
         public static List<string> GetStatementsFromScript(string script)
@@ -191,9 +190,10 @@ namespace Y3ADV
             Application.runInBackground = true;
         }
 
-        private void Start()
+        private IEnumerator Start()
         {
-            StartCoroutine(Load());
+            yield return Load();
+            StartCoroutine(ExecuteCommands(statements));
         }
 
         public IEnumerator ExecuteCommands(List<string> statementsList)
