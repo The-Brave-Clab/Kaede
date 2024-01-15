@@ -20,7 +20,7 @@ namespace Y3ADV
         public List<ActorState> actors;
         public List<CommonResourceState> sprites;
         public List<CommonResourceState> backgrounds;
-        // Still
+        public List<CommonResourceState> stills;
         // Caption
         // Message Box
         // Fade

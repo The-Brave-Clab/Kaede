@@ -538,7 +538,8 @@ namespace Y3ADV
 
                 actors = Y3Live2DManager.AllControllers.Select(c => c.GetState()).ToList(),
                 sprites = UIManager.Instance.spriteWrapper.GetComponentsInChildren<SpriteImage>().Select(s => s.GetState()).ToList(),
-                backgrounds = UIManager.Instance.backgroundCanvas.GetComponentsInChildren<BackgroundImage>().Select(b => b.GetState()).ToList()
+                backgrounds = UIManager.Instance.backgroundCanvas.GetComponentsInChildren<BackgroundImage>().Select(b => b.GetState()).ToList(),
+                stills = UIManager.Instance.stillCanvas.GetComponentsInChildren<BackgroundImage>().Select(b => b.GetState()).ToList(),
             };
         }
 
@@ -546,85 +547,81 @@ namespace Y3ADV
         {
             Stop();
 
-            foreach (var o in Y3Live2DManager.Wrapper)
+            void CleanAndRestoreStates<T>(Transform parent, List<T> states, Func<T, IEnumerator> restoreState)
+                where T : struct
             {
-                Transform t = (Transform) o;
-                Destroy(t.gameObject);
+                foreach (var o in parent)
+                {
+                    Transform t = (Transform) o;
+                    Destroy(t.gameObject);
+                }
+
+                if (states == null) return;
+
+                foreach (var s in states)
+                {
+                    GameManager.AddCoroutine(restoreState(s));
+                }
             }
 
-            foreach (var actorState in state.actors)
+            IEnumerator RestoreActorState(ActorState actorState)
             {
-                IEnumerator RestoreActorState(ActorState state)
-                {
-                    Y3Live2DModelController controller = null;
+                Y3Live2DModelController controller = null;
 
-                    var loadedController = Y3Live2DManager.LoadedControllers.FirstOrDefault(c => c.modelName == state.name);
-                    if (loadedController == null)
+                var loadedController = Y3Live2DManager.LoadedControllers.FirstOrDefault(c => c.modelName == actorState.name);
+                if (loadedController == null)
+                {
+                    Debug.LogError($"Cannot find actor {actorState.name}!");
+                    yield break;
+                }
+                Y3Live2DManager.CloneLoadedModel(loadedController, clonedController => controller = clonedController);
+
+                yield return controller.RestoreState(actorState);
+            }
+            IEnumerator RestoreSpriteState(CommonResourceState spriteState)
+            {
+                GameObject spriteObject = null;
+                SpriteImage entity = null;
+                yield return SpriteCommand.LoadSprite(spriteState.resourceName,
+                    texture2D =>
                     {
-                        Debug.LogError($"Cannot find actor {state.name}!");
-                        yield break;
-                    }
-                    Y3Live2DManager.CloneLoadedModel(loadedController, clonedController => controller = clonedController);
-
-                    yield return controller.RestoreState(state);
-                }
-
-                GameManager.AddCoroutine(RestoreActorState(actorState));
-            }
-
-            foreach (var o in UIManager.Instance.spriteWrapper)
-            {
-                Transform t = (Transform) o;
-                Destroy(t.gameObject);
-            }
-
-            if (state.sprites != null)
-            {
-                IEnumerator RestoreSpriteState(CommonResourceState spriteState)
-                {
-                    GameObject spriteObject = null;
-                    SpriteImage entity = null;
-                    yield return SpriteCommand.LoadSprite(spriteState.resourceName,
-                        texture2D =>
-                        {
-                            spriteObject = UIManager.Instance.Sprite(texture2D, spriteState.name, spriteState.resourceName);
-                            entity = spriteObject.GetComponent<SpriteImage>();
-                        });
+                        spriteObject = UIManager.Instance.Sprite(texture2D, spriteState.name, spriteState.resourceName);
+                        entity = spriteObject.GetComponent<SpriteImage>();
+                    });
                     
-                    yield return entity.RestoreState(spriteState);
-                }
-                foreach (var spriteState in state.sprites)
-                {
-                    GameManager.AddCoroutine(RestoreSpriteState(spriteState));
-                }
+                yield return entity.RestoreState(spriteState);
             }
-
-            foreach (var o in UIManager.Instance.backgroundCanvas)
+            IEnumerator RestoreBackgroundState(CommonResourceState backgroundState)
             {
-                Transform t = (Transform) o;
-                Destroy(t.gameObject);
-            }
-
-            if (state.backgrounds != null)
-            {
-                IEnumerator RestoreBackgroundState(CommonResourceState backgroundState)
-                {
-                    GameObject backgroundObject = null;
-                    BackgroundImage entity = null;
-                    yield return BGCommand.LoadBackground(backgroundState.resourceName,
-                        texture2D =>
-                        {
-                            backgroundObject = UIManager.Instance.Background(texture2D, backgroundState.name, backgroundState.resourceName);
-                            entity = backgroundObject.GetComponent<BackgroundImage>();
-                        });
+                GameObject backgroundObject = null;
+                BackgroundImage entity = null;
+                yield return BGCommand.LoadBackground(backgroundState.resourceName,
+                    texture2D =>
+                    {
+                        backgroundObject = UIManager.Instance.Background(texture2D, backgroundState.name, backgroundState.resourceName);
+                        entity = backgroundObject.GetComponent<BackgroundImage>();
+                    });
                     
-                    yield return entity.RestoreState(backgroundState);
-                }
-                foreach (var backgroundState in state.backgrounds)
-                {
-                    GameManager.AddCoroutine(RestoreBackgroundState(backgroundState));
-                }
+                yield return entity.RestoreState(backgroundState);
             }
+            IEnumerator RestoreStillState(CommonResourceState stillState)
+            {
+                GameObject stillObject = null;
+                BackgroundImage entity = null;
+                yield return StillCommand.LoadStill(GameManager.ScriptName, stillState.resourceName,
+                    texture2D =>
+                    {
+                        stillObject = UIManager.Instance.Still(texture2D, stillState.name, stillState.resourceName);
+                        entity = stillObject.GetComponent<BackgroundImage>();
+                    });
+                    
+                yield return entity.RestoreState(stillState);
+            }
+
+            CleanAndRestoreStates(Y3Live2DManager.Wrapper, state.actors, RestoreActorState);
+            CleanAndRestoreStates(UIManager.Instance.spriteWrapper, state.sprites, RestoreSpriteState);
+            CleanAndRestoreStates(UIManager.Instance.backgroundCanvas, state.backgrounds, RestoreBackgroundState);
+            CleanAndRestoreStates(UIManager.Instance.stillCanvas, state.stills, RestoreStillState);
 
             yield return new WaitUntil(GameManager.AllCoroutineFinished);
 

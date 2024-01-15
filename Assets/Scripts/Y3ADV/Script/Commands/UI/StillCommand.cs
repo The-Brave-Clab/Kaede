@@ -30,7 +30,7 @@ namespace Y3ADV
             yield return LoadStill(GameManager.ScriptName, still, 
                 texture2D =>
                 {
-                    createdObject = UIManager.Instance.Still(texture2D, stillAlias);
+                    createdObject = UIManager.Instance.Still(texture2D, stillAlias, still);
                     createdObject.SetActive(false);
                 });
         }

@@ -133,12 +133,13 @@ namespace Y3ADV
             return result;
         }
 
-        public GameObject Still(Texture2D texture, string name)
+        public GameObject Still(Texture2D texture, string name, string resourceName)
         {
             GameObject result = Instantiate(stillPrefab, stillCanvas);
             result.name = name;
             BackgroundImage image = result.GetComponent<BackgroundImage>();
             image.image.texture = texture;
+            image.resourceName = resourceName;
             return result;
         }
 
