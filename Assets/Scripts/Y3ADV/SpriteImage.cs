@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace Y3ADV
 {
-    public class SpriteImage : BaseEntity, IStateSavable<SpriteState>
+    public class SpriteImage : BaseEntity, IStateSavable<CommonResourceState>
     {
         public string resourceName;
 
@@ -40,7 +40,7 @@ namespace Y3ADV
             return result;
         }
 
-        public SpriteState GetState()
+        public CommonResourceState GetState()
         {
             return new()
             {
@@ -51,7 +51,7 @@ namespace Y3ADV
             };
         }
 
-        public IEnumerator RestoreState(SpriteState state)
+        public IEnumerator RestoreState(CommonResourceState state)
         {
             if (name != state.name || resourceName != state.resourceName)
             {

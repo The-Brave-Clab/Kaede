@@ -538,6 +538,7 @@ namespace Y3ADV
 
                 actors = Y3Live2DManager.AllControllers.Select(c => c.GetState()).ToList(),
                 sprites = UIManager.Instance.spriteWrapper.GetComponentsInChildren<SpriteImage>().Select(s => s.GetState()).ToList(),
+                backgrounds = UIManager.Instance.backgroundCanvas.GetComponentsInChildren<BackgroundImage>().Select(b => b.GetState()).ToList()
             };
         }
 
@@ -579,7 +580,7 @@ namespace Y3ADV
 
             if (state.sprites != null)
             {
-                IEnumerator RestoreSpriteState(SpriteState spriteState)
+                IEnumerator RestoreSpriteState(CommonResourceState spriteState)
                 {
                     GameObject spriteObject = null;
                     SpriteImage entity = null;
@@ -595,6 +596,33 @@ namespace Y3ADV
                 foreach (var spriteState in state.sprites)
                 {
                     GameManager.AddCoroutine(RestoreSpriteState(spriteState));
+                }
+            }
+
+            foreach (var o in UIManager.Instance.backgroundCanvas)
+            {
+                Transform t = (Transform) o;
+                Destroy(t.gameObject);
+            }
+
+            if (state.backgrounds != null)
+            {
+                IEnumerator RestoreBackgroundState(CommonResourceState backgroundState)
+                {
+                    GameObject backgroundObject = null;
+                    BackgroundImage entity = null;
+                    yield return BGCommand.LoadBackground(backgroundState.resourceName,
+                        texture2D =>
+                        {
+                            backgroundObject = UIManager.Instance.Background(texture2D, backgroundState.name, backgroundState.resourceName);
+                            entity = backgroundObject.GetComponent<BackgroundImage>();
+                        });
+                    
+                    yield return entity.RestoreState(backgroundState);
+                }
+                foreach (var backgroundState in state.backgrounds)
+                {
+                    GameManager.AddCoroutine(RestoreBackgroundState(backgroundState));
                 }
             }
 

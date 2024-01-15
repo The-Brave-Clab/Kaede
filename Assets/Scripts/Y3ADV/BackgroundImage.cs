@@ -8,8 +8,10 @@ using UnityEngine.UI;
 namespace Y3ADV
 {
     [ExecuteInEditMode]
-    public class BackgroundImage : BaseEntity
+    public class BackgroundImage : BaseEntity, IStateSavable<CommonResourceState>
     {
+        public string resourceName;
+
         public RawImage image = null;
         private RectTransform canvas = null;
         protected override void Awake()
@@ -78,6 +80,27 @@ namespace Y3ADV
         public override void SetColor(Color color)
         {
             image.color = color;
+        }
+
+        public CommonResourceState GetState()
+        {
+            return new()
+            {
+                name = gameObject.name,
+                resourceName = resourceName,
+                transform = GetTransformState()
+            };
+        }
+
+        public IEnumerator RestoreState(CommonResourceState state)
+        {
+            if (name != state.name || resourceName != state.resourceName)
+            {
+                Debug.LogError("Applying state to wrong background!");
+                yield break;
+            }
+
+            RestoreTransformState(state.transform);
         }
     }
 }

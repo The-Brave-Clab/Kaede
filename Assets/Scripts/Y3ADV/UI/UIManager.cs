@@ -121,7 +121,7 @@ namespace Y3ADV
         }
 #endif
 
-        public GameObject Background(Texture2D texture, string name)
+        public GameObject Background(Texture2D texture, string name, string resourceName)
         {
             GameObject findResult = GameObject.Find(name);
             if (findResult != null) return findResult;
@@ -129,6 +129,7 @@ namespace Y3ADV
             result.name = name;
             BackgroundImage image = result.GetComponent<BackgroundImage>();
             image.image.texture = texture;
+            image.resourceName = resourceName;
             return result;
         }
 

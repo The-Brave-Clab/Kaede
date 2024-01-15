@@ -30,7 +30,7 @@ namespace Y3ADV
             yield return LoadBackground(bg,
                 texture2D =>
                 {
-                    createdObject = UIManager.Instance.Background(texture2D, bgAlias);
+                    createdObject = UIManager.Instance.Background(texture2D, bgAlias, bg);
                     createdObject.SetActive(false);
                 });
         }

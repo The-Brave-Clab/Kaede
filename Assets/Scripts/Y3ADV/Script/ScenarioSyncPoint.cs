@@ -18,8 +18,8 @@ namespace Y3ADV
         public int currentStatementIndex;
 
         public List<ActorState> actors;
-        public List<SpriteState> sprites;
-        // Backgrounds
+        public List<CommonResourceState> sprites;
+        public List<CommonResourceState> backgrounds;
         // Still
         // Caption
         // Message Box
@@ -63,7 +63,7 @@ namespace Y3ADV
     }
 
     [Serializable]
-    public struct SpriteState
+    public struct CommonResourceState
     {
         public string name;
         public string resourceName;
