@@ -1,9 +1,10 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
 namespace Y3ADV
 {
-    public class MessageBox : MonoBehaviour
+    public class MessageBox : MonoBehaviour, IStateSavable<MessageBoxState>
     {
         public RectTransform rectTransform;
         public TextMeshProUGUI nameTag;
@@ -83,5 +84,24 @@ namespace Y3ADV
 
 
         public bool IsCompleteDisplayText => Time.time > timeStarted + displayTime;
+
+        public MessageBoxState GetState()
+        {
+            return new()
+            {
+                enabled = gameObject.activeSelf,
+                speaker = nameTag.text,
+                message = currentText.PlainText
+            };
+        }
+
+        public IEnumerator RestoreState(MessageBoxState state)
+        {
+            gameObject.SetActive(state.enabled);
+            nameTag.text = state.speaker;
+            SetText(state.message);
+            SkipDisplay();
+            yield return null;
+        }
     }
 }

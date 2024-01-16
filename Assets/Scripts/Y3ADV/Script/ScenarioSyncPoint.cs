@@ -22,7 +22,7 @@ namespace Y3ADV
         public List<CommonResourceState> backgrounds;
         public List<CommonResourceState> stills;
         public CaptionState caption;
-        // Message Box
+        public MessageBoxState messageBox;
         // Fade
         // BGM
     }
@@ -78,5 +78,13 @@ namespace Y3ADV
         public Color boxColor;
         public string text;
         public float textAlpha;
+    }
+
+    [Serializable]
+    public struct MessageBoxState
+    {
+        public bool enabled;
+        public string speaker;
+        public string message;
     }
 }
