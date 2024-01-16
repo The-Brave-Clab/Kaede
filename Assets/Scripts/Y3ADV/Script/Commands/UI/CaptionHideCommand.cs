@@ -19,17 +19,17 @@ namespace Y3ADV
         public override bool SyncExecution => wait;
         public override IEnumerator Execute()
         {
-            var captionBG = UIManager.Instance.captionBox;
+            var captionBox = UIManager.Instance.captionBox;
 
             if (duration <= 0)
             {
-                var color = captionBG.color;
+                var color = captionBox.box.color;
                 color.a = 0;
-                captionBG.color = color;
+                captionBox.box.color = color;
 
-                color = UIManager.Instance.caption.color;
+                color = UIManager.Instance.captionBox.text.color;
                 color.a = 0;
-                UIManager.Instance.caption.color = color;
+                UIManager.Instance.captionBox.text.color = color;
 
                 UIManager.Instance.captionBox.gameObject.SetActive(false);
                 
@@ -40,13 +40,13 @@ namespace Y3ADV
             seq.Append(DOVirtual.Float(1, 0, duration,
                 value =>
                 {
-                    var color = captionBG.color;
+                    var color = captionBox.box.color;
                     color.a = value;
-                    captionBG.color = color;
+                    captionBox.box.color = color;
 
-                    color = UIManager.Instance.caption.color;
+                    color = UIManager.Instance.captionBox.text.color;
                     color.a = value;
-                    UIManager.Instance.caption.color = color;
+                    UIManager.Instance.captionBox.text.color = color;
                 }));
             seq.OnComplete(() => UIManager.Instance.captionBox.gameObject.SetActive(false));
 

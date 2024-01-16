@@ -29,7 +29,7 @@ namespace Y3ADV
                 UIManager.Instance.CaptionDefaultColor = newColor;
             }
             
-            UIManager.Instance.captionBox.color = newColor;
+            UIManager.Instance.captionBox.box.color = newColor;
             
             yield return null;
         }

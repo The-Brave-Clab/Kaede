@@ -27,32 +27,32 @@ namespace Y3ADV
         {
             // TODO: We ignore the resource name, since there's no two captions appear at the same time FOR NOW.
             string caption = args[1].Split(':')[1];
-            UIManager.Instance.caption.text = caption;
-            UIManager.Instance.caption.fontSize = fontSize;
+            UIManager.Instance.captionBox.text.text = caption;
+            UIManager.Instance.captionBox.text.fontSize = fontSize;
 
 #if WEBGL_BUILD
             WebGLInterops.OnMessageCommand("caption", "caption", caption);
 #endif
 
-            var captionBG = UIManager.Instance.captionBox;
+            var captionBox = UIManager.Instance.captionBox;
             
             var colorStart = UIManager.Instance.CaptionDefaultColor;
             colorStart.a = 0;
-            captionBG.color = colorStart;
+            captionBox.box.color = colorStart;
 
-            colorStart = UIManager.Instance.caption.color;
+            colorStart = UIManager.Instance.captionBox.text.color;
             colorStart.a = 0;
-            UIManager.Instance.caption.color = colorStart;
+            UIManager.Instance.captionBox.text.color = colorStart;
 
             UIManager.Instance.captionBox.gameObject.SetActive(true);
 
             if (duration <= 0)
             {
-                captionBG.color = UIManager.Instance.CaptionDefaultColor;
+                captionBox.box.color = UIManager.Instance.CaptionDefaultColor;
 
-                var color = UIManager.Instance.caption.color;
+                var color = UIManager.Instance.captionBox.text.color;
                 color.a = 1;
-                UIManager.Instance.caption.color = color;
+                UIManager.Instance.captionBox.text.color = color;
                 
                 yield break;
             }
@@ -61,13 +61,13 @@ namespace Y3ADV
             seq.Append(DOVirtual.Float(0, 1, duration,
                 value =>
                 {
-                    if (captionBG == null) return;
+                    if (captionBox == null) return;
 
-                    captionBG.color = UIManager.Instance.CaptionDefaultColor;
+                    captionBox.box.color = UIManager.Instance.CaptionDefaultColor;
 
-                    var color = UIManager.Instance.caption.color;
+                    var color = UIManager.Instance.captionBox.text.color;
                     color.a = value;
-                    UIManager.Instance.caption.color = color;
+                    UIManager.Instance.captionBox.text.color = color;
                 }));
             yield return seq.WaitForCompletion();
         }

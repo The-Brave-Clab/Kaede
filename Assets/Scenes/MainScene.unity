@@ -1841,8 +1841,7 @@ MonoBehaviour:
   nameTag: {fileID: 1269126635}
   messagePanel: {fileID: 963675978}
   message: {fileID: 963675979}
-  captionBox: {fileID: 1641759105}
-  caption: {fileID: 1940523086}
+  captionBox: {fileID: 1641759106}
   contentCanvas: {fileID: 494067609}
   loadingCanvas: {fileID: 1751035622}
   actorCanvas: {fileID: 44813286}
@@ -5764,6 +5763,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b0ae505f77433044ae490ef7e03d775, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentStatementIndex: 0
   lipSync: 1
   lipSyncScale: 128
 --- !u!4 &1181441050
@@ -6888,6 +6888,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1940523086}
+  box: {fileID: 1641759105}
 --- !u!1 &1704298523
 GameObject:
   m_ObjectHideFlags: 0

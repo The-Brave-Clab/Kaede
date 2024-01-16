@@ -540,6 +540,7 @@ namespace Y3ADV
                 sprites = UIManager.Instance.spriteWrapper.GetComponentsInChildren<SpriteImage>().Select(s => s.GetState()).ToList(),
                 backgrounds = UIManager.Instance.backgroundCanvas.GetComponentsInChildren<BackgroundImage>().Select(b => b.GetState()).ToList(),
                 stills = UIManager.Instance.stillCanvas.GetComponentsInChildren<BackgroundImage>().Select(b => b.GetState()).ToList(),
+                caption = UIManager.Instance.captionBox.GetState(),
             };
         }
 
@@ -622,6 +623,7 @@ namespace Y3ADV
             CleanAndRestoreStates(UIManager.Instance.spriteWrapper, state.sprites, RestoreSpriteState);
             CleanAndRestoreStates(UIManager.Instance.backgroundCanvas, state.backgrounds, RestoreBackgroundState);
             CleanAndRestoreStates(UIManager.Instance.stillCanvas, state.stills, RestoreStillState);
+            GameManager.AddCoroutine(UIManager.Instance.captionBox.RestoreState(state.caption));
 
             yield return new WaitUntil(GameManager.AllCoroutineFinished);
 

@@ -21,7 +21,7 @@ namespace Y3ADV
         public List<CommonResourceState> sprites;
         public List<CommonResourceState> backgrounds;
         public List<CommonResourceState> stills;
-        // Caption
+        public CaptionState caption;
         // Message Box
         // Fade
         // BGM
@@ -69,5 +69,14 @@ namespace Y3ADV
         public string resourceName;
 
         public EntityTransform transform;
+    }
+
+    [Serializable]
+    public struct CaptionState
+    {
+        public bool enabled;
+        public Color boxColor;
+        public string text;
+        public float textAlpha;
     }
 }

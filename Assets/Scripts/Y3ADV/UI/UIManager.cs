@@ -15,9 +15,8 @@ namespace Y3ADV
         public TextMeshProUGUI messagePanel;
         public MessageBox message;
 
-        [Header("Caption")] 
-        public Image captionBox;
-        public TextMeshProUGUI caption;
+        [Header("Caption")]
+        public CaptionBox captionBox;
 
         [Header("Sub-Canvas")] 
         public RectTransform contentCanvas;
