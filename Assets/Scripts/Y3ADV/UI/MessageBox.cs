@@ -3,9 +3,13 @@ using UnityEngine;
 
 namespace Y3ADV
 {
-    [RequireComponent(typeof(TextMeshProUGUI))]
     public class MessageBox : MonoBehaviour
     {
+        public RectTransform rectTransform;
+        public TextMeshProUGUI nameTag;
+        public TextMeshProUGUI messagePanel;
+        public Breathe nextMessageIndicator;
+
         private RichText _currentText;
 
         private RichText currentText
@@ -14,26 +18,12 @@ namespace Y3ADV
             set => _currentText = value;
         }
 
-        private TextMeshProUGUI _uiText;
-
-        private TextMeshProUGUI uiText
-        {
-            get
-            {
-                if (_uiText == null)
-                    _uiText = GetComponent<TextMeshProUGUI>();
-                return _uiText;
-            }
-        }
-
-        public string displayText => uiText.text;
+        public string displayText => messagePanel.text;
 
         private float timeStarted = 1f;
         private float displayTime;
         private bool finished;
         private int lastCharacterIndex = -1;
-        
-        public Breathe NextMessageIndicator;
 
         public void SetText(string text)
         {
@@ -44,22 +34,22 @@ namespace Y3ADV
             timeStarted = Time.time;
             lastCharacterIndex = -1;
             finished = false;
-            uiText.text = string.Empty;
-            uiText.lineSpacing = 1f - 38f; //SingletonMonoBehaviour<ScenarioConfig>.Instance.messageLineSpacing;
+            messagePanel.text = string.Empty;
+            messagePanel.lineSpacing = 1f - 38f; //SingletonMonoBehaviour<ScenarioConfig>.Instance.messageLineSpacing;
 
-            NextMessageIndicator.gameObject.SetActive(false);
+            nextMessageIndicator.gameObject.SetActive(false);
         }
 
         public void EnterAutoMode()
         {
-            NextMessageIndicator.gameObject.SetActive(false);
+            nextMessageIndicator.gameObject.SetActive(false);
         }
 
         public void ExitAutoMode()
         {
             if (IsCompleteDisplayText)
             {
-                NextMessageIndicator.gameObject.SetActive(true);
+                nextMessageIndicator.gameObject.SetActive(true);
             }
         }
 
@@ -78,7 +68,7 @@ namespace Y3ADV
             int characterIndex = (int) (Mathf.Clamp01((Time.time - timeStarted) / displayTime) * currentText.Length);
             if (characterIndex != lastCharacterIndex)
             {
-                uiText.text = currentText.Length == 0 ? string.Empty : currentText.Substring(0, characterIndex);
+                messagePanel.text = currentText.Length == 0 ? string.Empty : currentText.Substring(0, characterIndex);
                 lastCharacterIndex = characterIndex;
             }
 
@@ -86,8 +76,8 @@ namespace Y3ADV
             {
                 finished = true;
                 
-                if (!Y3ScriptModule.InstanceInScene.autoMode && !string.IsNullOrEmpty(uiText.text))
-                    NextMessageIndicator.gameObject.SetActive(true);
+                if (!Y3ScriptModule.InstanceInScene.autoMode && !string.IsNullOrEmpty(messagePanel.text))
+                    nextMessageIndicator.gameObject.SetActive(true);
             }
         }
 

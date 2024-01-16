@@ -38,8 +38,8 @@ namespace Y3ADV
             //Debug.Log(name != "" ? $"{name}: {message}" : message);
 
             UIManager.Instance.messageBox.gameObject.SetActive(true);
-            UIManager.Instance.message.SetText(message);
-            UIManager.Instance.nameTag.text = name;
+            UIManager.Instance.messageBox.SetText(message);
+            UIManager.Instance.messageBox.nameTag.text = name;
             
 #if WEBGL_BUILD
             WebGLInterops.OnMessageCommand(name, soundName, message);
@@ -56,7 +56,7 @@ namespace Y3ADV
 
             while (scriptModule.paused || !scriptModule.autoMode || 
                    SoundManager.Instance.IsVoicePlaying() ||
-                   !UIManager.Instance.message.IsCompleteDisplayText || time < 1.0f)
+                   !UIManager.Instance.messageBox.IsCompleteDisplayText || time < 1.0f)
             {
                 if (scriptModule.lipSync)
                 {
@@ -66,15 +66,15 @@ namespace Y3ADV
 
                 if (scriptModule.ShouldSkipMesCommand)
                 {
-                    if (UIManager.Instance.message.IsCompleteDisplayText)
+                    if (UIManager.Instance.messageBox.IsCompleteDisplayText)
                         break;
-                    UIManager.Instance.message.SkipDisplay();
+                    UIManager.Instance.messageBox.SkipDisplay();
                     scriptModule.ShouldSkipMesCommand = false;
                 }
 
                 yield return null;
                 
-                if (UIManager.Instance.message.IsCompleteDisplayText)
+                if (UIManager.Instance.messageBox.IsCompleteDisplayText)
                     time += Time.deltaTime;
 
                 if (StartupSettings.TestMode)

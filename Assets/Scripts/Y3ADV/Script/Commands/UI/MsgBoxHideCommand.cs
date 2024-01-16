@@ -14,8 +14,8 @@ namespace Y3ADV
         public override IEnumerator Execute()
         {
             UIManager.Instance.messageBox.gameObject.SetActive(false);
-            UIManager.Instance.nameTag.text = "";
-            UIManager.Instance.message.SetText("");
+            UIManager.Instance.messageBox.nameTag.text = "";
+            UIManager.Instance.messageBox.SetText("");
             yield return null;
         }
     }

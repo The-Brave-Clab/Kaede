@@ -9,13 +9,8 @@ namespace Y3ADV
 {
     public class UIManager : SingletonMonoBehaviour<UIManager>
     {
-        [Header("Message Box")] 
-        public RectTransform messageBox;
-        public TextMeshProUGUI nameTag;
-        public TextMeshProUGUI messagePanel;
-        public MessageBox message;
-
-        [Header("Caption")]
+        [Header("UI Elements")] 
+        public MessageBox messageBox;
         public CaptionBox captionBox;
 
         [Header("Sub-Canvas")] 
@@ -163,7 +158,7 @@ namespace Y3ADV
 
         public void ToggleMsgBoxShowHide()
         {
-            if (!string.IsNullOrEmpty(message.displayText))
+            if (!string.IsNullOrEmpty(messageBox.displayText))
                 messageBox.gameObject.SetActive(!messageBox.gameObject.activeSelf);
         }
 
@@ -199,8 +194,8 @@ namespace Y3ADV
 
         public static Vector2 MessageBoxPos
         {
-            get => Instance.messageBox.anchoredPosition * -1;
-            set => Instance.messageBox.anchoredPosition = value * -1.0f;
+            get => Instance.messageBox.rectTransform.anchoredPosition * -1;
+            set => Instance.messageBox.rectTransform.anchoredPosition = value * -1.0f;
         }
     }
 }
