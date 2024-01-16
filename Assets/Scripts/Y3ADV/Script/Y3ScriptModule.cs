@@ -543,6 +543,7 @@ namespace Y3ADV
                 caption = UIManager.Instance.captionBox.GetState(),
                 messageBox = UIManager.Instance.messageBox.GetState(),
                 fadeInProgress = UIManager.Instance.fade.GetState(),
+                audio = SoundManager.Instance.GetState()
             };
         }
 
@@ -628,6 +629,7 @@ namespace Y3ADV
             GameManager.AddCoroutine(UIManager.Instance.captionBox.RestoreState(state.caption));
             GameManager.AddCoroutine(UIManager.Instance.messageBox.RestoreState(state.messageBox));
             GameManager.AddCoroutine(UIManager.Instance.fade.RestoreState(state.fadeInProgress));
+            GameManager.AddCoroutine(SoundManager.Instance.RestoreState(state.audio));
 
             yield return new WaitUntil(GameManager.AllCoroutineFinished);
 

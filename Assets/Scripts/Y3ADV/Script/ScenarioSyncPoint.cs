@@ -24,7 +24,7 @@ namespace Y3ADV
         public CaptionState caption;
         public MessageBoxState messageBox;
         public float fadeInProgress;
-        // BGM
+        public AudioState audio;
     }
 
     [Serializable]
@@ -86,5 +86,13 @@ namespace Y3ADV
         public bool enabled;
         public string speaker;
         public string message;
+    }
+
+    [Serializable]
+    public struct AudioState
+    {
+        public bool bgmPlaying;
+        public string bgmName;
+        public float bgmVolume;
     }
 }

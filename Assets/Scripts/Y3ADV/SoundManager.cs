@@ -10,7 +10,7 @@ using UnityEngine.Networking;
 
 namespace Y3ADV
 {
-    public class SoundManager : SingletonMonoBehaviour<SoundManager>
+    public class SoundManager : SingletonMonoBehaviour<SoundManager>, IStateSavable<AudioState>
     {
         public List<AudioSource> SESources = null;
         public AudioSource BGMSource = null;
@@ -25,6 +25,8 @@ namespace Y3ADV
         private float currentBGMVolume = 1.0f;
         private float currentVoiceVolume = 1.0f;
         private float currentSEVolume = 1.0f;
+
+        private string currentBGM = "";
 
         private float masterVolume = 1.0f;
         private float bgmVolume = 1.0f;
@@ -411,6 +413,7 @@ namespace Y3ADV
             }
 
             AudioClip bgm = LoadedBGM[bgmName];
+            currentBGM = bgmName;
 
             Play(bgm);
         }
@@ -420,13 +423,16 @@ namespace Y3ADV
             if (duration <= 0)
             {
                 BGMSource.Stop();
+                currentBGM = "";
                 return;
             }
 
             StartCoroutine(Fade(SoundType.BGM, duration, currentBGMVolume, 0,
                 () =>
                 {
-                    if (BGMSource != null) BGMSource.Stop();
+                    if (BGMSource == null) return;
+                    BGMSource.Stop();
+                    currentBGM = "";
                 }));
         }
 
@@ -544,5 +550,41 @@ namespace Y3ADV
             }
         }
 #endif
+        public AudioState GetState()
+        {
+            return new()
+            {
+                bgmPlaying = IsBGMPlaying(),
+                bgmName = currentBGM,
+                bgmVolume = currentBGMVolume
+            };
+        }
+
+        public IEnumerator RestoreState(AudioState state)
+        {
+            if (state.bgmPlaying)
+            {
+                if (state.bgmName != currentBGM)
+                {
+                    PlayBGM(state.bgmName, state.bgmVolume);
+                }
+                else
+                {
+                    BGMSource.volume = state.bgmVolume;
+                }
+            }
+            else
+            {
+                StopBGM(0);
+            }
+
+            StopVoice();
+            foreach (var se in PlayingSE)
+            {
+                StopSE(se.Key, 0);
+            }
+
+            yield break;
+        }
     }
 }
