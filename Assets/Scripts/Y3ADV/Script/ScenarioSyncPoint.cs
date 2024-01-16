@@ -23,7 +23,7 @@ namespace Y3ADV
         public List<CommonResourceState> stills;
         public CaptionState caption;
         public MessageBoxState messageBox;
-        // Fade
+        public float fadeInProgress;
         // BGM
     }
 

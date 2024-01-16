@@ -6,7 +6,7 @@ namespace Y3ADV
 {
     [ExecuteAlways]
     [RequireComponent(typeof(RectTransform))]
-    public class FadeTransition : MonoBehaviour
+    public class FadeTransition : MonoBehaviour, IStateSavable<float>
     {
         [Range(0, 1)] 
         public float progress = 1;
@@ -39,6 +39,17 @@ namespace Y3ADV
             ((RectTransform) transform).offsetMax = new Vector2(right, 0);
             //transition.anchoredPosition = new Vector2(transitionLeft, blackPadding.anchoredPosition.y);
             //blackPadding.offsetMax = new Vector2(blackRight, blackPadding.offsetMax.y);
+        }
+
+        public float GetState()
+        {
+            return progress;
+        }
+
+        public IEnumerator RestoreState(float state)
+        {
+            progress = state;
+            yield break;
         }
     }
 }
