@@ -82,17 +82,5 @@ namespace Y3ADV
 
             return realStatements;
         }
-
-        public IEnumerator Execute(List<string> parameterValues)
-        {
-            var realStatements = GetStatements(parameterValues);
-
-            if (realStatements == null)
-                yield break;
-
-            yield return scriptModule.StartCoroutine(scriptModule.ExecuteCommands(realStatements));
-
-            yield return null;
-        }
     }
 }

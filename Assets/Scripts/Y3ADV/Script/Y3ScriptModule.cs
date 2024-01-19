@@ -13,6 +13,7 @@ namespace Y3ADV
     public class Y3ScriptModule : MonoBehaviour, IStateSavable<ScenarioSyncPoint>
     {
         private List<string> statements = null;
+        private List<ScenarioSyncPoint> syncPoints = null;
 
         private string currentStatement;
         public string CurrentStatement => string.IsNullOrEmpty(currentStatement) ? "" : currentStatement;
@@ -95,7 +96,7 @@ namespace Y3ADV
             onLoaded?.Invoke(script);
         }
 
-        public static List<string> GetStatementsFromScript(string script)
+        private static List<string> GetStatementsFromScript(string script)
         {
             var lines = script.Split('\n', '\r');
             List<string> result = new List<string>(lines.Length);
@@ -220,21 +221,56 @@ namespace Y3ADV
             yield return null;
         }
 
-        public CommandBase ParseCommand(string statement)
+        private IEnumerator PreprocessAliasesAndVariables(List<string> statements)
         {
-            string[] args = statement.Split(new[] {'\t'}, StringSplitOptions.None);
-            string command = args[0];
+            foreach (var s in statements)
+            {
+                if (s.StartsWith("alias_text"))
+                {
+                    if (ParseCommand(s) is AliasTextCommand command)
+                        yield return command.Execute();
+                }
+                else if (s.StartsWith("set"))
+                {
+                    if (ParseCommand(s) is SetCommand command)
+                        command.Execute().ForceImmediateExecution();
+                }
+            }
+        }
 
-            Type commandType = commandTypes.ContainsKey(command)
-                ? commandTypes[command]
-                : typeof(NotImplementedCommand);
-            CommandBase commandObj = (CommandBase) System.ComponentModel.TypeDescriptor.CreateInstance(
-                provider: null,
-                objectType: commandType,
-                argTypes: new[] {typeof(Y3ScriptModule), typeof(string)},
-                args: new object[] {this, args});
+        private void DryRun()
+        {
+            syncPoints = new List<ScenarioSyncPoint>();
+            foreach (var statement in statements)
+            {
+                ScenarioSyncPoint syncPoint = syncPoints.Count == 0 ? new() : syncPoints.Last().Copy();
+                CommandBase command = ParseCommand(statement);
+                command.DryRun(ref syncPoint);
+                syncPoints.Add(syncPoint.Copy());
+            }
+        }
 
-            return commandObj;
+        private CommandBase ParseCommand(string statement)
+        {
+            try
+            {
+                string[] args = statement.Split(new[] {'\t'}, StringSplitOptions.None);
+                string command = args[0];
+
+                Type commandType = commandTypes.TryGetValue(command, out var type) ? type : typeof(NotImplementedCommand);
+                CommandBase commandObj = (CommandBase) System.ComponentModel.TypeDescriptor.CreateInstance(
+                    provider: null,
+                    objectType: commandType,
+                    argTypes: new[] {typeof(Y3ScriptModule), typeof(string)},
+                    args: new object[] {this, args});
+
+                return commandObj;
+            }
+            catch (Exception ex)
+            {
+                Utils.SendBugNotification(ex.ToString());
+                throw;
+            }
         }
 
         private void Awake()
@@ -262,6 +298,8 @@ namespace Y3ADV
             yield return PreprocessInclude(originalStatements, includeFiles, statements);
 
             yield return PreprocessFunctions(statements, s => statements = s);
+            yield return PreprocessAliasesAndVariables(statements);
+            DryRun();
 
             StartFromIndex(0);
         }
@@ -278,7 +316,7 @@ namespace Y3ADV
             scenarioCoroutine = StartCoroutine(ExecuteCommands(statements));
         }
 
-        public IEnumerator ExecuteCommands(List<string> statementsList)
+        private IEnumerator ExecuteCommands(List<string> statementsList)
         {
 #if !WEBGL_BUILD
             var lastFrameCount = Time.frameCount;
@@ -286,22 +324,14 @@ namespace Y3ADV
             while (true)
             {
                 var statement = statementsList[currentStatementIndex];
+                ScenarioSyncPoint dryRunResult = syncPoints[currentStatementIndex - 1];
                 ++currentStatementIndex;
                 currentStatement = statement;
 #if !WEBGL_BUILD
                 Debug.Log($"[+{Time.frameCount - lastFrameCount}]\t{statement}");
                 lastFrameCount = Time.frameCount;
 #endif
-                CommandBase command;
-                try
-                {
-                    command = ParseCommand(statement);
-                }
-                catch (Exception ex)
-                {
-                    Utils.SendBugNotification(ex.ToString());
-                    throw;
-                }
+                CommandBase command = ParseCommand(statement);
 
                 if (command.ImmediateExecution)
                 {
@@ -314,6 +344,11 @@ namespace Y3ADV
                     if (command.SyncExecution)
                     {
                         yield return command.Execute().WithException();
+                        var runResult = GetState();
+                        if (!dryRunResult.Equals(runResult))
+                        {
+                            Debug.LogWarning("Scenario desynced!");
+                        }
                     }
                     else
                     {
@@ -542,7 +577,7 @@ namespace Y3ADV
                 stills = UIManager.Instance.stillCanvas.GetComponentsInChildren<BackgroundImage>().Select(b => b.GetState()).ToList(),
                 caption = UIManager.Instance.captionBox.GetState(),
                 messageBox = UIManager.Instance.messageBox.GetState(),
-                fadeInProgress = UIManager.Instance.fade.GetState(),
+                fade = UIManager.Instance.fade.GetState(),
                 audio = SoundManager.Instance.GetState()
             };
         }
@@ -628,7 +663,7 @@ namespace Y3ADV
             CleanAndRestoreStates(UIManager.Instance.stillCanvas, state.stills, RestoreStillState);
             GameManager.AddCoroutine(UIManager.Instance.captionBox.RestoreState(state.caption));
             GameManager.AddCoroutine(UIManager.Instance.messageBox.RestoreState(state.messageBox));
-            GameManager.AddCoroutine(UIManager.Instance.fade.RestoreState(state.fadeInProgress));
+            GameManager.AddCoroutine(UIManager.Instance.fade.RestoreState(state.fade));
             GameManager.AddCoroutine(SoundManager.Instance.RestoreState(state.audio));
 
             yield return new WaitUntil(GameManager.AllCoroutineFinished);

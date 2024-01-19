@@ -82,5 +82,10 @@ namespace Y3ADV
             yield return null;
         }
         public abstract IEnumerator Execute();
+
+        public virtual void DryRun(ref ScenarioSyncPoint state)
+        {
+            // Does nothing by default
+        }
     }
 }
