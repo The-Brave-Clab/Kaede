@@ -16,6 +16,7 @@ namespace Y3ADV
             UIManager.Instance.loadingCanvas.SetActive(false);
             yield return new WaitUntil(() => GameManager.CanPlay);
             GameManager.Play();
+            scriptModule.initialized = true;
 #if WEBGL_BUILD
             WebGLInterops.OnScenarioStarted();
 #endif

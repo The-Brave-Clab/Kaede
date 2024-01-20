@@ -37,6 +37,8 @@ namespace Y3ADV
 
         private Coroutine scenarioCoroutine = null;
 
+        public bool initialized;
+
         public bool ShouldSkipMesCommand
         {
             get
@@ -241,9 +243,11 @@ namespace Y3ADV
         private void DryRun()
         {
             syncPoints = new List<ScenarioSyncPoint>();
-            foreach (var statement in statements)
+            for (var i = 0; i < statements.Count; i++)
             {
-                ScenarioSyncPoint syncPoint = syncPoints.Count == 0 ? new() : syncPoints.Last().Copy();
+                var statement = statements[i];
+                ScenarioSyncPoint syncPoint = syncPoints.Count == 0 ? ScenarioSyncPoint.Default() : syncPoints.Last().Copy();
+                syncPoint.currentStatementIndex = i;
                 CommandBase command = ParseCommand(statement);
                 command.DryRun(ref syncPoint);
                 syncPoints.Add(syncPoint.Copy());
@@ -344,10 +348,13 @@ namespace Y3ADV
                     if (command.SyncExecution)
                     {
                         yield return command.Execute().WithException();
-                        var runResult = GetState();
-                        if (!dryRunResult.Equals(runResult))
+                        if (initialized)
                         {
-                            Debug.LogWarning("Scenario desynced!");
+                            var runResult = GetState();
+                            if (!dryRunResult.Equals(runResult))
+                            {
+                                Debug.LogWarning("Scenario desynced!");
+                            }
                         }
                     }
                     else
@@ -570,6 +577,7 @@ namespace Y3ADV
             return new()
             {
                 currentStatementIndex = currentStatementIndex,
+                initialized = initialized,
 
                 actors = Y3Live2DManager.AllControllers.Select(c => c.GetState()).ToList(),
                 sprites = UIManager.Instance.spriteWrapper.GetComponentsInChildren<SpriteImage>().Select(s => s.GetState()).ToList(),
@@ -669,6 +677,7 @@ namespace Y3ADV
             yield return new WaitUntil(GameManager.AllCoroutineFinished);
 
             StartFromIndex(state.currentStatementIndex);
+            initialized = state.initialized;
         }
     }
 }

@@ -14,6 +14,7 @@ namespace Y3ADV
         public override bool SyncExecution => true;
         public override IEnumerator Execute()
         {
+            scriptModule.initialized = false;
             yield return scriptModule.ExitAdvCoroutine();
         }
     }

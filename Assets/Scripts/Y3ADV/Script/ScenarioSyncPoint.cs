@@ -21,6 +21,7 @@ namespace Y3ADV
     public struct ScenarioSyncPoint : IState<ScenarioSyncPoint>
     {
         public int currentStatementIndex;
+        public bool initialized;
 
         public List<ActorState> actors;
         public List<CommonResourceState> sprites;
@@ -31,11 +32,32 @@ namespace Y3ADV
         public FadeState fade;
         public AudioState audio;
 
+        public static ScenarioSyncPoint Default()
+        {
+            return new()
+            {
+                currentStatementIndex = 0,
+                initialized = false,
+                actors = new(),
+                sprites = new(),
+                backgrounds = new(),
+                stills = new(),
+                caption = new(),
+                messageBox = new(),
+                fade = new()
+                {
+                    progress = 1.0f
+                },
+                audio = new()
+            };
+        }
+
         public ScenarioSyncPoint Copy()
         {
             ScenarioSyncPoint copied = new()
             {
                 currentStatementIndex = currentStatementIndex,
+                initialized = initialized,
                 actors = new(),
                 sprites = new(),
                 backgrounds = new(),
@@ -69,6 +91,7 @@ namespace Y3ADV
         public bool Equals(ScenarioSyncPoint other)
         {
             return currentStatementIndex == other.currentStatementIndex &&
+                   initialized == other.initialized &&
                    actors.SequenceEqual(other.actors) &&
                    sprites.SequenceEqual(other.sprites) &&
                    backgrounds.SequenceEqual(other.backgrounds) &&
@@ -88,6 +111,7 @@ namespace Y3ADV
         {
             var hashCode = new HashCode();
             hashCode.Add(currentStatementIndex);
+            hashCode.Add(initialized);
             foreach (var a in actors)
             {
                 hashCode.Add(a);
